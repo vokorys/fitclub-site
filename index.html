@@ -287,6 +287,15 @@ dialog::backdrop{background:rgba(58,15,29,.6)}
 .ba figcaption{padding:12px 8px 4px;font-size:14px;color:var(--mute)}
 @media(min-width:760px){.ba-grid{grid-template-columns:repeat(2,1fr)}.hero-soc{margin-top:22px}}
 
+.revs{display:grid;gap:14px}
+.rev{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 24px 22px;box-shadow:0 8px 22px rgba(101,38,57,.07);position:relative}
+.rev::before{content:"\201C";position:absolute;left:20px;top:2px;font:600 64px/1 'Playfair Display',serif;color:var(--goldl)}
+.rev blockquote{padding-top:22px;font-size:15.5px;line-height:1.6;color:var(--ink)}
+.rev figcaption{margin-top:14px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+@media(min-width:760px){.revs{grid-template-columns:repeat(2,1fr)}}
+
+@media(max-width:759px){.price-big small{display:block;margin:8px 0 0}}
+
 </style>
 </head>
 <body data-mode="open">
@@ -325,7 +334,7 @@ dialog::backdrop{background:rgba(58,15,29,.6)}
 
 <section class="band" id="inside"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Что внутри</span><h2>Всё, что нужно, <span class="acc">чтобы начать и не бросить</span></h2></div>
-  <div class="cards"><div class="card"><span class="num">01</span><h3>3 тренировки в неделю</h3><p>Дома или в зале. Видео в записи, Катя объясняет каждое упражнение.</p></div><div class="card"><span class="num">02</span><h3>КБЖУ лично для тебя</h3><p>Считаем под твои данные и помогаем собрать рацион из обычных магазинов.</p></div><div class="card"><span class="num">03</span><h3>Небольшие задания каждый день</h3><p>Такие, которые легко встроить в обычный день.</p></div><div class="card"><span class="num">04</span><h3>Закрытый чат и поддержка</h3><p>Девочки рядом, Катя подскажет, поправит и поддержит.</p></div><div class="card"><span class="num">05</span><h3>Книга рецептов в подарок</h3><p>Вкусные рецепты, которые вписываются в твоё питание.</p></div></div>
+  <div class="cards"><div class="card"><span class="num">01</span><h3>3 тренировки в неделю</h3><p>Дома или в зале, около 40–60 минут. Видео в записи, Катя объясняет каждое упражнение.</p></div><div class="card"><span class="num">02</span><h3>КБЖУ лично для тебя</h3><p>Считаем под твои данные и помогаем собрать рацион из обычных магазинов.</p></div><div class="card"><span class="num">03</span><h3>Небольшие задания каждый день</h3><p>Такие, которые легко встроить в обычный день.</p></div><div class="card"><span class="num">04</span><h3>Закрытый чат и поддержка</h3><p>Девочки рядом, а Катя отвечает в чате каждый день: подскажет, поправит и поддержит.</p></div><div class="card"><span class="num">05</span><h3>Книга рецептов в подарок</h3><p>Вкусные рецепты, которые вписываются в твоё питание.</p></div></div>
 </div></section>
 
 <section id="day"><div class="wrap split rev">
@@ -342,7 +351,7 @@ dialog::backdrop{background:rgba(58,15,29,.6)}
   <div class="sec-head"><span class="eyebrow">Как проходит неделя</span><h2>Три недели, <span class="acc">один понятный ритм</span></h2></div>
   <div class="weeks"><div class="wk"><div class="n">1</div><div><b>Неделя 1</b><span data-only="open running">23–29 ноября</span></div></div><div class="wk"><div class="n">2</div><div><b>Неделя 2</b><span data-only="open running">30 ноября – 6 декабря</span></div></div><div class="wk"><div class="n">3</div><div><b>Неделя 3</b><span data-only="open running">7–13 декабря</span></div></div></div>
   <div class="two">
-    <div class="box"><h3>Каждую неделю</h3><ul class="ticks"><li>3 тренировки, дома или в зале</li><li>ежедневные небольшие задания</li><li>питание по твоему КБЖУ</li><li>отчёты и вопросы в закрытом чате</li></ul></div>
+    <div class="box"><h3>Каждую неделю</h3><ul class="ticks"><li>3 тренировки, дома или в зале, около 40–60 минут</li><li>ежедневные небольшие задания</li><li>питание по твоему КБЖУ</li><li>отчёты и вопросы в закрытом чате</li></ul></div>
     <div class="box"><h3>Темы закрытого чата</h3><div class="tags"><span>Питание</span><span>Отчёты</span><span>Вопросы</span><span>Тренировки</span><span>Рецепты</span><span>Уход</span><span>Растяжка</span></div></div>
   </div>
 </div></section>
@@ -368,6 +377,8 @@ dialog::backdrop{background:rgba(58,15,29,.6)}
   </div>
 </div></section>
 
+<section id="reviews"><div class="wrap"><div class="sec-head"><span class="eyebrow">Отзывы</span><h2>Что говорят <span class="acc">участницы</span></h2></div><div class="revs"><figure class="rev"><blockquote>Понятная система подсчёта калорий. До марафона я боялась даже думать о подсчётах, казалось, это сложно и скучно. Ты объяснила всё так доступно, что я быстро втянулась. … В чате царит дружелюбная атмосфера, никто не осуждает за срывы, все делятся успехами и поддерживают друг друга.</blockquote><figcaption>Участница марафона</figcaption></figure><figure class="rev"><blockquote>Во-первых, Катя, ты безумно прекрасный человек, который, в первую очередь, учит не худеть, а слышать себя. … Во-вторых, твоя поддержка на период ДВУХ моих марафонов - это колоссальный труд, который ты вкладывала в нас. В-третьих, я просто кайфанула, научилась правильно питаться, научилась ценить свое тело и выбирать то, что я ему даю.</blockquote><figcaption>Участница марафона</figcaption></figure><figure class="rev"><blockquote>Катюшка, спасибо большое за такое прекрасное наставничество! За то, что научила как правильно и сбалансировано трапезничать. Я поняла, как правильно держать баланс в кбжу. … Девочки, спасибо за позитивную и приятную компанию!</blockquote><figcaption>Участница марафона</figcaption></figure><figure class="rev"><blockquote>Обязательно хочу вернуться, как стану посвободнее чтобы уделять время чату и общению и сильнее втянуться в атмосферу марафона … больше ни какие марафоны не рассматриваю, только к тебе.</blockquote><figcaption>Участница марафона</figcaption></figure></div><p class="callout">Мнение участниц. Результаты индивидуальны.</p></div></section>
+
 
 
 <section id="price"><div class="wrap">
@@ -377,16 +388,16 @@ dialog::backdrop{background:rgba(58,15,29,.6)}
     <p class="price-promo" data-promo data-only="open">Промокод даёт −5&nbsp;%: <b>4 750 ₽</b> при оплате до 21 ноября.</p>
     <p class="price-promo" data-ret data-only="open">Занималась с Катей раньше? Промокод <b>ВЕРНИСЬ10</b> даёт −10&nbsp;%: <b>4 500 ₽</b> при оплате до 21 ноября.</p>
     <p class="note" data-t="priceNote" style="margin-top:12px">Набор до 22 ноября. Места ограничены.</p>
-    <ul class="ticks"><li>3 тренировки в неделю, дома или в зале</li><li>КБЖУ лично для тебя</li><li>ежедневные задания</li><li>закрытый чат и поддержка Кати</li><li>книга рецептов в подарок</li></ul>
+    <ul class="ticks"><li>3 тренировки в неделю, дома или в зале, около 40–60 минут</li><li>КБЖУ лично для тебя</li><li>ежедневные задания</li><li>закрытый чат, Катя отвечает каждый день</li><li>книга рецептов в подарок</li></ul>
     <h3>Как записаться</h3>
-    <ol class="order"><li>Оставляешь заявку здесь</li><li>Катя пишет тебе и отвечает на вопросы</li><li>Оплата переводом, и ты в закрытом чате</li><li>Заполняешь анкету для расчёта КБЖУ и стартуешь</li></ol>
+    <ol class="order"><li>Оставляешь заявку здесь</li><li>Катя пишет тебе и отвечает на вопросы</li><li>Оплата переводом (можно в два платежа, договорись с Катей в личке), и ты в закрытом чате</li><li>Заполняешь анкету для расчёта КБЖУ и стартуешь</li></ol>
     <a class="btn" href="#form" data-t="cta">Оставить заявку</a>
   </div>
 </div></section>
 
 <section class="band" id="faq"><div class="wrap" style="max-width:760px">
   <div class="sec-head"><span class="eyebrow">Частые вопросы</span><h2>Отвечаем <span class="acc">честно</span></h2></div>
-  <details><summary>Дорого</summary><p>5 000 ₽ за 3 недели: тренировки, КБЖУ лично, чат с поддержкой и книга рецептов в подарок. Если хочется подумать, напиши Кате, что смущает.</p></details><details><summary>Нет времени</summary><p>Тренировок три в неделю, видео в записи, делаешь, когда удобно. Задания небольшие. Идём в твоём ритме, без «через силу».</p></details><details><summary>Я новичок, мне неловко</summary><p>Катя объясняет каждое упражнение. В чате девочки поддерживают друг друга, а не оценивают. Если есть ограничения по здоровью, спросим в анкете и подберём спокойный вариант.</p></details><details><summary>Боюсь запретов и срывов</summary><p>Запретов нет: КБЖУ считаем лично, любимое остаётся, вписываем в рамки. Сорвалась? Пишешь Кате, и вы возвращаетесь без стыда.</p></details><details><summary>А будет результат?</summary><p>Честно: Катя не обещает «минус 5 кг за 3 недели», у каждой всё по-своему. Она обещает другое: научит есть вкусно и без срывов, двигаться с удовольствием и закрепить привычки надолго.</p></details><details><summary>Где проходят тренировки?</summary><p>Там, где тебе удобно: дома или в зале. Видео в записи.</p></details><details><summary>Как оплатить?</summary><p>После заявки Катя напишет тебе и пришлёт реквизиты. Оплата переводом. Сейчас платить ничего не нужно.</p></details>
+  <details><summary>Дорого</summary><p>5 000 ₽ за 3 недели: тренировки, КБЖУ лично, чат с поддержкой и книга рецептов в подарок. Если хочется подумать, напиши Кате, что смущает.</p></details><details><summary>Нет времени</summary><p>Тренировок три в неделю, около 40–60 минут, видео в записи, делаешь, когда удобно. Задания небольшие. Идём в твоём ритме, без «через силу».</p></details><details><summary>Я новичок, мне неловко</summary><p>Катя объясняет каждое упражнение. В чате девочки поддерживают друг друга, а не оценивают. Если есть ограничения по здоровью, спросим в анкете и подберём спокойный вариант.</p></details><details><summary>Боюсь запретов и срывов</summary><p>Запретов нет: КБЖУ считаем лично, любимое остаётся, вписываем в рамки. Сорвалась? Пишешь Кате, и вы возвращаетесь без стыда.</p></details><details><summary>А будет результат?</summary><p>Честно: Катя не обещает «минус 5 кг за 3 недели», у каждой всё по-своему. Она обещает другое: научит есть вкусно и без срывов, двигаться с удовольствием и закрепить привычки надолго.</p></details><details><summary>Где проходят тренировки?</summary><p>Там, где тебе удобно: дома или в зале. Одна тренировка занимает около 40–60 минут, видео в записи.</p></details><details><summary>Как оплатить?</summary><p>После заявки Катя напишет тебе и пришлёт реквизиты. Оплата переводом. Можно оплатить в два платежа, договорись с Катей в личке. Сейчас платить ничего не нужно.</p></details>
 </div></section>
 
 <section class="form-sec" id="form" data-watch="form"><div class="wrap">
