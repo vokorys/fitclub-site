@@ -270,6 +270,23 @@ dialog::backdrop{background:rgba(58,15,29,.6)}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 
+.soc{display:flex;gap:12px;margin:18px 0 6px}
+.soc a{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--bur);color:var(--bur);background:rgba(255,255,255,.7);transition:background .15s,color .15s,transform .15s}
+.soc a:hover{background:var(--bur);color:var(--ivo);transform:translateY(-2px)}
+.soc svg{width:24px;height:24px}
+.foot-soc{margin:0 0 14px}.foot-soc a{border-color:var(--goldl);color:var(--ivo);background:transparent}
+.foot-soc a:hover{background:var(--goldl);color:var(--burd)}
+.promo-rib.ret{background:rgba(232,185,176,.35);border-color:var(--bur)}
+.agree.again{margin:-4px 0 16px;color:var(--bur);font-weight:600;font-size:14px}
+.ba-grid{display:grid;gap:18px}
+.ba{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px;box-shadow:0 8px 22px rgba(101,38,57,.07)}
+.ba-img{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ba-img div{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4}
+.ba-img img{width:100%;height:100%;object-fit:cover}
+.ba-img span{position:absolute;left:10px;bottom:10px;padding:4px 12px;border-radius:99px;background:var(--bur);color:var(--ivo);font-size:12px;font-weight:700}
+.ba figcaption{padding:12px 8px 4px;font-size:14px;color:var(--mute)}
+@media(min-width:760px){.ba-grid{grid-template-columns:repeat(2,1fr)}.hero-soc{margin-top:22px}}
+
 </style>
 </head>
 <body data-mode="open">
@@ -295,6 +312,8 @@ dialog::backdrop{background:rgba(58,15,29,.6)}
       <div class="cd" id="cd" hidden><div class="cell"><b id="cdD">0</b><small id="cdDl">дней</small></div><div class="cell"><b id="cdH">00</b><small>часов</small></div><div class="cell"><b id="cdM">00</b><small>минут</small></div></div>
       <span class="cd-note" id="cdNote" hidden></span>
       <div class="promo-rib" data-promo data-only="open"><span aria-hidden="true">🎁</span><span>Скидка 5&nbsp;% по промокоду из ВК, Telegram или Instagram, до 21 ноября. <span id="promoYours" hidden></span></span></div>
+      <div class="promo-rib ret" data-ret data-only="open"><span aria-hidden="true">💌</span><span>Если ты уже занималась с Катей: промокод <b>ВЕРНИСЬ10</b>, −10&nbsp;% (4 500 ₽), до 21 ноября.</span></div>
+      <div class="soc hero-soc"><a href="https://vk.ru/fitclub_marafon" target="_blank" rel="noopener" aria-label="ВКонтакте" title="ВКонтакте"><svg viewBox="0 0 24 24" aria-hidden="true"><text x="12" y="15.6" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="10.5" fill="currentColor">VK</text></svg></a><a href="https://t.me/fitclub_marafon" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M20.5 4.2 3.6 10.7c-.8.3-.8 1.4 0 1.6l4.2 1.3 1.6 5c.2.6 1 .8 1.4.3l2.3-2.3 4.3 3.2c.6.4 1.4.1 1.5-.6l2.5-14c.1-.8-.7-1.4-1.4-1z"/><path d="m8 13.7 9.3-6.6-6.9 8"/></svg></a><a href="https://www.instagram.com/catherina24/" target="_blank" rel="noopener" aria-label="Instagram @catherina24" title="Instagram @catherina24"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4.6"/><circle cx="12" cy="12" r="3.7"/><circle cx="16.9" cy="7.1" r=".6" fill="currentColor"/></svg></a></div>
       <p class="price-line" data-only="open"><b>5 000 ₽</b> за 3 недели · старт <span>23 ноября</span></p>
     </div>
     <div class="arch-wrap">
@@ -349,11 +368,14 @@ dialog::backdrop{background:rgba(58,15,29,.6)}
   </div>
 </div></section>
 
+
+
 <section id="price"><div class="wrap">
   <div class="price-box">
     <span class="eyebrow">Стоимость</span>
     <div class="price-big">5 000 ₽<small>за 3 недели</small></div>
     <p class="price-promo" data-promo data-only="open">Промокод даёт −5&nbsp;%: <b>4 750 ₽</b> при оплате до 21 ноября.</p>
+    <p class="price-promo" data-ret data-only="open">Занималась с Катей раньше? Промокод <b>ВЕРНИСЬ10</b> даёт −10&nbsp;%: <b>4 500 ₽</b> при оплате до 21 ноября.</p>
     <p class="note" data-t="priceNote" style="margin-top:12px">Набор до 22 ноября. Места ограничены.</p>
     <ul class="ticks"><li>3 тренировки в неделю, дома или в зале</li><li>КБЖУ лично для тебя</li><li>ежедневные задания</li><li>закрытый чат и поддержка Кати</li><li>книга рецептов в подарок</li></ul>
     <h3>Как записаться</h3>
@@ -378,6 +400,7 @@ dialog::backdrop{background:rgba(58,15,29,.6)}
         <div class="fld"><span class="lb">Как с тобой связаться</span><div class="seg" role="radiogroup"><input type="radio" name="ctype" id="ct_telegram" value="telegram" checked><label for="ct_telegram">Telegram</label><input type="radio" name="ctype" id="ct_vk" value="vk"><label for="ct_vk">ВКонтакте</label><input type="radio" name="ctype" id="ct_phone" value="phone"><label for="ct_phone">Телефон</label></div><input id="fContact" name="contact" type="text" maxlength="80" aria-label="Как с тобой связаться" required><div class="err" id="eContact"></div></div>
         <div class="fld"><label for="fGoal">Твоя цель</label><select id="fGoal" name="goal"><option value="">Выбери, что ближе</option><option value="Начать тренироваться регулярно">Начать тренироваться регулярно</option><option value="Наладить питание без срывов">Наладить питание без срывов</option><option value="Привести себя в форму">Привести себя в форму</option><option value="Нужны режим и поддержка">Нужны режим и поддержка</option><option value="Пока не знаю, расскажите">Пока не знаю, расскажите</option></select></div>
         <div class="fld" data-only="open"><label for="fPromo">Промокод (если есть)</label><input id="fPromo" name="promo" type="text" maxlength="30" autocomplete="off" placeholder="Например, из группы ВК"></div>
+        <label class="agree again" data-ret data-only="open"><input id="fAgain" type="checkbox" name="again"><span>Я уже занималась с Катей (промокод ВЕРНИСЬ10, −10&nbsp;%)</span></label>
         <div class="hp" aria-hidden="true"><label>Сайт<input id="fWebsite" name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
         <label class="agree"><input id="fConsent" type="checkbox" name="consent"><span>Я согласна на обработку персональных данных и принимаю <a href="#policy" data-open-policy>политику обработки данных</a></span></label>
         <div class="err" id="eConsent" style="margin:-12px 0 14px"></div>
@@ -410,7 +433,7 @@ dialog::backdrop{background:rgba(58,15,29,.6)}
 <footer><div class="wrap">
   <div class="fgrid">
     <div><img src="assets/img/logo-fc-ivory.png" alt="Fit Club" width="48" height="42" loading="lazy"><div class="slogan">Просто. В своём ритме.</div><div class="meta">Онлайн-марафон с тренером Катей.</div></div>
-    <div><h4>Мы в соцсетях</h4><ul>
+    <div><h4>Мы в соцсетях</h4><div class="soc foot-soc"><a href="https://vk.ru/fitclub_marafon" target="_blank" rel="noopener" aria-label="ВКонтакте" title="ВКонтакте"><svg viewBox="0 0 24 24" aria-hidden="true"><text x="12" y="15.6" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="10.5" fill="currentColor">VK</text></svg></a><a href="https://t.me/fitclub_marafon" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M20.5 4.2 3.6 10.7c-.8.3-.8 1.4 0 1.6l4.2 1.3 1.6 5c.2.6 1 .8 1.4.3l2.3-2.3 4.3 3.2c.6.4 1.4.1 1.5-.6l2.5-14c.1-.8-.7-1.4-1.4-1z"/><path d="m8 13.7 9.3-6.6-6.9 8"/></svg></a><a href="https://www.instagram.com/catherina24/" target="_blank" rel="noopener" aria-label="Instagram @catherina24" title="Instagram @catherina24"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4.6"/><circle cx="12" cy="12" r="3.7"/><circle cx="16.9" cy="7.1" r=".6" fill="currentColor"/></svg></a></div><ul>
       <li><a href="https://vk.ru/fitclub_marafon" target="_blank" rel="noopener">ВКонтакте · Fit Club</a></li>
       <li><a href="https://t.me/fitclub_marafon" target="_blank" rel="noopener">Telegram-канал</a></li>
       <li><a href="https://www.instagram.com/catherina24/" target="_blank" rel="noopener">Instagram @catherina24</a><div class="meta">Instagram принадлежит компании Meta, признанной в РФ экстремистской и запрещённой.</div></li></ul></div>
@@ -428,7 +451,7 @@ dialog::backdrop{background:rgba(58,15,29,.6)}
   <button class="btn btn-sm" type="button" data-close-policy style="margin-top:20px">Закрыть</button>
 </div></dialog>
 
-<script>window.FC={"mode": "open", "schedule": [], "modes": {"open": {"label": "Набор открыт · 7-й поток", "title": "Марафон", "accent": "в своём ритме", "lead": "3 недели с тренером Катей: тренировки дома или в зале, КБЖУ лично под тебя, закрытый чат и книга рецептов в подарок. Старт 23 ноября.", "cta": "Оставить заявку", "ctaSm": "Записаться", "cdLabel": "До старта", "priceNote": "Набор до 22 ноября. Места ограничены.", "formTitle": "Оставь заявку", "formSub": "Катя напишет тебе и расскажет, как записаться и оплатить. Ничего платить сейчас не нужно.", "formBtn": "Отправить заявку", "success": "Заявка отправлена. Катя свяжется с тобой.", "finalTitle": "Начни с 23-го, не с понедельника", "finalText": "Набор открыт до 22 ноября. Оставь заявку, а дальше Катя всё расскажет."}, "running": {"label": "Поток идёт · можно вступить", "title": "Присоединяйся", "accent": "к идущему потоку", "lead": "7-й поток уже идёт: тренировки, КБЖУ лично под тебя, закрытый чат и книга рецептов в подарок. Условия входа в середине потока Катя назовёт лично.", "cta": "Вступить в поток", "ctaSm": "Вступить", "cdLabel": "Поток идёт", "priceNote": "Условия и стоимость входа в идущий поток уточняет Катя.", "formTitle": "Хочу в идущий поток", "formSub": "Оставь контакт, Катя напишет и подскажет, как присоединиться.", "formBtn": "Отправить заявку", "success": "Заявка отправлена. Катя свяжется с тобой.", "finalTitle": "Не обязательно ждать следующего старта", "finalText": "Можно войти в идущий поток. Оставь заявку, Катя расскажет, как."}, "closed": {"label": "Набор закрыт", "title": "Следующий поток", "accent": "скоро", "lead": "Сейчас набор закрыт. Оставь контакт, и Катя напишет первой, когда откроется следующий поток. Дату объявим в группах.", "cta": "В лист ожидания", "ctaSm": "В лист ожидания", "cdLabel": "До следующего потока", "priceNote": "Условия следующего потока объявим в группах.", "formTitle": "Лист ожидания", "formSub": "Оставь контакт, и Катя напишет, когда откроется набор. Ничего платить не нужно.", "formBtn": "Встать в лист ожидания", "success": "Ты в списке ожидания. Катя напишет, когда откроется набор.", "finalTitle": "Хочешь быть в следующем потоке?", "finalText": "Встань в лист ожидания, чтобы не пропустить старт."}}, "price": 5000, "promoPct": 5, "promos": {"vk": "ВК5", "tg": "ТГ5", "inst": "ИНСТА5"}, "endpoint": "", "channels": {"telegram": {"label": "Telegram", "hint": "@ник или номер телефона"}, "vk": {"label": "ВКонтакте", "hint": "Ссылка на профиль или ник"}, "phone": {"label": "Телефон", "hint": "+7 900 000 00 00"}}, "dates": {"start": 1795381200000, "regClose": 1795381199000, "end": 1797195599000, "promoUntil": 1795294799000, "nextStart": null}, "links": {"telegramKatya": "https://t.me/catherina2442", "vkMsg": "https://vk.me/fitclub_marafon"}, "i18n": {"netErr": "Не получилось отправить. Ничего страшного: напиши Кате напрямую, текст уже готов.", "noSrv": "Остался один шаг: нажми кнопку ниже, и заявка откроется сообщением Кате в Telegram. Отправь его, и Катя ответит тебе."}};</script>
+<script>window.FC={"mode": "open", "returning": {"code": "ВЕРНИСЬ10", "pct": 10, "until": 1795294799000}, "schedule": [], "modes": {"open": {"label": "Набор открыт · 7-й поток", "title": "Марафон", "accent": "в своём ритме", "lead": "3 недели с тренером Катей: тренировки дома или в зале, КБЖУ лично под тебя, закрытый чат и книга рецептов в подарок. Старт 23 ноября.", "cta": "Оставить заявку", "ctaSm": "Записаться", "cdLabel": "До старта", "priceNote": "Набор до 22 ноября. Места ограничены.", "formTitle": "Оставь заявку", "formSub": "Катя напишет тебе и расскажет, как записаться и оплатить. Ничего платить сейчас не нужно.", "formBtn": "Отправить заявку", "success": "Заявка отправлена. Катя свяжется с тобой.", "finalTitle": "Начни с 23-го, не с понедельника", "finalText": "Набор открыт до 22 ноября. Оставь заявку, а дальше Катя всё расскажет."}, "running": {"label": "Поток идёт · можно вступить", "title": "Присоединяйся", "accent": "к идущему потоку", "lead": "7-й поток уже идёт: тренировки, КБЖУ лично под тебя, закрытый чат и книга рецептов в подарок. Условия входа в середине потока Катя назовёт лично.", "cta": "Вступить в поток", "ctaSm": "Вступить", "cdLabel": "Поток идёт", "priceNote": "Условия и стоимость входа в идущий поток уточняет Катя.", "formTitle": "Хочу в идущий поток", "formSub": "Оставь контакт, Катя напишет и подскажет, как присоединиться.", "formBtn": "Отправить заявку", "success": "Заявка отправлена. Катя свяжется с тобой.", "finalTitle": "Не обязательно ждать следующего старта", "finalText": "Можно войти в идущий поток. Оставь заявку, Катя расскажет, как."}, "closed": {"label": "Набор закрыт", "title": "Следующий поток", "accent": "скоро", "lead": "Сейчас набор закрыт. Оставь контакт, и Катя напишет первой, когда откроется следующий поток. Дату объявим в группах.", "cta": "В лист ожидания", "ctaSm": "В лист ожидания", "cdLabel": "До следующего потока", "priceNote": "Условия следующего потока объявим в группах.", "formTitle": "Лист ожидания", "formSub": "Оставь контакт, и Катя напишет, когда откроется набор. Ничего платить не нужно.", "formBtn": "Встать в лист ожидания", "success": "Ты в списке ожидания. Катя напишет, когда откроется набор.", "finalTitle": "Хочешь быть в следующем потоке?", "finalText": "Встань в лист ожидания, чтобы не пропустить старт."}}, "price": 5000, "promoPct": 5, "promos": {"vk": "ВК5", "tg": "ТГ5", "inst": "ИНСТА5"}, "endpoint": "", "channels": {"telegram": {"label": "Telegram", "hint": "@ник или номер телефона"}, "vk": {"label": "ВКонтакте", "hint": "Ссылка на профиль или ник"}, "phone": {"label": "Телефон", "hint": "+7 900 000 00 00"}}, "dates": {"start": 1795381200000, "regClose": 1795381199000, "end": 1797195599000, "promoUntil": 1795294799000, "nextStart": null}, "links": {"telegramKatya": "https://t.me/catherina2442", "vkMsg": "https://vk.me/fitclub_marafon"}, "i18n": {"netErr": "Не получилось отправить. Ничего страшного: напиши Кате напрямую, текст уже готов.", "noSrv": "Остался один шаг: нажми кнопку ниже, и заявка откроется сообщением Кате в Telegram. Отправь его, и Катя ответит тебе."}};</script>
 <script>
 (function(){
 'use strict';
@@ -477,6 +500,11 @@ function tick(){
 }
 
 /* ---- промокод по сроку ---- */
+function retState(){
+  var Rt=F.returning, on=!!(Rt&&Date.now()<=Rt.until);
+  $$('[data-ret]').forEach(function(el){el.hidden=!on});
+  return on;
+}
 function promoState(){
   var left=F.dates.promoUntil&&Date.now()<=F.dates.promoUntil&&F.promoPct>0;
   $$('[data-promo]').forEach(function(el){el.hidden=!left});
@@ -517,7 +545,11 @@ if(form){
     yours.innerHTML='Твой промокод: <b>'+F.promos[SRC]+'</b>, '+fmtRub(priceWith())+' вместо '+fmtRub(F.price);
     yours.hidden=false;
   }
-  var chan=F.channels||{};
+  var chan=F.channels||{}, again=$('#fAgain');
+  if(again)again.addEventListener('change',function(){
+    if(again.checked&&F.returning&&promoInp)promoInp.value=F.returning.code;
+    else if(promoInp&&F.returning&&promoInp.value===F.returning.code)promoInp.value='';
+  });
   function setChan(){
     var k=($('input[name=ctype]:checked',form)||{}).value||'telegram', c=$('#fContact');
     c.placeholder=(chan[k]&&chan[k].hint)||'';
@@ -542,7 +574,9 @@ if(form){
     if(!consent){fieldErr('eConsent','Нужно согласие на обработку данных');ok=false}
     if($('#fWebsite').value){return}                 /* ловушка для ботов */
     if(!ok){var first=$('.err:not(:empty)',form);if(first&&first.scrollIntoView)first.scrollIntoView({block:'center',behavior:'smooth'});return}
-    var payload={
+    var isAgain=!!(again&&again.checked&&retState()&&B.getAttribute('data-mode')==='open');
+    if(isAgain)promo=F.returning.code;
+    var payload={returning:isAgain,
       name:name,contact_type:ctype,contact:contact,goal:goal,promo:promo,consent:true,
       mode:B.getAttribute('data-mode'),source:SRC||'',utm:UTM,page:location.origin+location.pathname,
       ts:new Date().toISOString(),elapsed_ms:Date.now()-t0
@@ -564,6 +598,7 @@ if(form){
     var chn=(chan[p.contact_type]||{}).label||p.contact_type;
     var l=['Привет! Это заявка с сайта Fit Club.','Имя: '+p.name,'Связь ('+chn+'): '+p.contact];
     if(p.goal)l.push('Цель: '+p.goal);
+    if(p.returning)l.push('Я уже занималась с Катей.');
     if(p.promo)l.push('Промокод: '+p.promo);
     l.push(p.mode==='closed'?'Хочу в лист ожидания.':(p.mode==='running'?'Хочу вступить в идущий поток.':'Хочу на марафон.'));
     return l.join('\n');
@@ -605,7 +640,7 @@ if(sticky&&'IntersectionObserver' in window){
 }
 
 /* ---- запуск ---- */
-function run(){applyMode(activeMode(Date.now()));promoState();tick()}
+function run(){applyMode(activeMode(Date.now()));promoState();retState();tick()}
 run(); setInterval(run,30000);
 })();
 
