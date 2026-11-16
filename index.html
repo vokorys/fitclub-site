@@ -369,17 +369,19 @@ dialog::backdrop{background:rgba(58,15,29,.6)}
 </div></section>
 
 <section class="book" id="book"><div class="wrap split">
-  <div class="book-ph"><div class="frame"><img src="assets/img/book-recipe.webp" width="900" height="1260" alt="Сырники с ягодами на бургундском бархате из книги рецептов Fit Club" loading="lazy"></div><div class="badge">в подарок</div></div>
+  <div class="book-ph"><div class="frame"><img src="assets/img/book-recipe.webp" width="900" height="1260" alt="Сырники с ягодами на бургундском бархате" loading="lazy"></div><div class="badge">в подарок</div></div>
   <div>
     <span class="eyebrow">Подарок</span>
     <h2>Книга рецептов <span class="acc">в подарок</span></h2>
-    <p style="margin-top:16px;font-size:17px">40 рецептов в стиле «Бургунди и айвори»: сырники, ватрушки, блины, пицца, десерты. Каждой участнице марафона.</p>
+    <p style="margin-top:16px;font-size:17px">Книга рецептов в подарок каждой участнице марафона. Вкусные идеи, которые вписываются в твоё питание.</p>
   </div>
 </div></section>
 
 <section id="reviews"><div class="wrap"><div class="sec-head"><span class="eyebrow">Отзывы</span><h2>Что говорят <span class="acc">участницы</span></h2></div><div class="revs"><figure class="rev"><blockquote>Понятная система подсчёта калорий. До марафона я боялась даже думать о подсчётах, казалось, это сложно и скучно. Ты объяснила всё так доступно, что я быстро втянулась. … В чате царит дружелюбная атмосфера, никто не осуждает за срывы, все делятся успехами и поддерживают друг друга.</blockquote><figcaption>Участница марафона</figcaption></figure><figure class="rev"><blockquote>Во-первых, Катя, ты безумно прекрасный человек, который, в первую очередь, учит не худеть, а слышать себя. … Во-вторых, твоя поддержка на период ДВУХ моих марафонов - это колоссальный труд, который ты вкладывала в нас. В-третьих, я просто кайфанула, научилась правильно питаться, научилась ценить свое тело и выбирать то, что я ему даю.</blockquote><figcaption>Участница марафона</figcaption></figure><figure class="rev"><blockquote>Катюшка, спасибо большое за такое прекрасное наставничество! За то, что научила как правильно и сбалансировано трапезничать. Я поняла, как правильно держать баланс в кбжу. … Девочки, спасибо за позитивную и приятную компанию!</blockquote><figcaption>Участница марафона</figcaption></figure><figure class="rev"><blockquote>Обязательно хочу вернуться, как стану посвободнее чтобы уделять время чату и общению и сильнее втянуться в атмосферу марафона … больше ни какие марафоны не рассматриваю, только к тебе.</blockquote><figcaption>Участница марафона</figcaption></figure></div><p class="callout">Мнение участниц. Результаты индивидуальны.</p></div></section>
 
 
+
+<section class="friend" id="friend" data-only="open"><div class="wrap"><span class="eyebrow">Приведи подругу</span><h2>Вместе <span class="acc">веселее и дешевле</span></h2><p style="margin-top:14px;font-size:17px">Приглашай подругу в марафон: ей скидка 10 %, тебе −500 ₽ на следующий поток. Подруга пишет в заявке твоё имя, Катя всё посчитает.</p><div class="box" style="margin-top:18px"><ul class="ticks"><li>Подруге: −10 % на этот поток (4 500 ₽)</li><li>Тебе: −500 ₽ на следующий поток</li><li>Скидки не суммируются с промокодами, Катя применит самую выгодную</li></ul></div><p style="margin-top:18px"><a class="btn" href="#form">Позвать подругу</a></p></div></section>
 
 <section id="price"><div class="wrap">
   <div class="price-box">
@@ -411,6 +413,7 @@ dialog::backdrop{background:rgba(58,15,29,.6)}
         <div class="fld"><span class="lb">Как с тобой связаться</span><div class="seg" role="radiogroup"><input type="radio" name="ctype" id="ct_telegram" value="telegram" checked><label for="ct_telegram">Telegram</label><input type="radio" name="ctype" id="ct_vk" value="vk"><label for="ct_vk">ВКонтакте</label><input type="radio" name="ctype" id="ct_phone" value="phone"><label for="ct_phone">Телефон</label></div><input id="fContact" name="contact" type="text" maxlength="80" aria-label="Как с тобой связаться" required><div class="err" id="eContact"></div></div>
         <div class="fld"><label for="fGoal">Твоя цель</label><select id="fGoal" name="goal"><option value="">Выбери, что ближе</option><option value="Начать тренироваться регулярно">Начать тренироваться регулярно</option><option value="Наладить питание без срывов">Наладить питание без срывов</option><option value="Привести себя в форму">Привести себя в форму</option><option value="Нужны режим и поддержка">Нужны режим и поддержка</option><option value="Пока не знаю, расскажите">Пока не знаю, расскажите</option></select></div>
         <div class="fld" data-only="open"><label for="fPromo">Промокод (если есть)</label><input id="fPromo" name="promo" type="text" maxlength="30" autocomplete="off" placeholder="Например, из группы ВК"></div>
+        <div class="fld" data-only="open"><label for="fRef">Меня пригласила подруга (если есть)</label><input id="fRef" name="ref" type="text" maxlength="60" autocomplete="off" placeholder="Имя или ник той, кто позвала"></div>
         <label class="agree again" data-ret data-only="open"><input id="fAgain" type="checkbox" name="again"><span>Я уже занималась с Катей (промокод ВЕРНИСЬ10, −10&nbsp;%)</span></label>
         <div class="hp" aria-hidden="true"><label>Сайт<input id="fWebsite" name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
         <label class="agree"><input id="fConsent" type="checkbox" name="consent"><span>Я согласна на обработку персональных данных и принимаю <a href="#policy" data-open-policy>политику обработки данных</a></span></label>
@@ -557,6 +560,7 @@ if(form){
     yours.hidden=false;
   }
   var chan=F.channels||{}, again=$('#fAgain');
+  try{var rq=new URLSearchParams(location.search).get('ref');var ri=$('#fRef');if(rq&&ri&&!ri.value)ri.value=rq.slice(0,60)}catch(e){}
   if(again)again.addEventListener('change',function(){
     if(again.checked&&F.returning&&promoInp)promoInp.value=F.returning.code;
     else if(promoInp&&F.returning&&promoInp.value===F.returning.code)promoInp.value='';
@@ -576,7 +580,7 @@ if(form){
   form.addEventListener('submit',function(ev){
     ev.preventDefault(); msg('');
     var name=$('#fName').value.trim(), contact=$('#fContact').value.trim(), goal=$('#fGoal').value,
-        promo=(B.getAttribute('data-mode')==='open'&&promoInp&&promoInp.value||'').trim().slice(0,30), consent=$('#fConsent').checked,
+        promo=(B.getAttribute('data-mode')==='open'&&promoInp&&promoInp.value||'').trim().slice(0,30), refInp=$('#fRef'), ref=(B.getAttribute('data-mode')==='open'&&refInp&&refInp.value||'').trim().slice(0,60), consent=$('#fConsent').checked,
         ctype=($('input[name=ctype]:checked',form)||{}).value||'telegram', ok=true;
     fieldErr('eName',''); fieldErr('eContact',''); fieldErr('eConsent','');
     if(name.length<2){fieldErr('eName','Напиши, как тебя зовут');ok=false}
@@ -588,7 +592,7 @@ if(form){
     var isAgain=!!(again&&again.checked&&retState()&&B.getAttribute('data-mode')==='open');
     if(isAgain)promo=F.returning.code;
     var payload={returning:isAgain,
-      name:name,contact_type:ctype,contact:contact,goal:goal,promo:promo,consent:true,
+      name:name,contact_type:ctype,contact:contact,goal:goal,promo:promo,ref:ref,consent:true,
       mode:B.getAttribute('data-mode'),source:SRC||'',utm:UTM,page:location.origin+location.pathname,
       ts:new Date().toISOString(),elapsed_ms:Date.now()-t0
     };
@@ -611,6 +615,7 @@ if(form){
     if(p.goal)l.push('Цель: '+p.goal);
     if(p.returning)l.push('Я уже занималась с Катей.');
     if(p.promo)l.push('Промокод: '+p.promo);
+    if(p.ref)l.push('Меня пригласила: '+p.ref);
     l.push(p.mode==='closed'?'Хочу в лист ожидания.':(p.mode==='running'?'Хочу вступить в идущий поток.':'Хочу на марафон.'));
     return l.join('\n');
   }
