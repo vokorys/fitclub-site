@@ -297,6 +297,17 @@ dialog::backdrop{background:rgba(58,15,29,.6)}
 
 @media(max-width:759px){.price-big small{display:block;margin:8px 0 0}}
 
+.qr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;max-width:640px;margin:0 auto}
+.qr-card{display:block;text-align:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px 18px;text-decoration:none;color:inherit;transition:transform .25s}
+.qr-card:hover{transform:translateY(-4px)}
+.qr-box{position:relative;width:220px;height:220px;margin:0 auto 12px;background:#fff;border-radius:18px}
+.qr-img{width:220px;height:220px;display:block}
+.qr-badge{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:4px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.18);animation:qrfloat 2.6s ease-in-out infinite}
+.qr-badge::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid currentColor;opacity:.0;animation:qrpulse 2.6s ease-out infinite;color:inherit}
+@keyframes qrfloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-4px) rotate(-6deg)}}
+@keyframes qrpulse{0%{transform:scale(1);opacity:.5;border-color:#2AABEE}100%{transform:scale(1.7);opacity:0}}
+@media (prefers-reduced-motion:reduce){.qr-badge,.qr-badge::after{animation:none}}
+
 </style>
 </head>
 <body data-mode="open">
@@ -384,6 +395,14 @@ dialog::backdrop{background:rgba(58,15,29,.6)}
 <section class="band" id="results"><div class="wrap"><div class="sec-head"><span class="eyebrow">Результаты</span><h2>Участницы марафона</h2></div><div class="ba-ba_cards_list"><figure class="ba-card"><img src="assets/img/ba/dopos_F_katya_trener_site_1000_v1.webp" alt="До и после: результат участницы марафона" loading="lazy"></figure><figure class="ba-card"><img src="assets/img/ba/dopos_A_zamery_25kg_site_1000_v1.webp" alt="До и после: результат участницы марафона" loading="lazy"></figure><figure class="ba-card"><img src="assets/img/ba/dopos_B_3nedeli_talia_site_1000_v1.webp" alt="До и после: результат участницы марафона" loading="lazy"></figure><figure class="ba-card"><img src="assets/img/ba/dopos_C_zamery_8kg_site_1000_v1.webp" alt="До и после: результат участницы марафона" loading="lazy"></figure><figure class="ba-card"><img src="assets/img/ba/dopos_D_3nedeli_pary_site_1000_v1.webp" alt="До и после: результат участницы марафона" loading="lazy"></figure><figure class="ba-card"><img src="assets/img/ba/dopos_E_bez_cifr_site_1000_v1.webp" alt="До и после: результат участницы марафона" loading="lazy"></figure></div><p class="callout">Результаты индивидуальны. Фото опубликованы с согласия участниц.</p></div></section>
 
 <section class="friend" id="friend" data-only="open"><div class="wrap"><span class="eyebrow">Приведи подругу</span><h2>Вместе <span class="acc">веселее и дешевле</span></h2><p style="margin-top:14px;font-size:17px">Приглашай подругу в марафон: ей скидка 10 %, тебе −500 ₽ на следующий поток. Подруга пишет в заявке твоё имя, Катя всё посчитает.</p><div class="box" style="margin-top:18px"><ul class="ticks"><li>Подруге: −10 % на этот поток (4 500 ₽)</li><li>Тебе: −500 ₽ на следующий поток</li><li>Скидки можно суммировать с промокодами, итог посчитает Катя</li></ul></div><p style="margin-top:18px"><a class="btn" href="#form">Позвать подругу</a></p></div></section>
+
+<section class="band" id="follow"><div class="wrap"><div class="sec-head"><span class="eyebrow">Мы на связи</span><h2>Подпишись и <span class="acc">будь в курсе</span></h2></div><div class="qr-grid"><a class="qr-card" href="https://t.me/fitclub_marafon" target="_blank" rel="noopener">
+  <div class="qr-box"><img class="qr-img" src="assets/img/qr-tg.svg" alt="QR-код: Telegram-канал" width="220" height="220" loading="lazy">
+  <span class="qr-badge" style="background:#2AABEE"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M5 12.4 21.4 6c.8-.3 1.5.2 1.2 1.3l-2.8 13.2c-.2.9-.8 1.1-1.5.7l-4.2-3.1-2 2c-.2.2-.4.4-.8.4l.3-4.3 7.8-7c.3-.3-.1-.4-.5-.2l-9.7 6.1-4.2-1.3c-.9-.3-.9-.9.2-1.4Z" fill="#fff"/></svg></span></div>
+  <h3>Telegram-канал</h3><p>Анонсы потока и полезное. Наведи камеру</p></a><a class="qr-card" href="https://vk.ru/fitclub_marafon" target="_blank" rel="noopener">
+  <div class="qr-box"><img class="qr-img" src="assets/img/qr-vk.svg" alt="QR-код: Группа ВКонтакте" width="220" height="220" loading="lazy">
+  <span class="qr-badge" style="background:#0077FF"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><text x="12" y="16.5" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="11" fill="#fff">VK</text></svg></span></div>
+  <h3>Группа ВКонтакте</h3><p>Новости и результаты. Наведи камеру</p></a></div></div></section>
 
 <section id="price"><div class="wrap">
   <div class="price-box">
