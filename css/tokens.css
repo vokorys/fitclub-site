@@ -1,0 +1,134 @@
+/* Fit Club v7 — ВСЕ цвета, шрифты, размеры в одном файле.
+   На <html>: data-theme (тема целиком), поверх неё data-bg, data-acc, data-foot (auto = как в теме), data-logo, data-mark. */
+:root{
+  /* ===== тема «Северный» (по умолчанию, М4 лён + синий) ===== */
+  --linen:#E4E0D8; --ash:#DDD0BA; --steel:#C9CED3; --graphite:#23262B;
+  --bg-base:#E6E2DB;            /* цвет страницы */
+  --paper:#F4F2EE;              /* карточки и плашки */
+  --line:rgba(34,50,74,.14);
+  --acc:#34507A; --acc-2:#5B79A8; --acc-soft:rgba(52,80,122,.12); --on-acc:#F4F2EE;
+  --ink:#22324A; --ink-2:#4A5568;
+  --dark-ink:#EEEAE3; --dark-ink-2:#B9B4AC; --gold:#D8B46A;
+  --dark-1:#2D3036; --dark-2:#1D1F23;   /* тёмные сцены */
+  --bub-a:#FFFFFF; --bub-b:#F2F0EC; --bub-d:#AEB5BD; --bub-ink:var(--ink);   /* круги */
+  --field-bg:#FFFFFF; --field-ink:#1C2230;                                    /* поля формы */
+  /* фон-материал */
+  --bg-d:url(../assets/tex/silk_d.jpg); --bg-m:url(../assets/tex/silk_m.jpg);
+  --mat-filter:none; --mat-dim:none; --veil:1; --mat-size:cover;
+  /* подвал: --tfoot = материал темы (metal|carbon|wood|leather), металл кнопок m-* */
+  --tfoot:metal; --foot-base:#1E2024; --foot-glow:rgba(220,230,240,.35);
+  --fm-a:#1C1E22; --fm-b:#3A3E44; --fm-h:235,240,245;
+  --m-hi:#FFFFFF; --m-1:#E9ECEF; --m-2:#B8BEC5; --m-3:#8B929A; --m-eng:#3A4048; --m-eng-hi:rgba(255,255,255,.85);
+  --foot-logo:#EDEFF2;
+
+  /* шрифты */
+  --f-disp:"Comfortaa","Manrope",system-ui,sans-serif;
+  --f-text:"Manrope",system-ui,sans-serif;
+  /* шкала (телефон): нет текста мельче 18px */
+  --t-body:clamp(18px,1.05vw + 13px,21px);
+  --t-lead:clamp(20px,1.2vw + 15px,26px);
+  --t-h3:clamp(24px,1.6vw + 16px,34px);
+  --t-h2:clamp(36px,4vw + 18px,84px);
+  --t-h1:clamp(46px,6.4vw + 18px,132px);
+  --t-num:clamp(64px,8vw + 20px,168px);
+  /* раскладка */
+  --gut:clamp(16px,4vw,72px);
+  --wrap:min(100% - var(--gut)*2, 1680px);
+  --r-s:14px; --r-m:22px; --r-l:34px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+
+/* ===== «Бургунди (наши цвета)»: бордо только на светлом; на тёмном бордо роза и золото ===== */
+html[data-theme="burg"]{
+  --bg-base:#F4EDE4; --linen:#F4EDE4; --paper:#FBF7F1; --ash:#E9DCC9; --steel:#E2D2BE; --bub-d:#C9B39C;
+  --line:rgba(101,38,57,.16);
+  --acc:#652639; --acc-2:#8E3D55; --acc-soft:rgba(101,38,57,.12); --on-acc:#F6E9EB;
+  --ink:#2A0F18; --ink-2:#5C3A44;
+  --dark-ink:#F6E9EB; --dark-ink-2:#D9BFC5; --gold:#D6B286; --dark-1:#4A1A29; --dark-2:#2A0F18;
+  --foot-base:#22090F; --foot-glow:rgba(214,178,134,.35); --fm-a:#1E0B12; --fm-b:#4A1E2B; --fm-h:240,205,170;
+  --m-hi:#FFF4DC; --m-1:#EBD3A6; --m-2:#C9A46B; --m-3:#9C7A45; --m-eng:#3E2A10; --m-eng-hi:rgba(255,244,220,.8); --foot-logo:#D6B286;
+}
+/* ===== «Мастерская» (М2): графитовый и чёрный дуб + латунь. Тёмная тема ===== */
+html[data-theme="workshop"]{
+  --bg-base:#1D1A18; --paper:#25211E; --ash:#2E2A27; --line:rgba(241,232,216,.16);
+  --acc:#C9AD7E; --acc-2:#E6D2A6; --acc-soft:rgba(201,173,126,.16); --on-acc:#21170A;
+  --ink:#F1E8D8; --ink-2:#C9BCA6;
+  --dark-ink:#F1E8D8; --dark-ink-2:#C9BCA6; --gold:#D8C092; --dark-1:#141210; --dark-2:#0B0A09;
+  --bub-a:#FFF3DC; --bub-b:#E6D2A6; --steel:#B39C74; --bub-d:#7E6A4C; --bub-ink:#2A1C0C;
+  --field-bg:#F1E8D8; --field-ink:#2A1C0C;
+  --bg-d:url(../assets/tex/oak_graphite.jpg); --bg-m:url(../assets/tex/oak_graphite.jpg); --veil:.55; --mat-dim:brightness(.32) saturate(.6);
+  --tfoot:wood; --foot-base:#120F0C; --foot-glow:rgba(230,210,166,.3);
+  --m-hi:#FFF3DA; --m-1:#E6D2A6; --m-2:#B39C74; --m-3:#7E6A4C; --m-eng:#2A1C0C; --m-eng-hi:rgba(255,240,205,.7); --foot-logo:#D8C092;
+}
+/* ===== «Вечерний сатин» (М3): сапфировый сатин + жемчуг + розовое золото. Тёмная тема ===== */
+html[data-theme="satin"]{
+  --bg-base:#0E1834; --paper:#18264D; --ash:#1C2C58; --line:rgba(245,237,234,.16);
+  --acc:#E2B4A6; --acc-2:#F6D7CC; --acc-soft:rgba(226,180,166,.16); --on-acc:#2A1820;
+  --ink:#F5EDEA; --ink-2:#C9C3D6;
+  --dark-ink:#F5EDEA; --dark-ink-2:#C9C3D6; --gold:#E2B4A6; --dark-1:#0A1128; --dark-2:#050A1A;
+  --bub-a:#FFFFFF; --bub-b:#F6F1F3; --steel:#E6DCE6; --bub-d:#8F86A2; --bub-ink:#1C2C58;
+  --field-bg:#EDE6E4; --field-ink:#1C2C58;
+  --bg-d:url(../assets/tex/satin_sapphire.jpg); --bg-m:url(../assets/tex/satin_sapphire.jpg); --veil:.5; --mat-dim:brightness(.3) saturate(.7);
+  --tfoot:metal; --foot-base:#0A1128; --foot-glow:rgba(246,215,204,.3); --fm-a:#0A1026; --fm-b:#24345E; --fm-h:246,215,204;
+  --m-hi:#FFF0EA; --m-1:#F2CFC3; --m-2:#D2A799; --m-3:#A47467; --m-eng:#3B1F1A; --m-eng-hi:rgba(255,236,228,.75); --foot-logo:#EDE6E4;
+}
+/* ===== «Тёплый дом» (М6): пудровый велюр + орех + коньячная кожа ===== */
+html[data-theme="home"]{
+  --bg-base:#EBCFC6; --paper:#F6E7E1; --ash:#E4C2B6; --line:rgba(58,38,34,.16);
+  --acc:#7A4A2E; --acc-2:#A06B4C; --acc-soft:rgba(122,74,46,.13); --on-acc:#FBF1EC;
+  --ink:#3A2622; --ink-2:#64453D;
+  --dark-ink:#F6E7E1; --dark-ink-2:#DCC2B8; --gold:#E2B48A; --dark-1:#4A2E22; --dark-2:#2C1A13;
+  --bub-a:#FFFFFF; --bub-b:#FBEFEA; --steel:#E8C9BD; --bub-d:#B98F80; --bub-ink:#3A2622;
+  --bg-d:url(../assets/tex/velour_pink.jpg); --bg-m:url(../assets/tex/velour_pink.jpg); --veil:.75;
+  --tfoot:leather; --foot-base:#3A1E10; --foot-glow:rgba(247,195,156,.35);
+  --m-hi:#FFE6CF; --m-1:#F2B98C; --m-2:#C9814F; --m-3:#9C5A30; --m-eng:#4A2410; --m-eng-hi:rgba(255,226,200,.75); --foot-logo:#F7DCC4;
+}
+/* ===== «Галерея» (М1): белая керамика + алюминий + кобальт ===== */
+html[data-theme="gallery"]{
+  --bg-base:#F1F0EC; --paper:#FBFBFA; --ash:#E3E2DE; --steel:#C9CED3; --line:rgba(32,36,44,.13);
+  --acc:#2C4A9A; --acc-2:#5A78C8; --acc-soft:rgba(44,74,154,.11); --on-acc:#FBFBFA;
+  --ink:#20242C; --ink-2:#4B515C;
+  --bg-d:url(../assets/tex/ceramic.jpg); --bg-m:url(../assets/tex/ceramic.jpg); --veil:.35;
+  --tfoot:metal; --foot-base:#1A1C20; --fm-a:#24272C; --fm-b:#4A4F57; --fm-h:240,244,248;
+}
+/* ===== НОВАЯ «Полярная ночь»: мурманские сумерки, тёплый свет окон (янтарь). Тёмная тема ===== */
+html[data-theme="polar"]{
+  --bg-base:#121826; --paper:#1B2334; --ash:#222B3E; --line:rgba(236,230,220,.15);
+  --acc:#E9A86A; --acc-2:#F6C89A; --acc-soft:rgba(233,168,106,.15); --on-acc:#1A1208;
+  --ink:#ECE6DC; --ink-2:#B7B9C2;
+  --dark-ink:#ECE6DC; --dark-ink-2:#B7B9C2; --gold:#E9A86A; --dark-1:#0C111C; --dark-2:#070A12;
+  --bub-a:#FFF6EA; --bub-b:#F3E2CC; --steel:#D7C2A6; --bub-d:#8C7A64; --bub-ink:#1A1208;
+  --field-bg:#ECE6DC; --field-ink:#121826;
+  --bg-d:url(../assets/tex/alc_d.jpg); --bg-m:url(../assets/tex/alc_m.jpg); --veil:.5;
+  --mat-filter:brightness(.3) sepia(.3) hue-rotate(185deg) saturate(1.6); --mat-dim:brightness(.3) saturate(.6);
+  --tfoot:carbon; --foot-base:#0B0D12; --foot-glow:rgba(233,168,106,.3);
+  --m-hi:#FFE6CF; --m-1:#F2B98C; --m-2:#C9814F; --m-3:#9C5A30; --m-eng:#4A2410; --m-eng-hi:rgba(255,226,200,.75); --foot-logo:#F2C49E;
+}
+/* ===== НОВАЯ «Шалфей»: кашемир цвета шалфея + изумруд + латунь (свежесть, зелень, еда) ===== */
+html[data-theme="sage"]{
+  --bg-base:#DFE3D8; --paper:#F2F3EE; --ash:#D3D9C9; --steel:#C8D0C1; --bub-d:#9AA592; --line:rgba(31,61,48,.15);
+  --acc:#1F4D3E; --acc-2:#3E7A64; --acc-soft:rgba(31,77,62,.12); --on-acc:#F2F3EE;
+  --ink:#1C2B25; --ink-2:#46564E;
+  --dark-ink:#EEF0E8; --dark-ink-2:#BFC8BC; --gold:#D3B77E; --dark-1:#203329; --dark-2:#121D17;
+  --bg-d:url(../assets/tex/cashmere_fold.jpg); --bg-m:url(../assets/tex/cashmere_fold.jpg); --veil:.8;
+  --mat-filter:sepia(.35) hue-rotate(48deg) saturate(.75) brightness(.97);
+  --tfoot:wood; --foot-base:#121410; --foot-glow:rgba(230,210,166,.3);
+  --m-hi:#FFF3DA; --m-1:#E6D2A6; --m-2:#B39C74; --m-3:#7E6A4C; --m-eng:#2A1C0C; --m-eng-hi:rgba(255,240,205,.7); --foot-logo:#E6D2A6;
+}
+
+/* ===== поверх темы: отдельный фон (только картинка; в тёмных темах приглушается) ===== */
+html[data-bg="silk"]{--bg-d:url(../assets/tex/silk_d.jpg);--bg-m:url(../assets/tex/silk_m.jpg);--mat-filter:var(--mat-dim)}
+html[data-bg="alc"]{--bg-d:url(../assets/tex/alc_d.jpg);--bg-m:url(../assets/tex/alc_m.jpg);--mat-filter:var(--mat-dim)}
+html[data-bg="linen"]{--bg-d:url(../assets/tex/linen.jpg);--bg-m:url(../assets/tex/linen.jpg);--mat-filter:var(--mat-dim)}
+
+/* ===== поверх темы: отдельный акцент ===== */
+html[data-acc="blue"]{--acc:#34507A;--acc-2:#5B79A8;--acc-soft:rgba(52,80,122,.13);--on-acc:#F4F2EE}
+html[data-acc="burg"]{--acc:#652639;--acc-2:#8E3D55;--acc-soft:rgba(101,38,57,.12);--on-acc:#F6E9EB}
+html[data-acc="brass"]{--acc:#9C7A45;--acc-2:#C9A46B;--acc-soft:rgba(156,122,69,.14);--on-acc:#FFF8EA}
+html[data-acc="emerald"]{--acc:#1F4D3E;--acc-2:#3E7A64;--acc-soft:rgba(31,77,62,.13);--on-acc:#F2F3EE}
+
+/* ===== подвал «Северного» с карбоном: медь (вариант 2 владельца) ===== */
+html[data-theme="north"][data-footk="carbon"]{
+  --foot-base:#121214; --foot-glow:rgba(255,190,140,.35);
+  --m-hi:#FFE6CF; --m-1:#F2B98C; --m-2:#C9814F; --m-3:#9C5A30; --m-eng:#4A2410; --m-eng-hi:rgba(255,226,200,.75); --foot-logo:#F2C49E;
+}

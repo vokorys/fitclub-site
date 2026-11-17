@@ -1,686 +1,518 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-bg="silk" data-theme="burg" data-foot="carbon" data-acc="auto" data-logo="flat" data-mark="svyazka">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Fit Club — онлайн-марафон с тренером Катей</title>
-<meta name="description" content="Онлайн-марафон Fit Club: 3 недели, тренировки дома или в зале, КБЖУ лично под тебя, закрытый чат и книга рецептов в подарок. Просто. В своём ритме.">
-<meta name="theme-color" content="#652639">
-<link rel="canonical" href="https://vokorys.github.io/fitclub-site/">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="ru_RU">
-<meta property="og:site_name" content="Fit Club">
-<meta property="og:title" content="Fit Club — онлайн-марафон с тренером Катей">
-<meta property="og:description" content="Онлайн-марафон Fit Club: 3 недели, тренировки дома или в зале, КБЖУ лично под тебя, закрытый чат и книга рецептов в подарок. Просто. В своём ритме.">
-<meta property="og:image" content="https://vokorys.github.io/fitclub-site/assets/img/og.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:url" content="https://vokorys.github.io/fitclub-site/">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preload" href="assets/fonts/playfair-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/montserrat-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="assets/img/katya-window.webp" fetchpriority="high">
-<style>
-@font-face{font-family:'Montserrat';font-style:normal;font-weight:400 700;font-display:swap;src:url(assets/fonts/montserrat-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
-@font-face{font-family:'Montserrat';font-style:normal;font-weight:400 700;font-display:swap;src:url(assets/fonts/montserrat-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'Montserrat';font-style:normal;font-weight:400 700;font-display:swap;src:url(assets/fonts/montserrat-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'Playfair Display';font-style:normal;font-weight:500 800;font-display:swap;src:url(assets/fonts/playfair-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
-@font-face{font-family:'Playfair Display';font-style:normal;font-weight:500 800;font-display:swap;src:url(assets/fonts/playfair-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'Playfair Display';font-style:normal;font-weight:500 800;font-display:swap;src:url(assets/fonts/playfair-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-:root{--bur:#652639;--burd:#3a0f1d;--ivo:#F7F0E8;--ivo2:#FBF7F2;--gold:#A97B47;--goldl:#D6B286;--rose:#E8B9B0;--rose2:#F1D5CE;--ink:#4a2a35;--mute:#7a5a64;--line:rgba(169,123,71,.38);--r:24px;--sh:0 14px 34px rgba(101,38,57,.16)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:12px}
-body{font-family:'Montserrat',system-ui,sans-serif;font-size:16px;line-height:1.6;color:var(--ink);background:var(--ivo);overflow-x:hidden;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
-h1,h2,h3,.pf,.num,.cd b,.price-big,.wk .n{font-variant-numeric:lining-nums}
-img{display:block;max-width:100%}
-a{color:inherit}
-.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
-h1,h2,h3,.pf{font-family:'Playfair Display',Georgia,serif;font-weight:600;color:var(--bur);letter-spacing:-.01em}
-h2{font-size:clamp(28px,7.4vw,44px);line-height:1.14}
-h3{font-size:21px;line-height:1.25}
-.acc{color:var(--gold)}
-.eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-.lead{font-size:clamp(16px,4.2vw,19px);color:var(--ink)}
-section{padding:60px 0;position:relative}
-.sec-head{max-width:640px;margin-bottom:30px}
-.sec-head p{margin-top:14px;color:var(--mute)}
-
-/* mode switching */
-body[data-mode="open"] [data-only]:not([data-only~="open"]),
-body[data-mode="running"] [data-only]:not([data-only~="running"]),
-body[data-mode="closed"] [data-only]:not([data-only~="closed"]){display:none!important}
-[hidden]{display:none!important}
-
-/* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:15px 30px;border:0;border-radius:999px;background:var(--bur);color:var(--ivo);font:700 16px/1.2 'Montserrat',sans-serif;text-decoration:none;cursor:pointer;box-shadow:0 12px 26px rgba(101,38,57,.3);transition:transform .15s,box-shadow .15s,background .15s}
-.btn:hover{background:var(--burd);transform:translateY(-1px)}
-.btn:active{transform:translateY(1px)}
-.btn:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid var(--goldl);outline-offset:3px}
-.btn-line{background:transparent;color:var(--bur);box-shadow:none;border:1.5px solid var(--bur)}
-.btn-line:hover{background:var(--bur);color:var(--ivo)}
-.btn-gold{background:var(--ivo);color:var(--bur);box-shadow:0 12px 26px rgba(0,0,0,.25)}
-.btn-gold:hover{background:#fff}
-.btn-sm{min-height:44px;padding:10px 20px;font-size:14px}
-
-/* header */
-.top{position:absolute;inset:0 0 auto 0;z-index:5;padding:16px 0}
-.top .wrap{display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--bur);font-weight:700;letter-spacing:.14em;font-size:13px;text-transform:uppercase}
-.brand img{width:34px;height:auto}
-
-/* hero */
-.hero{padding:84px 0 40px;background:radial-gradient(120% 70% at 85% 0%,#fdf9f4 0%,var(--ivo) 55%,#f1e3da 100%);overflow:hidden}
-.hero .blob{position:absolute;border-radius:50%;background:var(--rose);opacity:.5;pointer-events:none}
-.hero .b1{width:360px;height:360px;right:-140px;top:-90px}
-.hero .b2{width:200px;height:200px;left:-90px;bottom:120px;background:var(--rose2);opacity:.8}
-.hero-grid{position:relative;display:grid;gap:26px;grid-template-areas:'a' 'p' 'b'}
-.hero-a{grid-area:a}.hero-b{grid-area:b}.hero .arch-wrap{grid-area:p}
-.hero h1{font-size:clamp(34px,10.6vw,76px);line-height:1.04;margin:2px 0 18px}
-.hero h1 .acc{display:block}
-.hero .lead{max-width:520px}
-.facts{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 4px}
-.chip{display:inline-flex;align-items:center;padding:8px 15px;border-radius:999px;background:rgba(255,255,255,.88);border:1.5px solid var(--line);color:var(--bur);font-weight:600;font-size:14px;box-shadow:0 6px 16px rgba(101,38,57,.08)}
-.cd{display:flex;gap:10px;margin:22px 0 4px;align-items:stretch}
-.cd .cell{min-width:68px;padding:10px 12px 8px;border-radius:18px;background:var(--bur);color:var(--ivo);text-align:center;box-shadow:var(--sh)}
-.cd b{display:block;font:700 26px/1.1 'Montserrat',sans-serif}
-.cd small{font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
-.cd-label{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:22px}
-.cd-note{display:inline-block;margin-top:16px;padding:10px 18px;border-radius:999px;background:var(--bur);color:var(--ivo);font-weight:600;font-size:15px}
-.promo-rib{display:flex;gap:10px;align-items:flex-start;margin-top:20px;padding:12px 16px;border-radius:18px;background:rgba(214,178,134,.22);border:1.5px dashed var(--gold);color:var(--bur);font-size:14px;font-weight:500;max-width:520px}
-.promo-rib b{font-weight:700}
-.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
-.cta-row .btn{flex:1 1 220px}
-.price-line{margin-top:16px;font-size:14px;color:var(--mute)}
-.price-line b{color:var(--bur);font-size:17px}
-
-/* arch photo */
-.arch-wrap{position:relative;width:min(100%,360px);margin:6px auto 0}
-.arch-wrap::before{content:"";position:absolute;inset:-14px -14px 18px 14px;border-radius:999px 999px 28px 28px;border:2px solid var(--goldl)}
-.arch-wrap::after{content:"";position:absolute;left:-18px;top:34px;width:92px;height:92px;border-radius:50%;background:var(--rose);z-index:0}
-.arch{position:relative;z-index:1;aspect-ratio:3/4.2;border-radius:999px 999px 28px 28px;overflow:hidden;box-shadow:var(--sh);background:var(--rose2)}
-.arch img{width:100%;height:100%;object-fit:cover}
-.arch-tag{position:absolute;z-index:2;right:-6px;bottom:22px;background:var(--bur);color:var(--ivo);padding:10px 16px;border-radius:16px;font-weight:600;font-size:13px;box-shadow:var(--sh)}
-
-/* cards */
-.band{background:var(--ivo2)}
-.cards{display:grid;gap:14px}
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px 24px 26px;box-shadow:0 8px 22px rgba(101,38,57,.07)}
-.card .num{display:block;font:600 30px/1 'Montserrat',sans-serif;color:var(--goldl);margin-bottom:10px}
-.card p{margin-top:8px;color:var(--mute);font-size:15px}
-
-/* day timeline */
-.split{display:grid;gap:30px;align-items:center}
-.steps{list-style:none;position:relative;margin-top:6px}
-.steps::before{content:"";position:absolute;left:9px;top:10px;bottom:10px;width:2px;background:var(--line)}
-.steps li{position:relative;padding:0 0 22px 38px}
-.steps li::before{content:"";position:absolute;left:0;top:6px;width:20px;height:20px;border-radius:50%;background:var(--ivo);border:4px solid var(--bur)}
-.steps small{display:block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-.steps span{font-size:17px;color:var(--bur);font-weight:500}
-.note{margin-top:8px;color:var(--mute);font-size:15px}
-.arch-sm{width:min(100%,300px);margin:0 auto}
-
-/* weeks */
-.weeks{display:grid;gap:12px;margin-bottom:22px}
-.wk{display:flex;gap:16px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px 18px}
-.wk .n{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--bur);color:var(--ivo);font:700 22px/1 'Montserrat',sans-serif}
-.wk b{display:block;color:var(--bur);font-size:17px}
-.wk span{font-size:14px;color:var(--mute)}
-.wk p{font-size:14px;color:var(--ink);margin-top:4px}
-.two{display:grid;gap:14px}
-.box{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px}
-.box h3{margin-bottom:12px}
-.ticks{list-style:none}
-.ticks li{position:relative;padding:5px 0 5px 30px}
-.ticks li::before{content:"";position:absolute;left:2px;top:12px;width:14px;height:8px;border-left:2.5px solid var(--gold);border-bottom:2.5px solid var(--gold);transform:rotate(-45deg)}
-.tags{display:flex;flex-wrap:wrap;gap:8px}
-.tags span{padding:7px 14px;border-radius:999px;background:var(--rose2);color:var(--bur);font-weight:600;font-size:14px}
-
-/* who */
-.who{display:grid;gap:12px}
-.who li{list-style:none;display:flex;gap:14px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px 18px}
-.who li::before{content:"";flex:none;width:12px;height:12px;margin-top:7px;border-radius:50%;background:var(--rose);box-shadow:0 0 0 4px rgba(232,185,176,.35)}
-.ba-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}.ba-card{margin:0}.ba-card img{width:100%;height:auto;border-radius:20px;display:block}
-.callout{margin-top:18px;padding:18px 20px;border-radius:20px;background:rgba(214,178,134,.2);border-left:4px solid var(--gold);font-size:15px}
-
-/* food */
-.honest{margin-top:22px;padding:20px 22px;border-radius:var(--r);background:var(--bur);color:var(--ivo);font-size:15px}
-
-/* book */
-.book{background:linear-gradient(160deg,var(--burd),var(--bur));color:var(--ivo);overflow:hidden}
-.book h2{color:var(--ivo)}.book .acc{color:var(--goldl)}.book .eyebrow{color:var(--goldl)}
-.book p{color:#f1dfe0}
-.book-ph{position:relative;width:min(100%,340px);margin:0 auto}
-.book-ph .frame{border-radius:999px 999px 28px 28px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 24px 50px rgba(0,0,0,.4);border:2px solid var(--goldl)}
-.book-ph img{width:100%;height:100%;object-fit:cover;object-position:60% 78%}
-.badge{position:absolute;right:-8px;top:34px;width:104px;height:104px;border-radius:50%;background:var(--goldl);color:var(--burd);display:grid;place-items:center;text-align:center;font:700 13px/1.15 'Montserrat',sans-serif;letter-spacing:.1em;text-transform:uppercase;transform:rotate(10deg);box-shadow:0 10px 24px rgba(0,0,0,.35)}
-
-/* price */
-.price-box{background:#fff;border:1px solid var(--line);border-radius:32px;padding:30px 24px;box-shadow:var(--sh);max-width:560px;margin:0 auto}
-.price-big{font:700 clamp(44px,13vw,64px)/1 'Montserrat',sans-serif;color:var(--bur)}
-.price-big small{font:500 16px 'Montserrat',sans-serif;color:var(--mute);margin-left:8px}
-.price-promo{margin:14px 0 0;padding:12px 16px;border-radius:16px;background:rgba(214,178,134,.22);font-size:14px;color:var(--bur)}
-.price-box .ticks{margin:20px 0 22px}
-.order{counter-reset:o;list-style:none;margin:6px 0 24px}
-.order li{counter-increment:o;position:relative;padding:8px 0 8px 44px}
-.order li::before{content:counter(o);position:absolute;left:0;top:6px;width:30px;height:30px;border-radius:50%;background:var(--rose2);color:var(--bur);font-weight:700;display:grid;place-items:center;font-size:14px}
-.price-box h3{font-size:19px;margin-top:6px}
-.price-box .btn{width:100%}
-.price-box .small{margin-top:12px;color:var(--mute);font-size:13px;text-align:center}
-
-/* faq */
-details{background:#fff;border:1px solid var(--line);border-radius:20px;margin-bottom:10px;overflow:hidden}
-summary{list-style:none;cursor:pointer;padding:18px 54px 18px 20px;font-weight:600;color:var(--bur);position:relative;min-height:56px}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font:400 28px/1 'Montserrat',sans-serif;color:var(--gold);transition:transform .2s}
-details[open] summary::after{content:"\2212"}
-details p{padding:0 20px 20px;color:var(--ink);font-size:15px}
-
-/* form */
-.form-sec{background:linear-gradient(180deg,var(--ivo2),var(--rose2))}
-.form-card{background:#fff;border-radius:32px;padding:28px 22px;box-shadow:var(--sh);max-width:600px;margin:0 auto;border:1px solid var(--line)}
-.form-card h2{font-size:clamp(26px,7vw,38px)}
-.form-card .sub{margin:10px 0 22px;color:var(--mute);font-size:15px}
-.fld{margin-bottom:18px}
-.fld>label,.fld>.lb{display:block;font-weight:600;font-size:14px;color:var(--bur);margin-bottom:8px}
-input[type=text],input[type=tel],select{width:100%;min-height:54px;padding:14px 16px;border-radius:16px;border:1.5px solid #d9c3b3;background:#fffdfb;font:500 16px 'Montserrat',sans-serif;color:var(--ink);appearance:none;-webkit-appearance:none}
-select{background-image:linear-gradient(45deg,transparent 50%,var(--bur) 50%),linear-gradient(135deg,var(--bur) 50%,transparent 50%);background-position:calc(100% - 22px) 24px,calc(100% - 16px) 24px;background-size:6px 6px;background-repeat:no-repeat;padding-right:44px}
-input:focus,select:focus{border-color:var(--bur);outline:3px solid rgba(214,178,134,.5);outline-offset:0}
-.seg{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
-.seg input{position:absolute;opacity:0;pointer-events:none}
-.seg label{padding:10px 16px;border-radius:999px;border:1.5px solid #d9c3b3;font-weight:600;font-size:14px;color:var(--bur);cursor:pointer;min-height:44px;display:inline-flex;align-items:center;background:#fffdfb}
-.seg input:checked+label{background:var(--bur);border-color:var(--bur);color:var(--ivo)}
-.seg input:focus-visible+label{outline:3px solid var(--goldl);outline-offset:2px}
-.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
-.agree{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--mute);margin:4px 0 20px;line-height:1.45}
-.agree input{flex:none;width:24px;height:24px;margin-top:1px;accent-color:var(--bur)}
-.agree a{color:var(--bur);font-weight:600}
-.err{color:#a3263f;font-size:13px;margin-top:6px;min-height:0}
-.form-card .btn{width:100%}
-.form-msg{margin-top:14px;font-size:14px;color:#a3263f}
-.done{text-align:center;padding:6px 0}
-.done h3{font-size:26px;margin-bottom:10px}
-.done .acts{display:grid;gap:10px;margin-top:20px}
-.fallback{margin-top:18px;text-align:left}
-.fallback textarea{width:100%;min-height:150px;padding:14px;border-radius:16px;border:1.5px solid #d9c3b3;font:500 14px/1.5 'Montserrat',sans-serif;color:var(--ink);background:#fffdfb;resize:vertical}
-
-/* final cta */
-.final{background:linear-gradient(160deg,var(--burd),var(--bur));color:var(--ivo);text-align:center;padding:64px 0}
-.final h2{color:var(--ivo);max-width:760px;margin:0 auto 14px}
-.final p{max-width:520px;margin:0 auto 26px;color:#f1dfe0}
-
-/* footer */
-footer{background:var(--burd);color:#e9d6d8;padding:44px 0 110px;font-size:14px}
-footer .fgrid{display:grid;gap:26px}
-footer img{width:48px;margin-bottom:12px}
-footer .slogan{font:600 22px 'Playfair Display',serif;color:var(--ivo);margin-bottom:8px}
-footer ul{list-style:none}
-footer li{padding:5px 0}
-footer a{color:#f3e4e5;text-underline-offset:3px}
-footer .meta{font-size:12px;opacity:.75;margin-top:6px;line-height:1.45}
-footer h4{font:700 12px 'Montserrat',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--goldl);margin-bottom:10px}
-footer .legal{margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);font-size:12px;opacity:.8}
-footer button{background:none;border:0;color:#f3e4e5;font:inherit;text-decoration:underline;cursor:pointer;text-underline-offset:3px;padding:0}
-
-/* sticky bar */
-.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(247,240,232,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s}
-.sticky.on{transform:none}
-.sticky .btn{width:100%;min-height:50px}
-
-/* policy dialog */
-dialog{border:0;border-radius:24px;max-width:640px;width:calc(100% - 28px);max-height:86vh;padding:0;color:var(--ink);background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.4)}
-dialog::backdrop{background:rgba(58,15,29,.6)}
-.dlg{padding:26px 22px 24px;overflow:auto;max-height:86vh}
-.dlg h2{font-size:24px;margin:0 36px 10px 0}
-.dlg h4{margin:16px 0 4px;color:var(--bur);font-size:15px}
-.dlg p{font-size:14px}
-.dlg .draft{display:inline-block;margin-bottom:8px;padding:5px 12px;border-radius:999px;background:#fbe6e8;color:#a3263f;font-weight:700;font-size:12px}
-.dlg .x{position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:50%;border:0;background:var(--rose2);color:var(--bur);font-size:22px;cursor:pointer}
-
-@media(min-width:760px){
-  section{padding:84px 0}
-  .wrap{padding:0 32px}
-  .cards{grid-template-columns:repeat(6,1fr)}
-  .card{grid-column:span 2}
-  .card:nth-child(4){grid-column:2/span 2}
-  .card:nth-child(5){grid-column:4/span 2}
-  .two{grid-template-columns:1fr 1fr}
-  .weeks{grid-template-columns:repeat(3,1fr)}
-  .wk{flex-direction:column;align-items:flex-start}
-  .who{grid-template-columns:1fr 1fr}
-  .split{grid-template-columns:1fr 1fr;gap:56px}
-  .split.rev .arch-sm{order:2}
-  footer .fgrid{grid-template-columns:1.4fr 1fr 1fr}
-  .sticky{display:none}
-  footer{padding-bottom:44px}
-  .price-box{padding:40px}
-  .form-card{padding:40px}
-}
-@media(min-width:960px){
-  .hero{padding:110px 0 70px}
-  .hero-grid{grid-template-columns:1.15fr .85fr;grid-template-areas:'a p' 'b p';align-items:center;column-gap:60px;row-gap:0}
-  .hero-a{align-self:end}.hero-b{align-self:start}
-  .hero .b1{width:560px;height:560px;right:-120px;top:-170px}
-  .arch-wrap{width:min(100%,420px)}
-}
-@media(max-width:380px){
-  .wrap{padding:0 16px}
-  .cd .cell{min-width:60px;padding:8px}
-  .btn{padding:14px 22px}
-}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-
-.soc{display:flex;gap:12px;margin:18px 0 6px}
-.soc a{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--bur);color:var(--bur);background:rgba(255,255,255,.7);transition:background .15s,color .15s,transform .15s}
-.soc a:hover{background:var(--bur);color:var(--ivo);transform:translateY(-2px)}
-.soc svg{width:24px;height:24px}
-.foot-soc{margin:0 0 14px}.foot-soc a{border-color:var(--goldl);color:var(--ivo);background:transparent}
-.foot-soc a:hover{background:var(--goldl);color:var(--burd)}
-.promo-rib.ret{background:rgba(232,185,176,.35);border-color:var(--bur)}
-.agree.again{margin:-4px 0 16px;color:var(--bur);font-weight:600;font-size:14px}
-.ba-grid{display:grid;gap:18px}
-.ba{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px;box-shadow:0 8px 22px rgba(101,38,57,.07)}
-.ba-img{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.ba-img div{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4}
-.ba-img img{width:100%;height:100%;object-fit:cover}
-.ba-img span{position:absolute;left:10px;bottom:10px;padding:4px 12px;border-radius:99px;background:var(--bur);color:var(--ivo);font-size:12px;font-weight:700}
-.ba figcaption{padding:12px 8px 4px;font-size:14px;color:var(--mute)}
-@media(min-width:760px){.ba-grid{grid-template-columns:repeat(2,1fr)}.hero-soc{margin-top:22px}}
-
-.revs{display:grid;gap:14px}
-.rev{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 24px 22px;box-shadow:0 8px 22px rgba(101,38,57,.07);position:relative}
-.rev::before{content:"\201C";position:absolute;left:20px;top:2px;font:600 64px/1 'Playfair Display',serif;color:var(--goldl)}
-.rev blockquote{padding-top:22px;font-size:15.5px;line-height:1.6;color:var(--ink)}
-.rev figcaption{margin-top:14px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
-@media(min-width:760px){.revs{grid-template-columns:repeat(2,1fr)}}
-
-@media(max-width:759px){.price-big small{display:block;margin:8px 0 0}}
-
-.qr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;max-width:640px;margin:0 auto}
-.qr-card{display:block;text-align:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px 18px;text-decoration:none;color:inherit;transition:transform .25s}
-.qr-card:hover{transform:translateY(-4px)}
-.qr-box{position:relative;width:220px;height:220px;margin:0 auto 12px;background:#fff;border-radius:18px}
-.qr-img{width:220px;height:220px;display:block}
-.qr-badge{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:4px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.18);animation:qrfloat 2.6s ease-in-out infinite}
-.qr-badge::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid currentColor;opacity:.0;animation:qrpulse 2.6s ease-out infinite;color:inherit}
-@keyframes qrfloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-4px) rotate(-6deg)}}
-@keyframes qrpulse{0%{transform:scale(1);opacity:.5;border-color:#2AABEE}100%{transform:scale(1.7);opacity:0}}
-@media (prefers-reduced-motion:reduce){.qr-badge,.qr-badge::after{animation:none}}
-
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fit Club — марафон с Катей</title>
+<meta name="description" content="Онлайн-марафон Fit Club: 3 недели, тренировки дома или в зале, КБЖУ лично под тебя, закрытый чат и книга рецептов в подарок.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-fc-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/img/favicon-fc-180.png">
+<script>
+/* варианты: адрес > сохранённое > по умолчанию; режимы проверки ?shot=1 ?rm=1 */
+(function(){var h=document.documentElement,q=new URLSearchParams(location.search),s={};
+ /* утверждено 17.11: Бургунди, знак Связка плоский, шёлк, карбон. Панель вариантов только по ?panel=1 */
+ if(q.has('panel')){h.classList.add('vp-on');try{s=JSON.parse(localStorage.getItem('fc7v3')||'{}')||{}}catch(e){}}
+ ['bg','theme','acc','foot','logo','mark'].forEach(function(k){var v=q.get(k)||s[k];if(v)h.setAttribute('data-'+k,v)});
+ if(q.has('shot'))h.classList.add('shot');
+ if(q.has('rm')||matchMedia('(prefers-reduced-motion: reduce)').matches)h.classList.add('rm');
+ if(matchMedia('(hover: none)').matches)h.classList.add('touch');
+ h.classList.add('js');})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Manrope:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/gift-book.css">
+<link rel="stylesheet" href="css/panel.css">
+<link rel="stylesheet" href="css/metal.css">
+<link rel="stylesheet" href="css/live.css">
+<link rel="stylesheet" href="css/fix18.css">
+<link rel="stylesheet" href="css/fix18d.css">
+<link rel="stylesheet" href="css/fix18e.css">
 </head>
 <body data-mode="open">
 
-<header class="top"><div class="wrap">
-  <a class="brand" href="#top" aria-label="Fit Club"><img src="assets/img/logo-fc-bur.png" alt="" width="34" height="30"><span>Fit Club</span></a>
-  <a class="btn btn-line btn-sm" href="#form" data-t="ctaSm">Записаться</a>
-</div></header>
+<!-- неподвижный фон: ткань со складкой сбоку + графитовый слой для тёмных сцен -->
+<div class="bg" aria-hidden="true"><div class="bg-mat"></div><div class="bg-dark"></div></div>
+<div class="cursor" aria-hidden="true"><i></i></div>
 
-<main id="top">
-<section class="hero" data-watch="hero">
-  <div class="blob b1"></div><div class="blob b2"></div>
+<header class="top">
+  <a class="logo" href="#hero" aria-label="Fit Club, наверх"><span class="logo-fc" data-text="FC">FC</span><span class="logo-name">Fit Club</span></a>
+  <div class="top-r"><button class="vp-btn" id="vpBtn" type="button" aria-expanded="false" aria-controls="vp" aria-label="Варианты оформления"><span class="vp-ic" aria-hidden="true"></span><span class="vp-t">Варианты</span></button><a class="btn btn-s" href="#form"><span class="btn-t" data-t="кнопка_малая">Записаться</span></a></div>
+</header>
+
+<main>
+<!-- 1. ОФФЕР -->
+<section class="sc hero" id="hero" data-watch="hero">
   <div class="wrap hero-grid">
-    <div class="hero-a">
-      <span class="eyebrow" data-t="label">Набор открыт · 7-й поток</span>
-      <h1><span data-t="title">Марафон</span> <span class="acc" data-t="accent">в своём ритме</span></h1>
-      <p class="lead" data-t="lead">3 недели с тренером Катей: тренировки дома или в зале, КБЖУ лично под тебя, закрытый чат и книга рецептов в подарок. Старт 23 ноября.</p>
-      <div class="cta-row"><a class="btn" href="#form" data-t="cta">Оставить заявку</a><a class="btn btn-line" href="#inside">Что внутри</a></div>
+    <div class="hero-txt">
+      <p class="hero-tag" data-t="метка">Набор открыт · 7-й поток</p>
+      <h1 class="h1"><span class="ln" data-t="заголовок">Марафон</span> <span class="ln" data-t="заголовок_акцент">в своём ритме</span></h1>
+      <p class="lead" data-t="подзаголовок">3 недели с тренером Катей: тренировки дома или в зале, КБЖУ лично под тебя, закрытый чат и книга рецептов в подарок. Старт 23 ноября.</p>
+
+      <div class="timer" id="timer">
+        <p class="timer-lab" id="cdLabel" data-t="отсчёт">До старта</p>
+        <div class="timer-row" id="cd">
+          <span class="tn tn-d"><b id="cdD">5</b><em>дн</em></span>
+          <span class="tn-gap" aria-hidden="true"></span>
+          <span class="tn"><b id="cdH">00</b><em>ч</em></span>
+          <span class="tn-col" aria-hidden="true">:</span>
+          <span class="tn"><b id="cdM">00</b><em>мин</em></span>
+          <span class="tn tn-s"><b id="cdS">00</b><em>сек</em></span>
+        </div>
+        <p class="timer-note" id="cdNote" hidden></p>
+        <p class="timer-sub">Можно войти и когда марафон уже идёт, но без скидок.</p>
+      </div>
+
+      <div class="hero-cta">
+        <a class="btn btn-l" href="#form"><span class="btn-t" data-t="кнопка">Оставить заявку</span><span class="btn-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+        <a class="btn-ghost" href="#price">5 000 ₽ за 3 недели</a>
+      </div>
     </div>
-    <div class="hero-b">
-      <div class="facts"><span class="chip">3 недели</span><span class="chip">3 тренировки в неделю</span><span class="chip">КБЖУ лично</span><span class="chip">дома или в зале</span></div>
-      <div class="cd-label" id="cdLabel" data-t="cdLabel" hidden>До старта</div>
-      <div class="cd" id="cd" hidden><div class="cell"><b id="cdD">0</b><small id="cdDl">дней</small></div><div class="cell"><b id="cdH">00</b><small>часов</small></div><div class="cell"><b id="cdM">00</b><small>минут</small></div></div>
-      <span class="cd-note" id="cdNote" hidden></span>
-      <div class="promo-rib" data-promo data-only="open"><span aria-hidden="true">🎁</span><span>Скидка 5&nbsp;% по промокоду из ВК, Telegram или Instagram, до 21 ноября. <span id="promoYours" hidden></span></span></div>
-      <div class="promo-rib" data-only="open"><span aria-hidden="true">👯</span><span>Приведи подругу: ей −10&nbsp;%, тебе −500 ₽ на следующий поток. <a href="#friend">Подробнее</a></span></div>
-      <div class="promo-rib ret" data-ret data-only="open"><span aria-hidden="true">💌</span><span>Если ты уже занималась с Катей: промокод <b>ВЕРНИСЬ10</b>, −10&nbsp;% (4 500 ₽), до 21 ноября.</span></div>
-      <div class="soc hero-soc"><a href="https://vk.ru/fitclub_marafon" target="_blank" rel="noopener" aria-label="ВКонтакте" title="ВКонтакте"><svg viewBox="0 0 24 24" aria-hidden="true"><text x="12" y="15.6" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="10.5" fill="currentColor">VK</text></svg></a><a href="https://t.me/fitclub_marafon" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M20.5 4.2 3.6 10.7c-.8.3-.8 1.4 0 1.6l4.2 1.3 1.6 5c.2.6 1 .8 1.4.3l2.3-2.3 4.3 3.2c.6.4 1.4.1 1.5-.6l2.5-14c.1-.8-.7-1.4-1.4-1z"/><path d="m8 13.7 9.3-6.6-6.9 8"/></svg></a><a href="https://www.instagram.com/catherina24/" target="_blank" rel="noopener" aria-label="Instagram @catherina24" title="Instagram @catherina24"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4.6"/><circle cx="12" cy="12" r="3.7"/><circle cx="16.9" cy="7.1" r=".6" fill="currentColor"/></svg></a></div>
-      <p class="price-line" data-only="open"><b>5 000 ₽</b> за 3 недели · старт <span>23 ноября</span></p>
+
+    <figure class="hero-video">
+      <!-- файл видео задаётся в js/config.js: helloVideo -->
+      <video id="helloVid" playsinline muted loop preload="metadata" aria-label="Катя приветствует: видео"></video>
+      <div class="vol" id="helloVol">
+        <button class="snd" id="helloSnd" type="button" aria-pressed="false"><span class="snd-ic" aria-hidden="true"></span><span class="snd-t">Включить звук</span></button>
+        <label class="vol-r"><span class="vol-l">Громкость</span><input id="helloVolR" type="range" min="0" max="100" value="35" aria-label="Громкость видео"></label>
+      </div>
+      
+    </figure>
+  </div>
+</section>
+
+<!-- 2. ПОДОЙДЁТ ЛИ -->
+<section class="sc fit" id="fit">
+  <div class="wrap">
+    <h2 class="h2">Если ты узнала себя, тебе сюда</h2>
+    <ol class="fit-list">
+      <li class="fit-i"><i class="fit-dot" data-burst aria-hidden="true"></i><span>Давно хотела начать заботиться о себе, но всё откладывала</span></li>
+      <li class="fit-i"><i class="fit-dot" data-burst aria-hidden="true"></i><span>Начинала с понедельника и срывалась</span></li>
+      <li class="fit-i"><i class="fit-dot" data-burst aria-hidden="true"></i><span>Ты новичок, и тебе неловко: упражнения объясняют, оценок нет</span></li>
+      <li class="fit-i"><i class="fit-dot" data-burst aria-hidden="true"></i><span>Мало времени: тренировки в записи, делаешь, когда удобно</span></li>
+      <li class="fit-i"><i class="fit-dot" data-burst aria-hidden="true"></i><span>Не хочешь жить с запретами: любимое остаётся, мы вписываем его в рамки</span></li>
+    </ol>
+    <p class="note-big">Есть ограничения по здоровью (беременность, диабет, давление, травмы)? Напиши об этом Кате до записи: подберём спокойный вариант. Советы по здоровью на сайте не даём, это разговор лично.</p>
+  </div>
+</section>
+
+<!-- 3. ЧТО ВХОДИТ: пузыри разных размеров -->
+<section class="sc inside" id="inside">
+  <div class="wrap inside-grid">
+    <div class="inside-txt">
+      <h2 class="h2">Всё, что нужно, чтобы начать и не бросить</h2>
+      <p class="bub-hint"><span class="bub-hint-ic" aria-hidden="true">+</span>Нажми на любой круг: здесь появится подробность</p>
+      <div class="inside-detail" id="bubDetail" aria-live="polite">
+        <h3 class="h3" id="bubT">3 тренировки в неделю</h3>
+        <p id="bubP">Дома или в зале, около 40–60 минут. Видео в записи, Катя объясняет каждое упражнение.</p>
+      </div>
     </div>
-    <div class="arch-wrap">
-      <div class="arch"><img src="assets/img/katya-window.webp" width="721" height="1280" alt="Катя, тренер Fit Club, у окна" style="object-position:50% 38%"></div>
-      <div class="arch-tag">Тренер Катя</div>
+    <div class="bubbles" id="bubbles">
+      <button class="bub b1 on" type="button" data-t="3 тренировки в неделю" data-p="Дома или в зале, около 40–60 минут. Видео в записи, Катя объясняет каждое упражнение."><span class="bub-in"><b>3</b><em>тренировки в неделю</em></span></button>
+      <button class="bub b2" type="button" data-t="КБЖУ лично для тебя" data-p="Считаем под твои данные и помогаем собрать рацион из обычных магазинов."><span class="bub-in"><b>КБЖУ</b><em>лично</em></span></button>
+      <button class="bub b3" type="button" data-t="Около 40–60 минут" data-p="Столько занимает одна тренировка. Дома или в зале, в удобное время."><span class="bub-in"><b>40–60</b><em>минут</em></span></button>
+      <button class="bub b4" type="button" data-t="Закрытый чат и поддержка" data-p="Девочки рядом, а Катя отвечает в чате каждый день: подскажет, поправит и поддержит."><span class="bub-in"><b>чат</b><em>каждый день</em></span></button>
+      <button class="bub b5" type="button" data-t="Небольшие задания каждый день" data-p="Такие, которые легко встроить в обычный день."><span class="bub-in"><b>21</b><em>день заданий</em></span></button>
+      <button class="bub b6" type="button" data-t="Книга рецептов в подарок" data-p="Вкусные рецепты, которые вписываются в твоё питание."><span class="bub-in"><b>книга</b><em>в подарок</em></span></button>
     </div>
   </div>
 </section>
 
-<section class="band" id="inside"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Что внутри</span><h2>Всё, что нужно, <span class="acc">чтобы начать и не бросить</span></h2></div>
-  <div class="cards"><div class="card"><span class="num">01</span><h3>3 тренировки в неделю</h3><p>Дома или в зале, около 40–60 минут. Видео в записи, Катя объясняет каждое упражнение.</p></div><div class="card"><span class="num">02</span><h3>КБЖУ лично для тебя</h3><p>Считаем под твои данные и помогаем собрать рацион из обычных магазинов.</p></div><div class="card"><span class="num">03</span><h3>Небольшие задания каждый день</h3><p>Такие, которые легко встроить в обычный день.</p></div><div class="card"><span class="num">04</span><h3>Закрытый чат и поддержка</h3><p>Девочки рядом, а Катя отвечает в чате каждый день: подскажет, поправит и поддержит.</p></div><div class="card"><span class="num">05</span><h3>Книга рецептов в подарок</h3><p>Вкусные рецепты, которые вписываются в твоё питание.</p></div></div>
-</div></section>
-
-<section id="day"><div class="wrap split rev">
-  <div class="arch-wrap arch-sm"><div class="arch"><img src="assets/img/katya-stand.webp" width="724" height="1280" alt="Катя на тренировке в стойке на предплечьях" loading="lazy" style="object-position:45% 55%"></div></div>
-  <div>
-    <span class="eyebrow">Как проходит день</span>
-    <h2>Ничего <span class="acc">«через силу»</span></h2>
-    <p class="note" style="margin-bottom:22px">Идём в твоём ритме, а Катя рядом и подсказывает.</p>
-    <ol class="steps"><li><small>Утро</small><span>Зарядка, пока кипит чайник</span></li><li><small>День</small><span>Вода, шаги, еда по твоему КБЖУ</span></li><li><small>Тренировочный день</small><span>Тренировка по видео, дома или в зале</span></li><li><small>Вечер</small><span>Короткий отчёт в чат, Катя его читает</span></li></ol>
+<!-- 4. ТРИ НЕДЕЛИ: ритм дня -->
+<section class="sc weeks" id="weeks">
+  <div class="wrap">
+    <div class="weeks-head">
+      <h2 class="h2">Три недели, один понятный ритм</h2>
+      <p class="lead">Ничего «через силу». Идём в твоём ритме, а Катя рядом и подсказывает.</p>
+    </div>
+    <div class="day" id="day">
+      <div class="day-line" aria-hidden="true"><i></i></div>
+      <article class="day-i"><p class="day-t">Утро</p><p class="day-x">Зарядка, пока кипит чайник</p></article>
+      <article class="day-i"><p class="day-t">День</p><p class="day-x">Вода, шаги, еда по твоему КБЖУ</p></article>
+      <article class="day-i"><p class="day-t">Тренировочный день</p><p class="day-x">Тренировка по видео, дома или в зале</p></article>
+      <article class="day-i"><p class="day-t">Вечер</p><p class="day-x">Короткий отчёт в чат, Катя его читает</p></article>
+    </div>
+    <div class="weekly">
+      <div class="weekly-num"><b class="count" data-to="21">21</b><span>день вместе</span></div>
+      <div class="weekly-txt">
+        <h3 class="h3">Каждую неделю</h3>
+        <ul class="ticks">
+          <li>3 тренировки, дома или в зале, около 40–60 минут</li>
+          <li>ежедневные небольшие задания</li>
+          <li>питание по твоему КБЖУ</li>
+          <li>отчёты и вопросы в закрытом чате</li>
+        </ul>
+        <p class="chips-lab">Темы закрытого чата</p>
+        <ul class="chips"><li>Питание</li><li>Отчёты</li><li>Вопросы</li><li>Тренировки</li><li>Рецепты</li><li>Уход</li><li>Растяжка</li></ul>
+      </div>
+    </div>
   </div>
-</div></section>
+</section>
 
-<section class="band" id="week"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Как проходит неделя</span><h2>Три недели, <span class="acc">один понятный ритм</span></h2></div>
-  <div class="weeks"><div class="wk"><div class="n">1</div><div><b>Неделя 1</b><span data-only="open running">23–29 ноября</span></div></div><div class="wk"><div class="n">2</div><div><b>Неделя 2</b><span data-only="open running">30 ноября – 6 декабря</span></div></div><div class="wk"><div class="n">3</div><div><b>Неделя 3</b><span data-only="open running">7–13 декабря</span></div></div></div>
-  <div class="two">
-    <div class="box"><h3>Каждую неделю</h3><ul class="ticks"><li>3 тренировки, дома или в зале, около 40–60 минут</li><li>ежедневные небольшие задания</li><li>питание по твоему КБЖУ</li><li>отчёты и вопросы в закрытом чате</li></ul></div>
-    <div class="box"><h3>Темы закрытого чата</h3><div class="tags"><span>Питание</span><span>Отчёты</span><span>Вопросы</span><span>Тренировки</span><span>Рецепты</span><span>Уход</span><span>Растяжка</span></div></div>
+<!-- 5. КАТЯ -->
+<section class="sc katya" id="katya">
+  <div class="wrap katya-grid">
+    <figure class="katya-ph">
+      <img src="assets/img/katya-portrait.jpg" alt="Тренер Катя" loading="lazy" width="693" height="866">
+    </figure>
+    <div class="katya-txt">
+      <h2 class="h2">Кто ведёт: Катя</h2>
+      <p class="quote">Меня зовут Катя. Я больше 10 лет тренируюсь сама и с апреля веду марафоны. Я не ругаю и не заставляю через силу: учу делать с удовольствием, есть осознанно, с вкусняшками каждый день, и всё равно идти к результату.</p>
+      <p class="lead">Мне важно, чтобы тебе было просто и приятно.</p>
+      <div class="katya-facts">
+        <p><b class="count" data-to="10">10</b><span>+ лет тренируется сама</span></p>
+        <p><b>апрель</b><span>с этого времени ведёт марафоны</span></p>
+      </div>
+      <a class="btn-ghost" href="https://t.me/catherina2442" target="_blank" rel="noopener">Написать Кате в Telegram</a>
+    </div>
   </div>
-</div></section>
+</section>
 
-<section id="who"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Для кого</span><h2>Если ты узнала себя, <span class="acc">тебе сюда</span></h2></div>
-  <ul class="who"><li>Давно хотела начать заботиться о себе, но всё откладывала</li><li>Начинала с понедельника и срывалась</li><li>Ты новичок, и тебе неловко: упражнения объясняют, оценок нет</li><li>Мало времени: тренировки в записи, делаешь, когда удобно</li><li>Не хочешь жить с запретами: любимое остаётся, мы вписываем его в рамки</li></ul>
-  <p class="callout">Есть ограничения по здоровью (беременность, диабет, давление, травмы)? Напиши об этом Кате до записи: подберём спокойный вариант. Советы по здоровью на сайте не даём, это разговор лично.</p>
-</div></section>
-
-<section class="band" id="food"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Питание и КБЖУ</span><h2>Без запретов <span class="acc">и без срывов</span></h2><p>Катя считает КБЖУ каждой участнице лично. За основу берём обычную еду из ближайших магазинов, любимые вкусняшки остаются: мы вписываем их в рамки.</p></div>
-  <div class="box"><ul class="ticks"><li>Анкета: рост, вес, возраст, уровень активности, ограничения по здоровью. По ней считаем КБЖУ</li><li>Подсказки по заменам, например греческий йогурт вместо сметаны или майонеза</li><li>Рецепты и разбор продуктов в закрытом чате</li><li>Сорвалась? Пишешь Кате, и вы спокойно возвращаетесь, без стыда</li></ul></div>
-  <p class="honest">Честно: Катя не обещает «минус 5 кг за 3 недели», у каждой всё по-своему. Она учит есть вкусно без срывов, двигаться с удовольствием и закреплять привычки надолго.</p>
-</div></section>
-
-<section class="book" id="book"><div class="wrap split">
-  <div class="book-ph"><div class="frame"><img src="assets/img/book-recipe.webp" width="900" height="1260" alt="Сырники с ягодами на бургундском бархате" loading="lazy"></div><div class="badge">в подарок</div></div>
-  <div>
-    <span class="eyebrow">Подарок</span>
-    <h2>Книга рецептов <span class="acc">в подарок</span></h2>
-    <p style="margin-top:16px;font-size:17px">Книга рецептов в подарок каждой участнице марафона. Вкусные идеи, которые вписываются в твоё питание.</p>
+<!-- 6. ДО И ПОСЛЕ (фото с согласия) -->
+<section class="sc proof" id="proof">
+  <div class="wrap">
+    <h2 class="h2">Участницы марафона</h2>
+    <div class="ba-tabs" role="tablist" aria-label="Истории до и после">
+      <button role="tab" aria-selected="true" data-case="F">Катя, тренер</button>
+      <button role="tab" aria-selected="false" data-case="A">Участница 1</button>
+      <button role="tab" aria-selected="false" data-case="C">Участница 2</button>
+      <button role="tab" aria-selected="false" data-case="B">Участница 3</button>
+    </div>
+    <div class="ba-mode" role="tablist" aria-label="Как показать">
+      <button role="tab" aria-selected="true" data-bam="cmp">Сравнение до и после</button>
+      <button role="tab" aria-selected="false" data-bam="car">Карусель историй</button>
+    </div>
+    <div class="bacar" id="bacar" hidden>
+      <p class="bacar-lead">Так выглядит марафон для каждой: в своём ритме, с поддержкой Кати.</p>
+      <div class="bacar-stage" id="bacarStage" tabindex="0" aria-label="Карусель: листай стрелками или пальцем"></div>
+      <div class="bacar-nav"><button class="bacar-ar" type="button" data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><div class="bacar-dots" id="bacarDots"></div><button class="bacar-ar" type="button" data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
+    </div>
+    <div class="ba" id="baCmp">
+      <div class="ba-collage">
+        <div class="cmp" id="cmp" style="--p:50%">
+          <img class="cmp-a" id="baDo" src="assets/ba/F_do.jpg" alt="До" loading="lazy">
+          <div class="cmp-b"><img id="baPo" src="assets/ba/F_po.jpg" alt="После" loading="lazy"></div>
+          <span class="cmp-lab l">до</span><span class="cmp-lab r">после</span>
+          <span class="cmp-h" aria-hidden="true"><i></i></span>
+          <input class="cmp-r" type="range" min="0" max="100" value="50" aria-label="Сравнить до и после: сдвинь">
+        </div>
+        <figure class="ba-mini" id="baMini"><img id="baMiniImg" src="assets/ba/F_po2.jpg" alt="После, вид сзади" loading="lazy"></figure>
+      </div>
+      <aside class="ba-card">
+        <p class="ba-kicker" id="baKick">Катя, тренер Fit Club</p>
+        <h3 class="h3" id="baHead">Чуть больше года</h3>
+        <ul class="ba-nums" id="baNums"></ul>
+        <p class="ba-say" id="baSay"></p>
+      </aside>
+    </div>
+    <p class="ba-plaque">Результаты индивидуальны. Фото опубликованы с согласия. Лица участниц закрыты.</p>
   </div>
-</div></section>
+</section>
 
-<section id="reviews"><div class="wrap"><div class="sec-head"><span class="eyebrow">Отзывы</span><h2>Что говорят <span class="acc">участницы</span></h2></div><div class="revs"><figure class="rev"><blockquote>Понятная система подсчёта калорий. До марафона я боялась даже думать о подсчётах, казалось, это сложно и скучно. Ты объяснила всё так доступно, что я быстро втянулась. … В чате царит дружелюбная атмосфера, никто не осуждает за срывы, все делятся успехами и поддерживают друг друга.</blockquote><figcaption>Участница марафона</figcaption></figure><figure class="rev"><blockquote>Во-первых, Катя, ты безумно прекрасный человек, который, в первую очередь, учит не худеть, а слышать себя. … Во-вторых, твоя поддержка на период ДВУХ моих марафонов - это колоссальный труд, который ты вкладывала в нас. В-третьих, я просто кайфанула, научилась правильно питаться, научилась ценить свое тело и выбирать то, что я ему даю.</blockquote><figcaption>Участница марафона</figcaption></figure><figure class="rev"><blockquote>Катюшка, спасибо большое за такое прекрасное наставничество! За то, что научила как правильно и сбалансировано трапезничать. Я поняла, как правильно держать баланс в кбжу. … Девочки, спасибо за позитивную и приятную компанию!</blockquote><figcaption>Участница марафона</figcaption></figure><figure class="rev"><blockquote>Обязательно хочу вернуться, как стану посвободнее чтобы уделять время чату и общению и сильнее втянуться в атмосферу марафона … больше ни какие марафоны не рассматриваю, только к тебе.</blockquote><figcaption>Участница марафона</figcaption></figure></div><p class="callout">Мнение участниц. Результаты индивидуальны.</p></div></section>
-
-<section class="band" id="results"><div class="wrap"><div class="sec-head"><span class="eyebrow">Результаты</span><h2>Участницы марафона</h2></div><div class="ba-ba_cards_list"><figure class="ba-card"><img src="assets/img/ba/dopos_F_katya_trener_site_1000_v1.webp" alt="До и после: результат участницы марафона" loading="lazy"></figure><figure class="ba-card"><img src="assets/img/ba/dopos_A_zamery_25kg_site_1000_v1.webp" alt="До и после: результат участницы марафона" loading="lazy"></figure><figure class="ba-card"><img src="assets/img/ba/dopos_B_3nedeli_talia_site_1000_v1.webp" alt="До и после: результат участницы марафона" loading="lazy"></figure><figure class="ba-card"><img src="assets/img/ba/dopos_C_zamery_8kg_site_1000_v1.webp" alt="До и после: результат участницы марафона" loading="lazy"></figure><figure class="ba-card"><img src="assets/img/ba/dopos_D_3nedeli_pary_site_1000_v1.webp" alt="До и после: результат участницы марафона" loading="lazy"></figure><figure class="ba-card"><img src="assets/img/ba/dopos_E_bez_cifr_site_1000_v1.webp" alt="До и после: результат участницы марафона" loading="lazy"></figure></div><p class="callout">Результаты индивидуальны. Фото опубликованы с согласия участниц.</p></div></section>
-
-<section class="friend" id="friend" data-only="open"><div class="wrap"><span class="eyebrow">Приведи подругу</span><h2>Вместе <span class="acc">веселее и дешевле</span></h2><p style="margin-top:14px;font-size:17px">Приглашай подругу в марафон: ей скидка 10 %, тебе −500 ₽ на следующий поток. Подруга пишет в заявке твоё имя, Катя всё посчитает.</p><div class="box" style="margin-top:18px"><ul class="ticks"><li>Подруге: −10 % на этот поток (4 500 ₽)</li><li>Тебе: −500 ₽ на следующий поток</li><li>Скидки можно суммировать с промокодами, итог посчитает Катя</li></ul></div><p style="margin-top:18px"><a class="btn" href="#form">Позвать подругу</a></p></div></section>
-
-<section class="band" id="follow"><div class="wrap"><div class="sec-head"><span class="eyebrow">Мы на связи</span><h2>Подпишись и <span class="acc">будь в курсе</span></h2></div><div class="qr-grid"><a class="qr-card" href="https://t.me/fitclub_marafon" target="_blank" rel="noopener">
-  <div class="qr-box"><img class="qr-img" src="assets/img/qr-tg.svg" alt="QR-код: Telegram-канал" width="220" height="220" loading="lazy">
-  <span class="qr-badge" style="background:#2AABEE"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M5 12.4 21.4 6c.8-.3 1.5.2 1.2 1.3l-2.8 13.2c-.2.9-.8 1.1-1.5.7l-4.2-3.1-2 2c-.2.2-.4.4-.8.4l.3-4.3 7.8-7c.3-.3-.1-.4-.5-.2l-9.7 6.1-4.2-1.3c-.9-.3-.9-.9.2-1.4Z" fill="#fff"/></svg></span></div>
-  <h3>Telegram-канал</h3><p>Анонсы потока и полезное. Наведи камеру</p></a><a class="qr-card" href="https://vk.ru/fitclub_marafon" target="_blank" rel="noopener">
-  <div class="qr-box"><img class="qr-img" src="assets/img/qr-vk.svg" alt="QR-код: Группа ВКонтакте" width="220" height="220" loading="lazy">
-  <span class="qr-badge" style="background:#0077FF"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><text x="12" y="16.5" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="11" fill="#fff">VK</text></svg></span></div>
-  <h3>Группа ВКонтакте</h3><p>Новости и результаты. Наведи камеру</p></a></div></div></section>
-
-<section id="price"><div class="wrap">
-  <div class="price-box">
-    <span class="eyebrow">Стоимость</span>
-    <div class="price-big">5 000 ₽<small>за 3 недели</small></div>
-    <p class="price-promo" data-promo data-only="open">Промокод даёт −5&nbsp;%: <b>4 750 ₽</b> при оплате до 21 ноября.</p>
-    <p class="price-promo" data-ret data-only="open">Занималась с Катей раньше? Промокод <b>ВЕРНИСЬ10</b> даёт −10&nbsp;%: <b>4 500 ₽</b> при оплате до 21 ноября.</p>
-    <p class="note" data-t="priceNote" style="margin-top:12px">Набор до 22 ноября. Места ограничены.</p>
-    <ul class="ticks"><li>3 тренировки в неделю, дома или в зале, около 40–60 минут</li><li>КБЖУ лично для тебя</li><li>ежедневные задания</li><li>закрытый чат, Катя отвечает каждый день</li><li>книга рецептов в подарок</li></ul>
-    <h3>Как записаться</h3>
-    <ol class="order"><li>Оставляешь заявку здесь</li><li>Катя пишет тебе и отвечает на вопросы</li><li>Оплата переводом (можно в два платежа, договорись с Катей в личке), и ты в закрытом чате</li><li>Заполняешь анкету для расчёта КБЖУ и стартуешь</li></ol>
-    <a class="btn" href="#form" data-t="cta">Оставить заявку</a>
+<!-- 6б. ОТЗЫВЫ -->
+<section class="sc reviews" id="reviews">
+  <div class="wrap">
+    <h2 class="h2">Что говорят участницы</h2>
+    <div class="rv-track">
+      <blockquote class="rev"><p>Понятная система подсчёта калорий. До марафона я боялась даже думать о подсчётах, казалось, это сложно и скучно. Ты объяснила всё так доступно, что я быстро втянулась. … В чате царит дружелюбная атмосфера, никто не осуждает за срывы.</p><cite>Участница марафона</cite></blockquote>
+      <blockquote class="rev"><p>Катя, ты безумно прекрасный человек, который, в первую очередь, учит не худеть, а слышать себя. … Я просто кайфанула, научилась правильно питаться, научилась ценить своё тело и выбирать то, что я ему даю.</p><cite>Участница марафона</cite></blockquote>
+      <blockquote class="rev"><p>Катюшка, спасибо большое за такое прекрасное наставничество! За то, что научила как правильно и сбалансированно трапезничать. Я поняла, как правильно держать баланс в КБЖУ.</p><cite>Участница марафона</cite></blockquote>
+      <blockquote class="rev"><p>Обязательно хочу вернуться, как стану посвободнее … больше никакие марафоны не рассматриваю, только к тебе.</p><cite>Участница марафона</cite></blockquote>
+    </div>
+    <p class="small-note">Мнение участниц. Результаты индивидуальны.</p>
   </div>
-</div></section>
+</section>
 
-<section class="band" id="faq"><div class="wrap" style="max-width:760px">
-  <div class="sec-head"><span class="eyebrow">Частые вопросы</span><h2>Отвечаем <span class="acc">честно</span></h2></div>
-  <details><summary>Дорого</summary><p>5 000 ₽ за 3 недели: тренировки, КБЖУ лично, чат с поддержкой и книга рецептов в подарок. Если хочется подумать, напиши Кате, что смущает.</p></details><details><summary>Нет времени</summary><p>Тренировок три в неделю, около 40–60 минут, видео в записи, делаешь, когда удобно. Задания небольшие. Идём в твоём ритме, без «через силу».</p></details><details><summary>Я новичок, мне неловко</summary><p>Катя объясняет каждое упражнение. В чате девочки поддерживают друг друга, а не оценивают. Если есть ограничения по здоровью, спросим в анкете и подберём спокойный вариант.</p></details><details><summary>Боюсь запретов и срывов</summary><p>Запретов нет: КБЖУ считаем лично, любимое остаётся, вписываем в рамки. Сорвалась? Пишешь Кате, и вы возвращаетесь без стыда.</p></details><details><summary>А будет результат?</summary><p>Честно: Катя не обещает «минус 5 кг за 3 недели», у каждой всё по-своему. Она обещает другое: научит есть вкусно и без срывов, двигаться с удовольствием и закрепить привычки надолго.</p></details><details><summary>Где проходят тренировки?</summary><p>Там, где тебе удобно: дома или в зале. Одна тренировка занимает около 40–60 минут, видео в записи.</p></details><details><summary>Как оплатить?</summary><p>После заявки Катя напишет тебе и пришлёт реквизиты. Оплата переводом. Можно оплатить в два платежа, договорись с Катей в личке. Сейчас платить ничего не нужно.</p></details>
-</div></section>
+<!-- 7. ЗАЛ И ЕДА: живые ленты -->
+<section class="sc gallery" id="gallery">
+  <div class="wrap gal-head">
+    <h2 class="h2">Как это выглядит</h2>
+    <p class="lead">Тренировки Кати и её обычная еда за день. Видео без звука.</p>
+  </div>
+  <div class="lane lane-a" aria-label="Тренировки">
+    <div class="lane-in">
+      <figure class="tile v"><video muted loop playsinline preload="none" poster="assets/video/gym1.jpg" data-src="assets/video/gym1.mp4"></video><figcaption>Разминка</figcaption></figure>
+      <figure class="tile v"><video muted loop playsinline preload="none" poster="assets/video/katya_talk1.jpg" data-src="assets/video/katya_talk1.mp4"></video><figcaption>Катя на связи</figcaption></figure>
+      <figure class="tile v"><video muted loop playsinline preload="none" poster="assets/video/gym_barre.jpg" data-src="assets/video/gym_barre.mp4"></video><figcaption>Растяжка у станка</figcaption></figure>
+      <figure class="tile v"><video muted loop playsinline preload="none" poster="assets/video/gym2.jpg" data-src="assets/video/gym2.mp4"></video><figcaption>Присед и выпад</figcaption></figure>
+      <figure class="tile ph"><img src="assets/img/katya-window.webp" alt="Катя у окна" loading="lazy"></figure>
+      <figure class="tile v"><video muted loop playsinline preload="none" poster="assets/video/gym_explain.jpg" data-src="assets/video/gym_explain.mp4"></video><figcaption>Катя объясняет</figcaption></figure>
+      <figure class="tile v"><video muted loop playsinline preload="none" poster="assets/video/katya_talk2.jpg" data-src="assets/video/katya_talk2.mp4"></video><figcaption>Дома или в зале</figcaption></figure>
+      <figure class="tile v"><video muted loop playsinline preload="none" poster="assets/video/gym4.jpg" data-src="assets/video/gym4.mp4"></video><figcaption>Тренировка в зале</figcaption></figure>
+    </div>
+  </div>
+  <div class="lane lane-b" aria-label="Еда">
+    <div class="lane-in">
+      <figure class="tile v"><video muted loop playsinline preload="none" poster="assets/video/food1.jpg" data-src="assets/video/food1.mp4"></video><figcaption>Завтрак, 753 ккал</figcaption></figure>
+      <figure class="tile v"><video muted loop playsinline preload="none" poster="assets/video/food_snack.jpg" data-src="assets/video/food_snack.mp4"></video><figcaption>Перекус</figcaption></figure>
+      <figure class="tile v"><video muted loop playsinline preload="none" poster="assets/video/food2.jpg" data-src="assets/video/food2.mp4"></video><figcaption>Ужин, 598 ккал</figcaption></figure>
+      <figure class="tile v"><video muted loop playsinline preload="none" poster="assets/video/food3.jpg" data-src="assets/video/food3.mp4"></video><figcaption>Вафли и бутерброды</figcaption></figure>
+      <figure class="tile v"><video muted loop playsinline preload="none" poster="assets/video/food4.jpg" data-src="assets/video/food4.mp4"></video><figcaption>Макароны с котлетой</figcaption></figure>
+      <figure class="tile ph stub"><span>ФОТО<br>тарелка участницы из чата (с согласия)</span></figure>
+    </div>
+  </div>
+</section>
 
-<section class="form-sec" id="form" data-watch="form"><div class="wrap">
-  <div class="form-card">
-    <div id="formBody">
-      <span class="eyebrow">Заявка</span>
-      <h2 data-t="formTitle">Оставь заявку</h2>
-      <p class="sub" data-t="formSub">Катя напишет тебе и расскажет, как записаться и оплатить. Ничего платить сейчас не нужно.</p>
-      <form id="leadForm" novalidate autocomplete="on">
-        <div class="fld"><label for="fName">Как тебя зовут</label><input id="fName" name="name" type="text" maxlength="60" autocomplete="given-name" placeholder="Имя" required><div class="err" id="eName"></div></div>
-        <div class="fld"><span class="lb">Как с тобой связаться</span><div class="seg" role="radiogroup"><input type="radio" name="ctype" id="ct_telegram" value="telegram" checked><label for="ct_telegram">Telegram</label><input type="radio" name="ctype" id="ct_vk" value="vk"><label for="ct_vk">ВКонтакте</label><input type="radio" name="ctype" id="ct_phone" value="phone"><label for="ct_phone">Телефон</label></div><input id="fContact" name="contact" type="text" maxlength="80" aria-label="Как с тобой связаться" required><div class="err" id="eContact"></div></div>
-        <div class="fld"><label for="fGoal">Твоя цель</label><select id="fGoal" name="goal"><option value="">Выбери, что ближе</option><option value="Начать тренироваться регулярно">Начать тренироваться регулярно</option><option value="Наладить питание без срывов">Наладить питание без срывов</option><option value="Привести себя в форму">Привести себя в форму</option><option value="Нужны режим и поддержка">Нужны режим и поддержка</option><option value="Пока не знаю, расскажите">Пока не знаю, расскажите</option></select></div>
-        <div class="fld" data-only="open"><label for="fPromo">Промокод (если есть)</label><input id="fPromo" name="promo" type="text" maxlength="30" autocomplete="off" placeholder="Например, из группы ВК"></div>
-        <div class="fld" data-only="open"><label for="fRef">Меня пригласила подруга (если есть)</label><input id="fRef" name="ref" type="text" maxlength="60" autocomplete="off" placeholder="Имя или ник той, кто позвала"></div>
-        <label class="agree again" data-ret data-only="open"><input id="fAgain" type="checkbox" name="again"><span>Я уже занималась с Катей (промокод ВЕРНИСЬ10, −10&nbsp;%)</span></label>
-        <div class="hp" aria-hidden="true"><label>Сайт<input id="fWebsite" name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
-        <label class="agree"><input id="fConsent" type="checkbox" name="consent"><span>Я согласна на обработку персональных данных и принимаю <a href="#policy" data-open-policy>политику обработки данных</a></span></label>
-        <div class="err" id="eConsent" style="margin:-12px 0 14px"></div>
-        <button class="btn" type="submit" data-t="formBtn">Отправить заявку</button>
-        <div class="form-msg" id="formMsg" hidden></div>
+<!-- 7б. ПИТАНИЕ -->
+<section class="sc food" id="food">
+  <div class="wrap food-grid">
+    <h2 class="h2">Без запретов и без срывов</h2>
+    <div class="food-txt">
+      <p class="lead">Катя считает КБЖУ каждой участнице лично. За основу берём обычную еду из ближайших магазинов, любимые вкусняшки остаются: мы вписываем их в рамки.</p>
+      <ul class="ticks">
+        <li>Рост, вес, возраст и активность нужны для расчёта после записи. Анкету здоровья на сайте не собираем.</li>
+        <li>Подсказки по заменам, например греческий йогурт вместо сметаны или майонеза</li>
+        <li>Рецепты и разбор продуктов в закрытом чате</li>
+        <li>Сорвалась? Пишешь Кате, и вы спокойно возвращаетесь, без стыда</li>
+      </ul>
+      <p class="honest">Честно: Катя не обещает «минус 5 кг за 3 недели», у каждой всё по-своему. Она учит есть вкусно без срывов, двигаться с удовольствием и закреплять привычки надолго.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. КНИГА И ПОДАРОК: тёмная сцена -->
+<section class="sc dark gift" id="gift">
+  <div class="gift-bgv" aria-hidden="true"><video muted loop playsinline preload="none" poster="assets/video/book-bg.jpg" data-src="assets/video/book-bg.mp4"></video></div>
+  <div class="wrap gift-in">
+    <div class="gift-head">
+      <h2 class="h2">Книга рецептов в подарок</h2>
+      <p class="lead">Каждой участнице марафона. Вкусные идеи, которые вписываются в твоё питание.</p>
+    </div>
+    <div class="gb">
+      <div class="gb-gift">
+        <div class="gift-wrap">
+          <div class="lever" id="lever" role="radiogroup" aria-label="Что делает подарок" style="--pos:0">
+            <div class="lever-track" aria-hidden="true"><i class="notch" style="--n:0"></i><i class="notch" style="--n:1"></i><i class="notch" style="--n:2"></i><div class="lever-knob"><i></i></div></div>
+            <div class="lever-stops">
+              <button type="button" role="radio" aria-checked="true" data-v="A" data-n="0">закрыть</button>
+              <button type="button" role="radio" aria-checked="false" data-v="B" data-n="1">открыть</button>
+              <button type="button" role="radio" aria-checked="false" data-v="C" data-n="2">крутить рукой</button>
+            </div>
+          </div>
+          <div class="stage" id="gift-stage">
+            <canvas id="gift-canvas" aria-label="Подарочная коробка Fit Club, 3D"></canvas>
+            <img class="static" src="assets/proto/gift_static.png" alt="Подарочная коробка Fit Club" loading="lazy">
+          </div>
+        </div>
+        <p class="hint" id="gift-hint"></p>
+        <p class="status" id="gift-status"></p>
+      </div>
+      <div class="gb-book">
+        <div class="book-stage">
+          <div class="book" id="book" tabindex="0" role="button" aria-label="Книга рецептов Fit Club: открыть">
+            <div class="b-shadow"></div>
+            <div class="board b-back"><div class="face out"></div><div class="edge e-r"></div><div class="edge e-t"></div><div class="edge e-b"></div></div>
+            <div class="b-spine"><span>FIT CLUB</span></div>
+            <div class="b-edge b-edge-r"></div><div class="b-edge b-edge-t"></div><div class="b-edge b-edge-b"></div>
+            <div class="b-bed"></div>
+            <div class="leaf last" style="--i:4"><div class="face f" style="background-image:url(assets/proto/v2_page8.jpg)"></div></div>
+            <div class="leaf" style="--i:3"><div class="face f" style="background-image:url(assets/proto/v2_page6.jpg)"></div><div class="face b" style="background-image:url(assets/proto/v2_page7.jpg)"></div></div>
+            <div class="leaf" style="--i:2"><div class="face f" style="background-image:url(assets/proto/v2_page4.jpg)"></div><div class="face b" style="background-image:url(assets/proto/v2_page5.jpg)"></div></div>
+            <div class="leaf" style="--i:1"><div class="face f" style="background-image:url(assets/proto/v2_page2.jpg)"></div><div class="face b" style="background-image:url(assets/proto/v2_page3.jpg)"></div></div>
+            <div class="leaf" style="--i:0"><div class="face f" style="background-image:url(assets/proto/v2_page0.jpg)"></div><div class="face b" style="background-image:url(assets/proto/v2_page1.jpg)"></div></div>
+            <div class="board b-cover"><div class="face out"><i class="gloss"></i></div><div class="face in"></div><div class="edge e-r"></div><div class="edge e-t"></div><div class="edge e-b"></div></div>
+          </div>
+        </div>
+        <p class="hint" id="book-hint">Наведи на книгу: она откроется и пролистает страницы. На телефоне коснись.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. УЧАСТИЕ -->
+<section class="sc price" id="price">
+  <div class="wrap price-grid">
+    <div class="price-main">
+      <h2 class="h2">Участие</h2>
+      <p class="price-num"><b>5 000</b><span>₽ за 3 недели</span></p>
+      <p class="lead" data-t="цена_заметка">Набор до 22 ноября. Можно оплатить двумя платежами.</p>
+      <ul class="ticks">
+        <li>3 тренировки в неделю, дома или в зале, около 40–60 минут</li>
+        <li>КБЖУ лично для тебя</li>
+        <li>ежедневные задания</li>
+        <li>закрытый чат, Катя отвечает каждый день</li>
+        <li>книга рецептов в подарок</li>
+      </ul>
+      <a class="btn btn-l" href="#form"><span class="btn-t">Оставить заявку</span><span class="btn-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+    <div class="price-side">
+      <div class="promo" data-promo>
+        <h3 class="h3">Промокод −5&nbsp;% до 21&nbsp;ноября</h3>
+        <p>Код из нашей группы: <b class="promo-sum">4 750 ₽</b> вместо 5 000 ₽.</p>
+        <div class="codes">
+          <button class="code" type="button" data-copy="ВК5" aria-label="Скопировать код ВК5"><span class="c-off">−5&nbsp;%</span><span class="c-body"><span class="c-code">ВК5</span><span class="c-hint">нажми, чтобы скопировать</span></span></button>
+          <button class="code" type="button" data-copy="ТГ5" aria-label="Скопировать код ТГ5"><span class="c-off">−5&nbsp;%</span><span class="c-body"><span class="c-code">ТГ5</span><span class="c-hint">нажми, чтобы скопировать</span></span></button>
+          <button class="code" type="button" data-copy="ИНСТА5" aria-label="Скопировать код ИНСТА5"><span class="c-off">−5&nbsp;%</span><span class="c-body"><span class="c-code">ИНСТА5</span><span class="c-hint">нажми, чтобы скопировать</span></span></button>
+        </div>
+      </div>
+      <div class="promo" data-ret>
+        <h3 class="h3">Уже занималась с Катей?</h3>
+        <p>Для участниц прошлых потоков код <b>ВЕРНИСЬ10</b>: −10 % до 21 ноября.</p>
+        <div class="codes"><button class="code" type="button" data-copy="ВЕРНИСЬ10" aria-label="Скопировать код ВЕРНИСЬ10"><span class="c-off">−10&nbsp;%</span><span class="c-body"><span class="c-code">ВЕРНИСЬ10</span><span class="c-hint">нажми, чтобы скопировать</span></span></button></div>
+      </div>
+      <div class="promo friend">
+        <h3 class="h3">Приведи подругу</h3>
+        <p>Подруге −10 % на этот поток (4 500 ₽), тебе −500 ₽ на следующий поток. Подруга пишет в заявке твоё имя, Катя всё посчитает.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. ПОСЛЕ ЗАЯВКИ -->
+<section class="sc after" id="after">
+  <div class="wrap">
+    <h2 class="h2">Как записаться</h2>
+    <ol class="steps">
+      <li class="step"><b data-burst>1</b><p>Оставляешь заявку здесь</p></li>
+      <li class="step"><b data-burst>2</b><p>Катя пишет тебе и отвечает на вопросы</p></li>
+      <li class="step"><b data-burst>3</b><p>Оплата переводом (можно в два платежа, договорись с Катей в личке), и ты в закрытом чате</p></li>
+      <li class="step"><b data-burst>4</b><p>Заполняешь анкету для расчёта КБЖУ и стартуешь</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 11. ФОРМА -->
+<section class="sc formsc" id="form" data-watch="form">
+  <div class="wrap form-grid">
+    <div class="form-head">
+      <h2 class="h2" data-t="форма_заголовок">Оставь заявку</h2>
+      <p class="lead" data-t="форма_подзаголовок">Катя напишет тебе и расскажет, как записаться и оплатить. Ничего платить сейчас не нужно.</p>
+    </div>
+    <div class="form-card">
+      <form id="leadForm" novalidate>
+        <div id="formBody">
+          <label class="fld fl"><input id="fName" name="name" autocomplete="given-name" placeholder="Имя"><span class="fld-l">Как тебя зовут</span><i class="fl-bar" aria-hidden="true"></i><span class="err" id="eName"></span></label>
+          <fieldset class="fld"><legend class="fld-l">Как с тобой связаться</legend>
+            <div class="seg" role="radiogroup">
+              <label><input type="radio" name="ctype" value="telegram" checked><span>Telegram</span></label>
+              <label><input type="radio" name="ctype" value="vk"><span>ВКонтакте</span></label>
+              <label><input type="radio" name="ctype" value="phone"><span>Телефон</span></label>
+            </div>
+            <div class="fl"><input id="fContact" name="contact" placeholder="@ник или номер телефона"><span class="fld-l">Твой контакт</span><i class="fl-bar" aria-hidden="true"></i></div><span class="err" id="eContact"></span>
+          </fieldset>
+          <fieldset class="fld"><legend class="fld-l">Твоя цель</legend>
+            <div class="goals" id="goals">
+              <label><input type="radio" name="goal" value="Начать тренироваться регулярно"><span>Начать тренироваться регулярно</span></label>
+              <label><input type="radio" name="goal" value="Наладить питание без срывов"><span>Наладить питание без срывов</span></label>
+              <label><input type="radio" name="goal" value="Привести себя в форму"><span>Привести себя в форму</span></label>
+              <label><input type="radio" name="goal" value="Нужны режим и поддержка"><span>Нужны режим и поддержка</span></label>
+              <label><input type="radio" name="goal" value="Пока не знаю, расскажите"><span>Пока не знаю, расскажите</span></label>
+            </div>
+          </fieldset>
+          <div class="fld-row">
+            <label class="fld fl"><input id="fPromo" placeholder="Например, ВК5"><span class="fld-l">Промокод, если есть</span><i class="fl-bar" aria-hidden="true"></i></label>
+            <label class="fld fl"><input id="fRef" placeholder="Имя или ник"><span class="fld-l">Меня пригласила подруга</span><i class="fl-bar" aria-hidden="true"></i></label>
+          </div>
+          <label class="chk" data-ret><input type="checkbox" id="fAgain"><span>Я уже занималась с Катей (код ВЕРНИСЬ10)</span></label>
+          <label class="chk"><input type="checkbox" id="fConsent"><span>Я даю согласие на обработку персональных данных и ознакомилась с <a href="#" data-open-policy>политикой</a></span></label>
+          <span class="err" id="eConsent"></span>
+          <input id="fWebsite" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn btn-l btn-wide" type="submit"><span class="btn-t" data-t="форма_кнопка">Отправить заявку</span><span class="btn-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></button>
+        </div>
+        <div id="formDone" hidden>
+          <h3 class="h3" id="doneTitle">Остался один шаг</h3>
+          <p id="doneText">Скопируй заявку и отправь её Кате в Telegram. Она ответит тебе.</p>
+          <textarea id="doneCopyText" rows="6" readonly></textarea>
+          <div class="done-btns">
+            <button class="btn" type="button" id="doneCopy"><span class="btn-t">1. Скопировать заявку</span></button>
+            <a class="btn" id="doneTg" href="https://t.me/catherina2442" target="_blank" rel="noopener"><span class="btn-t">2. Открыть чат с Катей</span></a>
+          </div>
+          <p class="small-note">Нет Telegram? <a id="doneVk" href="https://vk.me/fitclub_marafon" target="_blank" rel="noopener">Напиши в ВКонтакте</a>.</p>
+        </div>
       </form>
     </div>
-    <div class="done" id="formDone" hidden>
-      <h3 id="doneTitle">Спасибо!</h3>
-      <p id="doneText"></p>
-      <div class="acts">
-        <a class="btn" id="doneTg" href="https://t.me/catherina2442" target="_blank" rel="noopener">Написать Кате в Telegram</a>
-        <a class="btn btn-line" id="doneVk" href="https://vk.me/fitclub_marafon" target="_blank" rel="noopener">Написать в ВКонтакте</a>
-      </div>
-      <div class="fallback" id="doneAlt" hidden>
-        <textarea id="doneCopyText" readonly aria-label="Текст сообщения"></textarea>
-        <button class="btn btn-line btn-sm" type="button" id="doneCopy" style="margin-top:10px;width:100%">Скопировать текст</button>
-      </div>
+  </div>
+</section>
+
+<!-- 12. ВОПРОСЫ, ВОЗВРАТ, ФИНАЛ -->
+<section class="sc faq" id="faq">
+  <div class="wrap faq-grid">
+    <h2 class="h2">Отвечаем честно</h2>
+    <div class="faq-list">
+      <details><summary>Дорого</summary><p>5 000 ₽ за 3 недели: тренировки, КБЖУ лично, чат с поддержкой и книга рецептов в подарок. Если хочется подумать, напиши Кате, что смущает.</p></details>
+      <details><summary>Нет времени</summary><p>Тренировок три в неделю, около 40–60 минут, видео в записи, делаешь, когда удобно. Задания небольшие. Идём в твоём ритме.</p></details>
+      <details><summary>Я новичок, мне неловко</summary><p>Катя объясняет каждое упражнение. В чате девочки поддерживают друг друга, а не оценивают. Если есть ограничения по здоровью, подберём спокойный вариант.</p></details>
+      <details><summary>Боюсь запретов и срывов</summary><p>Запретов нет: КБЖУ считаем лично, любимое остаётся, вписываем в рамки. Сорвалась? Пишешь Кате, и вы возвращаетесь без стыда.</p></details>
+      <details><summary>А будет результат?</summary><p>Катя не обещает «минус 5 кг за 3 недели», у каждой всё по-своему. Она научит есть вкусно и без срывов, двигаться с удовольствием и закрепить привычки надолго.</p></details>
+      <details><summary>Где проходят тренировки?</summary><p>Там, где тебе удобно: дома или в зале. Одна тренировка занимает около 40–60 минут, видео в записи.</p></details>
+      <details><summary>Как оплатить?</summary><p>После заявки Катя напишет тебе и пришлёт реквизиты. Оплата переводом, можно в два платежа. Сейчас платить ничего не нужно.</p></details>
+      <details><summary>Можно ли вернуть деньги?</summary><p>Ты вправе отказаться от участия в любое время. По статье 32 Закона РФ «О защите прав потребителей» исполнитель вправе удержать фактически понесённые расходы, связанные с исполнением договора. Для отказа и расчёта возврата напиши Кате.</p></details>
     </div>
   </div>
-</div></section>
+</section>
 
-<section class="final"><div class="wrap">
-  <h2 data-t="finalTitle">Начни с 23-го, не с понедельника</h2>
-  <p data-t="finalText">Набор открыт до 22 ноября. Оставь заявку, а дальше Катя всё расскажет.</p>
-  <a class="btn btn-gold" href="#form" data-t="cta">Оставить заявку</a>
-</div></section>
-</main>
-
-<footer><div class="wrap">
-  <div class="fgrid">
-    <div><img src="assets/img/logo-fc-ivory.png" alt="Fit Club" width="48" height="42" loading="lazy"><div class="slogan">Просто. В своём ритме.</div><div class="meta">Онлайн-марафон с тренером Катей.</div></div>
-    <div><h4>Мы в соцсетях</h4><div class="soc foot-soc"><a href="https://vk.ru/fitclub_marafon" target="_blank" rel="noopener" aria-label="ВКонтакте" title="ВКонтакте"><svg viewBox="0 0 24 24" aria-hidden="true"><text x="12" y="15.6" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="10.5" fill="currentColor">VK</text></svg></a><a href="https://t.me/fitclub_marafon" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M20.5 4.2 3.6 10.7c-.8.3-.8 1.4 0 1.6l4.2 1.3 1.6 5c.2.6 1 .8 1.4.3l2.3-2.3 4.3 3.2c.6.4 1.4.1 1.5-.6l2.5-14c.1-.8-.7-1.4-1.4-1z"/><path d="m8 13.7 9.3-6.6-6.9 8"/></svg></a><a href="https://www.instagram.com/catherina24/" target="_blank" rel="noopener" aria-label="Instagram @catherina24" title="Instagram @catherina24"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4.6"/><circle cx="12" cy="12" r="3.7"/><circle cx="16.9" cy="7.1" r=".6" fill="currentColor"/></svg></a></div><ul>
-      <li><a href="https://vk.ru/fitclub_marafon" target="_blank" rel="noopener">ВКонтакте · Fit Club</a></li>
-      <li><a href="https://t.me/fitclub_marafon" target="_blank" rel="noopener">Telegram-канал</a></li>
-      <li><a href="https://www.instagram.com/catherina24/" target="_blank" rel="noopener">Instagram @catherina24</a><div class="meta">Instagram принадлежит компании Meta, признанной в РФ экстремистской и запрещённой.</div></li></ul></div>
-    <div><h4>Написать Кате</h4><ul>
-      <li><a href="https://t.me/catherina2442" target="_blank" rel="noopener">Telegram @catherina2442</a></li>
-      <li><a href="https://vk.me/fitclub_marafon" target="_blank" rel="noopener">Сообщение в ВК</a></li></ul></div>
+<section class="sc final" id="final">
+  <div class="wrap final-in">
+    <h2 class="h1 final-h" data-t="финал_заголовок">Начни 23 ноября, не с понедельника</h2>
+    <p class="lead" data-t="финал_текст">Набор открыт до 22 ноября. Оставь заявку, а дальше Катя всё расскажет.</p>
+    <a class="btn btn-l" href="#form"><span class="btn-t" data-t="кнопка">Оставить заявку</span><span class="btn-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
   </div>
-  <div class="legal"><button type="button" data-open-policy>Политика обработки персональных данных</button> · Fit Club · 2026</div>
-</div></footer>
+</section>
+</main>
+<footer class="foot" id="foot">
+  <div class="foot-plate">
+    <div class="foot-qr">
+      <a href="https://t.me/fitclub_marafon" target="_blank" rel="noopener" aria-label="QR: Telegram-канал"><img src="assets/img/qr-tg.svg" alt="QR-код Telegram-канала" loading="lazy"></a>
+      <a href="https://vk.ru/fitclub_marafon" target="_blank" rel="noopener" aria-label="QR: группа ВКонтакте"><img src="assets/img/qr-vk.svg" alt="QR-код группы ВКонтакте" loading="lazy"></a>
+    </div>
+    <nav class="foot-soc" aria-label="Мы в соцсетях">
+      <a class="mb" href="https://vk.ru/fitclub_marafon" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg viewBox="0 0 24 24"><path d="M3.5 7h3c.3 3.4 1.8 5.4 3 5.8V7h2.9v3.4c1.2-.1 2.4-1.6 2.9-3.4h2.8c-.4 2-1.9 3.6-3 4.3 1.1.5 2.8 1.9 3.5 4.7h-3.1c-.6-1.8-2-3.2-3.1-3.3V16h-.4C6.7 16 3.7 12.8 3.5 7z"/></svg></a>
+      <a class="mb" href="https://t.me/fitclub_marafon" target="_blank" rel="noopener" aria-label="Telegram-канал"><svg viewBox="0 0 24 24"><path d="M20.5 4.5 3.6 11c-.9.4-.9 1 0 1.3l4.2 1.3 1.6 5c.2.6.4.7.9.3l2.4-2 4.6 3.4c.6.4 1 .2 1.2-.6l2.8-13.4c.3-1.1-.4-1.6-1.2-1.2zM9 13.3l8.7-5.5c.4-.3.8-.1.5.2l-7.2 6.6-.3 3-1.7-4.3z"/></svg></a>
+      <a class="mb" href="https://www.instagram.com/catherina24/" target="_blank" rel="noopener" aria-label="Instagram Кати"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke-width="2"/><circle cx="12" cy="12" r="3.6" fill="none" stroke-width="2"/><circle cx="16.8" cy="7.2" r="1.2"/></svg></a>
+    </nav>
+    <a class="foot-btn" href="https://t.me/catherina2442" target="_blank" rel="noopener"><span>Написать Кате</span></a>
+    <a class="foot-q" href="#faq">Вопросы</a>
+    <a class="foot-brand" href="#hero"><span class="logo-fc" data-text="FC">FC</span><span>Fit Club</span></a>
+    <p class="foot-legal">Просто. В своём ритме. Черновик сайта, не опубликован. Instagram принадлежит компании Meta, признанной в РФ экстремистской и запрещённой. <a href="#" data-open-policy>Политика обработки данных</a></p>
+  </div>
+</footer>
 
-<div class="sticky" id="sticky"><a class="btn" href="#form" data-t="cta">Оставить заявку</a></div>
+<a class="sticky btn" href="#form" id="sticky"><span class="btn-t" data-t="кнопка_малая">Записаться</span></a>
 
-<dialog id="policy" aria-labelledby="polT"><div class="dlg"><button class="x" type="button" data-close-policy aria-label="Закрыть">×</button>
-  <span class="draft">Черновик. Перед публикацией проверить юристу.</span><h2 id="polT">Политика обработки персональных данных</h2><h4>Кто обрабатывает</h4><p>Данные принимает организатор марафона Fit Club (тренер Катя), ИП Кожина Е. Р.. Связаться по вопросам данных: @catherina2442.</p><h4>Какие данные</h4><p>Имя, контакт для связи (Telegram, ВКонтакте или телефон), выбранная цель, промокод, а также метка источника перехода на сайт (например, из какой соцсети ты пришла) и время заявки. Анкета с ростом, весом и данными о здоровье на сайте не собирается: её заполняют отдельно после записи.</p><h4>Зачем</h4><p>Чтобы связаться с тобой, ответить на вопросы и записать на марафон. Для рекламы и рассылок данные не используются без отдельного согласия.</p><h4>Как передаются</h4><p>Заявка пересылается организатору через сервис пересылки сообщений и мессенджер Telegram. Серверы этих сервисов могут находиться за пределами России. Если тебя это не устраивает, не отправляй форму, а напиши Кате лично в Telegram или ВКонтакте.</p><h4>Как долго</h4><p>Пока не будет решён вопрос о записи на марафон, но не дольше, чем нужно для этой цели, либо до отзыва согласия.</p><h4>Твои права</h4><p>Ты можешь попросить уточнить, удалить данные или отозвать согласие. Для этого напиши организатору на контакт выше.</p><h4>Сайт</h4><p>На сайте нет трекеров, внешней аналитики и сторонних шрифтов. Метка источника хранится только в твоём браузере и отправляется вместе с заявкой.</p>
-  <button class="btn btn-sm" type="button" data-close-policy style="margin-top:20px">Закрыть</button>
-</div></dialog>
+<dialog class="policy" id="policy">
+  <div class="policy-in">
+    <h2 class="h3">Политика обработки персональных данных</h2>
+    <p class="small-note">Черновик. Перед публикацией проверить юристу.</p>
+    <h3>Кто обрабатывает</h3><p>Организатор марафона Fit Club (тренер Катя), ИП Кожина Е. Р.; связаться по вопросам данных: Telegram @catherina2442.</p>
+    <h3>Какие данные</h3><p>Имя, контакт для связи (Telegram, ВКонтакте или телефон), выбранная цель, промокод, имя или ник приглашающей подруги и время заявки. Рост, вес и данные о здоровье на сайте не собираются.</p>
+    <h3>Зачем</h3><p>Чтобы связаться с тобой, ответить на вопросы и записать на марафон. Для рекламы и рассылок данные не используются без отдельного согласия.</p>
+    <h3>Как передаются</h3><p>Заявку ты сама отправляешь Кате сообщением в Telegram. Серверы Telegram могут находиться за пределами России. Если это не подходит, напиши Кате лично во ВКонтакте.</p>
+    <h3>Как долго</h3><p>Пока не будет решён вопрос о записи на марафон, но не дольше, чем нужно для этой цели, либо до отзыва согласия.</p>
+    <h3>Твои права</h3><p>Ты можешь попросить уточнить, удалить данные или отозвать согласие. Для этого напиши организатору на контакт выше.</p>
+    <button class="btn" type="button" data-close-policy><span class="btn-t">Закрыть</span></button>
+  </div>
+</dialog>
 
-<script>window.FC={"mode": "open", "returning": {"code": "ВЕРНИСЬ10", "pct": 10, "until": 1795294799000}, "schedule": [{"from": 1795381200000, "mode": "running"}, {"from": 1797195600000, "mode": "closed"}], "modes": {"open": {"label": "Набор открыт · 7-й поток", "title": "Марафон", "accent": "в своём ритме", "lead": "3 недели с тренером Катей: тренировки дома или в зале, КБЖУ лично под тебя, закрытый чат и книга рецептов в подарок. Старт 23 ноября.", "cta": "Оставить заявку", "ctaSm": "Записаться", "cdLabel": "До старта", "priceNote": "Набор до 22 ноября. Места ограничены.", "formTitle": "Оставь заявку", "formSub": "Катя напишет тебе и расскажет, как записаться и оплатить. Ничего платить сейчас не нужно.", "formBtn": "Отправить заявку", "success": "Заявка отправлена. Катя свяжется с тобой.", "finalTitle": "Начни с 23-го, не с понедельника", "finalText": "Набор открыт до 22 ноября. Оставь заявку, а дальше Катя всё расскажет."}, "running": {"label": "Поток идёт · можно вступить", "title": "Присоединяйся", "accent": "к идущему потоку", "lead": "7-й поток уже идёт: тренировки, КБЖУ лично под тебя, закрытый чат и книга рецептов в подарок. Условия входа в середине потока Катя назовёт лично.", "cta": "Вступить в поток", "ctaSm": "Вступить", "cdLabel": "Поток идёт", "priceNote": "Условия и стоимость входа в идущий поток уточняет Катя.", "formTitle": "Хочу в идущий поток", "formSub": "Оставь контакт, Катя напишет и подскажет, как присоединиться.", "formBtn": "Отправить заявку", "success": "Заявка отправлена. Катя свяжется с тобой.", "finalTitle": "Не обязательно ждать следующего старта", "finalText": "Можно войти в идущий поток. Оставь заявку, Катя расскажет, как."}, "closed": {"label": "Набор закрыт", "title": "Следующий поток", "accent": "скоро", "lead": "Сейчас набор закрыт. Оставь контакт, и Катя напишет первой, когда откроется следующий поток. Дату объявим в группах.", "cta": "В лист ожидания", "ctaSm": "В лист ожидания", "cdLabel": "До следующего потока", "priceNote": "Условия следующего потока объявим в группах.", "formTitle": "Лист ожидания", "formSub": "Оставь контакт, и Катя напишет, когда откроется набор. Ничего платить не нужно.", "formBtn": "Встать в лист ожидания", "success": "Ты в списке ожидания. Катя напишет, когда откроется набор.", "finalTitle": "Хочешь быть в следующем потоке?", "finalText": "Встань в лист ожидания, чтобы не пропустить старт."}}, "price": 5000, "promoPct": 5, "promos": {"vk": "ВК5", "tg": "ТГ5", "inst": "ИНСТА5"}, "endpoint": "", "channels": {"telegram": {"label": "Telegram", "hint": "@ник или номер телефона"}, "vk": {"label": "ВКонтакте", "hint": "Ссылка на профиль или ник"}, "phone": {"label": "Телефон", "hint": "+7 900 000 00 00"}}, "dates": {"start": 1795381200000, "regClose": 1795381199000, "end": 1797195599000, "promoUntil": 1795294799000, "nextStart": null}, "links": {"telegramKatya": "https://t.me/catherina2442", "vkMsg": "https://vk.me/fitclub_marafon"}, "i18n": {"netErr": "Не получилось отправить. Ничего страшного: напиши Кате напрямую, текст уже готов.", "noSrv": "Остался один шаг: нажми кнопку ниже, и заявка откроется сообщением Кате в Telegram. Отправь его, и Катя ответит тебе."}};</script>
-<script>
-(function(){
-'use strict';
-var F=window.FC||{}, D=document, B=D.body;
-function $(s,r){return (r||D).querySelector(s)}
-function $$(s,r){return Array.prototype.slice.call((r||D).querySelectorAll(s))}
-function store(k,v){try{if(v===undefined)return sessionStorage.getItem(k);sessionStorage.setItem(k,v)}catch(e){return null}}
+<!-- панель вариантов (только для выбора владельцем) -->
+<aside class="vp" id="vp" hidden aria-label="Варианты оформления">
+  <div class="vp-head"><p>Варианты оформления</p><button class="vp-x" type="button" data-vp-close aria-label="Закрыть">×</button></div>
+  <section class="vp-sec"><h3>Тема целиком</h3><div class="vp-seg vp-themes" data-k="theme"><button data-v="north" style="--sw:linear-gradient(135deg,#E4E0D8 50%,#34507A 50%)">Северный</button><button data-v="burg" style="--sw:linear-gradient(135deg,#F4EDE4 50%,#652639 50%)">Бургунди</button><button data-v="workshop" style="--sw:linear-gradient(135deg,#2E2A27 50%,#B39C74 50%)">Мастерская</button><button data-v="satin" style="--sw:linear-gradient(135deg,#1C2C58 50%,#D2A799 50%)">Вечерний сатин</button><button data-v="home" style="--sw:linear-gradient(135deg,#EBCFC6 50%,#A06B4C 50%)">Тёплый дом</button><button data-v="gallery" style="--sw:linear-gradient(135deg,#F1F0EC 50%,#2C4A9A 50%)">Галерея</button><button data-v="polar" style="--sw:linear-gradient(135deg,#121826 50%,#E9A86A 50%)">Полярная ночь</button><button data-v="sage" style="--sw:linear-gradient(135deg,#DFE3D8 50%,#1F4D3E 50%)">Шалфей</button></div></section>
+  <section class="vp-sec"><h3>Знак FC</h3><div class="vp-seg vp-marks" data-k="mark"><button data-v="text">Буквы</button><button data-v="svyazka">Связка</button><button data-v="gran">Грань</button><button data-v="kontrast">Контраст</button><button data-v="vnutri">Внутри</button><button data-v="shag">Шаг</button><button data-v="scepka">Сцепка</button></div><div class="vp-seg " data-k="logo"><button data-v="flat">плоский</button><button data-v="3d">объёмный</button></div></section>
+  <details class="vp-sec vp-more"><summary>Тонкая настройка поверх темы</summary>
+    <h3>Фон</h3><div class="vp-seg " data-k="bg"><button data-v="auto">как в теме</button><button data-v="silk">шёлк</button><button data-v="alc">алькантара</button><button data-v="linen">лён</button></div>
+    <h3>Акцент</h3><div class="vp-seg " data-k="acc"><button data-v="auto">как в теме</button><button data-v="blue">синий</button><button data-v="burg">бургунди</button><button data-v="brass">латунь</button><button data-v="emerald">изумруд</button></div>
+    <h3>Подвал</h3><div class="vp-seg " data-k="foot"><button data-v="auto">как в теме</button><button data-v="metal">металл</button><button data-v="carbon">карбон</button><button data-v="wood">дерево</button><button data-v="leather">кожа</button></div>
+  </details>
+  <button class="vp-reset" type="button" data-vp-reset>Сбросить всё</button>
+</aside>
 
-/* ---- режим по расписанию (задаётся в config.json, сайт сам не решает) ---- */
-function activeMode(now){
-  var m=F.mode;
-  (F.schedule||[]).slice().sort(function(a,b){return a.from-b.from}).forEach(function(s){if(s.from<=now)m=s.mode});
-  return m;
-}
-function applyMode(m){
-  if(B.getAttribute('data-mode')===m)return;
-  B.setAttribute('data-mode',m);
-  var t=F.modes[m]||{};
-  $$('[data-t]').forEach(function(el){var k=el.getAttribute('data-t');if(t[k]!==undefined)el.textContent=t[k]});
-}
-
-/* ---- отсчёт ---- */
-function pad(n){return n<10?'0'+n:''+n}
-function plural(n,a){var m=n%10,h=n%100;return (h>=11&&h<=14)?a[2]:(m===1?a[0]:(m>=2&&m<=4?a[1]:a[2]))}
-function tick(){
-  var now=Date.now(), m=B.getAttribute('data-mode');
-  var box=$('#cd'), lab=$('#cdLabel'), note=$('#cdNote');
-  if(!box)return;
-  var target=null, mode=m;
-  box.hidden=true; if(note)note.hidden=true; if(lab)lab.hidden=true;
-  if(m==='open')target=F.dates.start;
-  else if(m==='closed')target=F.dates.nextStart||null;
-  if(m==='running'){
-    if(F.dates.start&&F.dates.end&&now>=F.dates.start&&now<=F.dates.end){
-      var day=Math.floor((now-F.dates.start)/864e5)+1, total=Math.round((F.dates.end-F.dates.start)/864e5);
-      if(note){note.textContent='Идёт день '+day+' из '+total;note.hidden=false}
-    }
-    return;
-  }
-  if(target&&target>now){
-    var s=Math.floor((target-now)/1000), d=Math.floor(s/86400), h=Math.floor(s%86400/3600), mi=Math.floor(s%3600/60);
-    $('#cdD').textContent=d; $('#cdH').textContent=pad(h); $('#cdM').textContent=pad(mi);
-    $('#cdDl').textContent=plural(d,['день','дня','дней']);
-    box.hidden=false; if(lab)lab.hidden=false;
-  }
-}
-
-/* ---- промокод по сроку ---- */
-function retState(){
-  var Rt=F.returning, on=!!(Rt&&Date.now()<=Rt.until);
-  $$('[data-ret]').forEach(function(el){el.hidden=!on});
-  return on;
-}
-function promoState(){
-  var left=F.dates.promoUntil&&Date.now()<=F.dates.promoUntil&&F.promoPct>0;
-  $$('[data-promo]').forEach(function(el){el.hidden=!left});
-  return left;
-}
-
-/* ---- метки источника (UTM) ---- */
-var UTM_KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','ref'];
-function readUtm(){
-  var saved={};
-  try{saved=JSON.parse(store('fc_utm')||'{}')||{}}catch(e){saved={}}
-  try{
-    var q=new URLSearchParams(location.search), got=false;
-    UTM_KEYS.forEach(function(k){var v=q.get(k);if(v){saved[k]=String(v).slice(0,80);got=true}});
-    if(got)store('fc_utm',JSON.stringify(saved));
-  }catch(e){}
-  return saved;
-}
-function srcKey(u){
-  var s=((u.utm_source||u.ref||'')+'').toLowerCase();
-  if(/vk|вк/.test(s))return 'vk';
-  if(/^t$|tg|telegram|t\.me|тг/.test(s))return 'tg';
-  if(/inst|ig|инста/.test(s))return 'inst';
-  return '';
-}
-var UTM=readUtm(), SRC=srcKey(UTM);
-function priceWith(){return Math.round(F.price*(100-F.promoPct)/100)}
-function fmtRub(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' ₽'}
-
-/* ---- форма ---- */
-var form=$('#leadForm');
-if(form){
-  var t0=Date.now();
-  var promoInp=$('#fPromo');
-  if(B.getAttribute('data-mode')==='open'&&SRC&&F.promos&&F.promos[SRC]&&promoState()&&promoInp&&!promoInp.value)promoInp.value=F.promos[SRC];
-  var yours=$('#promoYours');
-  if(yours&&B.getAttribute('data-mode')==='open'&&SRC&&F.promos&&F.promos[SRC]){
-    yours.innerHTML='Твой промокод: <b>'+F.promos[SRC]+'</b>, '+fmtRub(priceWith())+' вместо '+fmtRub(F.price);
-    yours.hidden=false;
-  }
-  var chan=F.channels||{}, again=$('#fAgain');
-  try{var rq=new URLSearchParams(location.search).get('ref');var ri=$('#fRef');if(rq&&ri&&!ri.value)ri.value=rq.slice(0,60)}catch(e){}
-  if(again)again.addEventListener('change',function(){
-    if(again.checked&&F.returning&&promoInp)promoInp.value=F.returning.code;
-    else if(promoInp&&F.returning&&promoInp.value===F.returning.code)promoInp.value='';
-  });
-  function setChan(){
-    var k=($('input[name=ctype]:checked',form)||{}).value||'telegram', c=$('#fContact');
-    c.placeholder=(chan[k]&&chan[k].hint)||'';
-    c.setAttribute('inputmode',k==='phone'?'tel':'text');
-    c.setAttribute('autocomplete',k==='phone'?'tel':'off');
-  }
-  $$('input[name=ctype]',form).forEach(function(r){r.addEventListener('change',setChan)});
-  setChan();
-
-  function msg(txt){var e=$('#formMsg');e.textContent=txt||'';e.hidden=!txt}
-  function fieldErr(id,txt){var e=$('#'+id);if(e)e.textContent=txt||''}
-
-  form.addEventListener('submit',function(ev){
-    ev.preventDefault(); msg('');
-    var name=$('#fName').value.trim(), contact=$('#fContact').value.trim(), goal=$('#fGoal').value,
-        promo=(B.getAttribute('data-mode')==='open'&&promoInp&&promoInp.value||'').trim().slice(0,30), refInp=$('#fRef'), ref=(B.getAttribute('data-mode')==='open'&&refInp&&refInp.value||'').trim().slice(0,60), consent=$('#fConsent').checked,
-        ctype=($('input[name=ctype]:checked',form)||{}).value||'telegram', ok=true;
-    fieldErr('eName',''); fieldErr('eContact',''); fieldErr('eConsent','');
-    if(name.length<2){fieldErr('eName','Напиши, как тебя зовут');ok=false}
-    if(contact.length<3){fieldErr('eContact','Напиши, как с тобой связаться');ok=false}
-    else if(ctype==='phone'&&!/^[+\d][\d\s\-()]{6,}$/.test(contact)){fieldErr('eContact','Проверь номер телефона');ok=false}
-    if(!consent){fieldErr('eConsent','Нужно согласие на обработку данных');ok=false}
-    if($('#fWebsite').value){return}                 /* ловушка для ботов */
-    if(!ok){var first=$('.err:not(:empty)',form);if(first&&first.scrollIntoView)first.scrollIntoView({block:'center',behavior:'smooth'});return}
-    var isAgain=!!(again&&again.checked&&retState()&&B.getAttribute('data-mode')==='open');
-    if(isAgain)promo=F.returning.code;
-    var payload={returning:isAgain,
-      name:name,contact_type:ctype,contact:contact,goal:goal,promo:promo,ref:ref,consent:true,
-      mode:B.getAttribute('data-mode'),source:SRC||'',utm:UTM,page:location.origin+location.pathname,
-      ts:new Date().toISOString(),elapsed_ms:Date.now()-t0
-    };
-    var btn=$('button[type=submit]',form); btn.disabled=true; var old=btn.textContent; btn.textContent='Отправляем…';
-    send(payload).then(function(res){
-      if(res==='sent')showDone(payload,true);else showDone(payload,false);
-    }).then(function(){btn.disabled=false;btn.textContent=old});
-  });
-
-  function send(p){
-    if(!F.endpoint)return Promise.resolve('fallback');
-    var ctl=window.AbortController?new AbortController():null, to=setTimeout(function(){ctl&&ctl.abort()},10000);
-    return fetch(F.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p),signal:ctl?ctl.signal:undefined})
-      .then(function(r){clearTimeout(to);return r.ok?'sent':'fallback'})
-      .catch(function(){clearTimeout(to);return 'fallback'});
-  }
-  function lead(p){
-    var chn=(chan[p.contact_type]||{}).label||p.contact_type;
-    var l=['Привет! Это заявка с сайта Fit Club.','Имя: '+p.name,'Связь ('+chn+'): '+p.contact];
-    if(p.goal)l.push('Цель: '+p.goal);
-    if(p.returning)l.push('Я уже занималась с Катей.');
-    if(p.promo)l.push('Промокод: '+p.promo);
-    if(p.ref)l.push('Меня пригласила: '+p.ref);
-    l.push(p.mode==='closed'?'Хочу в лист ожидания.':(p.mode==='running'?'Хочу вступить в идущий поток.':'Хочу на марафон.'));
-    return l.join('\n');
-  }
-  function showDone(p,sent){
-    var t=F.modes[p.mode]||{}, text=lead(p), box=$('#formBody'), done=$('#formDone');
-    box.hidden=true; done.hidden=false;
-    $('#doneTitle').textContent=sent?'Спасибо!':'Остался один шаг';
-    $('#doneText').textContent=sent?(t.success||'Заявка отправлена.'):((F.endpoint?F.i18n.netErr:F.i18n.noSrv)||'');
-    $('#doneAlt').hidden=sent;
-    var tg=$('#doneTg'); tg.href=F.links.telegramKatya+'?text='+encodeURIComponent(text);
-    $('#doneVk').href=F.links.vkMsg;
-    $('#doneCopyText').value=text;
-    done.scrollIntoView&&done.scrollIntoView({block:'center',behavior:'smooth'});
-  }
-  var cp=$('#doneCopy');
-  if(cp)cp.addEventListener('click',function(){
-    var ta=$('#doneCopyText'); ta.select();
-    try{if(navigator.clipboard)navigator.clipboard.writeText(ta.value);else D.execCommand('copy');cp.textContent='Скопировано'}catch(e){cp.textContent='Выдели текст и скопируй'}
-  });
-}
-
-/* ---- политика ---- */
-var dlg=$('#policy');
-$$('[data-open-policy]').forEach(function(a){a.addEventListener('click',function(e){
-  e.preventDefault(); if(!dlg)return;
-  if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');
-})});
-$$('[data-close-policy]').forEach(function(b){b.addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open')})});
-if(dlg)dlg.addEventListener('click',function(e){if(e.target===dlg&&dlg.close)dlg.close()});
-
-/* ---- залипающая кнопка на телефоне ---- */
-var sticky=$('#sticky');
-if(sticky&&'IntersectionObserver' in window){
-  var vis={hero:true,form:false};
-  var upd=function(){sticky.classList.toggle('on',!vis.hero&&!vis.form)};
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){vis[e.target.getAttribute('data-watch')]=e.isIntersecting});upd()},{threshold:0.05});
-  $$('[data-watch]').forEach(function(el){io.observe(el)});
-}
-
-/* ---- запуск ---- */
-function run(){applyMode(activeMode(Date.now()));promoState();retState();tick()}
-run(); setInterval(run,30000);
-})();
-
-</script>
+<script src="js/config.js"></script>
+<script src="js/glyphs.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>window.gsap||document.write('<script src="vendor/gsap.min.js"><\/script><script src="vendor/ScrollTrigger.min.js"><\/script>')</script>
+<script src="js/app.js"></script>
+<script src="js/panel.js"></script>
+<script src="js/scenes.js"></script>
+<script src="js/gb.js"></script>
+<script src="js/footer-tex.js"></script>
+<script src="js/live.js"></script>
+<script src="js/fix18.js"></script>
+<script src="js/fix18d.js"></script>
 </body>
 </html>

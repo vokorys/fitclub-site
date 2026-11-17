@@ -1,0 +1,40 @@
+/* панель вариантов для владельца + запасной тёмный фон (без анимации) */
+.gift.solid{background:linear-gradient(180deg,transparent,var(--dark-1) 12%,var(--dark-2) 88%,transparent)}
+.vp-btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;min-width:46px;padding:0 16px;border:1.5px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--paper) 70%,transparent);color:var(--ink);font:700 17px/1 var(--f-text);cursor:pointer;transition:background .3s}
+.vp-btn:hover{background:var(--paper)}
+.top.on-dark .vp-btn{color:var(--dark-ink);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2)}
+.vp-ic{width:18px;height:18px;border-radius:50%;background:conic-gradient(#34507A 0 25%,#652639 0 50%,#E4E0D8 0 75%,#2a2c30 0);box-shadow:0 0 0 2px rgba(255,255,255,.6)}
+@media (max-width:899px){.vp-btn{padding:0}.vp-t{display:none}}
+.vp{position:fixed;right:var(--gut);top:74px;z-index:30;width:min(360px,calc(100vw - 32px));padding:16px;border-radius:20px;background:rgba(250,249,247,.97);color:#22324A;box-shadow:0 24px 50px -16px rgba(0,0,0,.45)}
+.vp[hidden]{display:none}
+.vp-row{margin-bottom:10px}
+.vp-row p{margin:0 0 6px;font-weight:800;font-size:16px}
+.vp-seg{display:flex;gap:4px;padding:4px;border-radius:14px;background:#E4E2DE}
+.vp-seg button{flex:1;min-height:40px;border:0;border-radius:10px;background:transparent;font:700 16px/1 var(--f-text);color:#22324A;cursor:pointer}
+.vp-seg button[aria-pressed="true"]{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+html.vswitch body{transition:background .6s}
+/* на тёмных блоках кнопки золотые: не ставим бордо/синий на тёмное */
+.top.on-dark .btn,body.in-dark .sticky{background:var(--gold);color:var(--dark-2)}
+.top.on-dark .btn::before,body.in-dark .sticky::before{background:radial-gradient(140px 140px at var(--mx,50%) var(--my,50%),#FFF1D6,transparent 70%)}
+
+/* панель: разделы и крупные кнопки, удобно на телефоне */
+.vp{max-height:calc(100vh - 96px);overflow:auto;overscroll-behavior:contain;padding:14px 16px 16px;width:min(420px,calc(100vw - 24px));right:max(12px,var(--gut))}
+.vp-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.vp-head p{margin:0;font-weight:800;font-size:18px}
+.vp-x{width:44px;height:44px;border:0;border-radius:50%;background:#E9E6E1;font-size:26px;line-height:1;cursor:pointer;color:#22324A}
+.vp-sec{padding:12px 0;border-top:1px solid rgba(0,0,0,.08)}
+.vp-sec h3{margin:10px 0 8px;font:800 16px/1.2 var(--f-text);color:#4A5568}
+.vp-sec h3:first-child{margin-top:0}
+.vp-seg{flex-wrap:wrap;background:transparent;padding:0;gap:6px;margin-bottom:6px}
+.vp-seg button{flex:1 1 auto;min-height:46px;padding:0 12px;background:#EEECE8;border-radius:12px;font-size:16px}
+.vp-seg button[aria-pressed="true"]{background:#22324A;color:#fff;box-shadow:none}
+.vp-themes{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.vp-themes button{display:flex;align-items:center;gap:10px;justify-content:flex-start;text-align:left;min-height:52px}
+.vp-themes button::before{content:"";flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--sw);box-shadow:0 0 0 2px #fff,0 1px 4px rgba(0,0,0,.3)}
+.vp-marks{display:grid;grid-template-columns:repeat(4,1fr)}
+.vp-marks button{padding:0 6px}
+.vp-more summary{cursor:pointer;font-weight:800;font-size:16px;min-height:44px;display:flex;align-items:center;color:#22324A}
+.vp-reset{width:100%;min-height:46px;margin-top:6px;border:1.5px solid #CFCBC4;border-radius:12px;background:#fff;font:700 16px/1 var(--f-text);color:#22324A;cursor:pointer}
+
+/* панель вариантов скрыта, открывается по адресу ?panel=1 */
+html:not(.vp-on) .vp-btn,html:not(.vp-on) .vp{display:none!important}

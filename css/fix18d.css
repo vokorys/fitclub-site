@@ -1,0 +1,194 @@
+/* Правки владельца 18.11.2026 (день), 14 пунктов. Подключается последним. Копия до правок: site_backup_18-11b.
+   Каждый пункт помечен номером. Эффекты п.11 пронумерованы E1..E12: чтобы убрать эффект, в js/fix18d.js
+   в массив OFF добавить его номер (или удалить блок CSS «E<номер>»). */
+
+/* ================= п.1. видео Кати: громкость ================= */
+.vol{z-index:2;position:absolute;left:14px;right:14px;bottom:14px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.vol .snd{position:static;flex:0 0 auto}
+.vol-r{display:flex;align-items:center;flex:1 1 130px;min-width:120px;min-height:48px;padding:0 16px;border-radius:999px;background:rgba(20,24,30,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);cursor:pointer}
+.vol-l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.vol-r input{-webkit-appearance:none;appearance:none;width:100%;height:28px;margin:0;background:transparent;cursor:pointer;--v:35%}
+.vol-r input:focus-visible{outline:3px solid #fff;outline-offset:4px;border-radius:14px}
+.vol-r input::-webkit-slider-runnable-track{height:6px;border-radius:3px;background:linear-gradient(90deg,#fff var(--v),rgba(255,255,255,.32) var(--v))}
+.vol-r input::-moz-range-track{height:6px;border-radius:3px;background:rgba(255,255,255,.32)}
+.vol-r input::-moz-range-progress{height:6px;border-radius:3px;background:#fff}
+.vol-r input::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-8px;border-radius:50%;background:#fff;border:0;box-shadow:0 2px 8px rgba(0,0,0,.45);transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.vol-r input::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:0;box-shadow:0 2px 8px rgba(0,0,0,.45)}
+.vol-r input:hover::-webkit-slider-thumb,.vol-r input:active::-webkit-slider-thumb{transform:scale(1.2)}
+.vol:not(.on) .vol-r{opacity:.85}
+.snd[aria-pressed="true"]{background:var(--acc)}
+
+/* ================= п.2. таймер: двоеточие только между часами и минутами; секунды меньше и прозрачные ================= */
+.tn-s{--tf2:calc(var(--tf)*.5)}
+.tn-s b{font-size:var(--tf2);height:1.06em;margin-top:calc(var(--tf)*.53);opacity:.55;color:var(--ink-2);font-weight:600}
+.tn-s .roll i{height:1.06em}
+.tn-s em{opacity:.55}
+.tn-s{margin-left:clamp(0px,.4vw,6px)}
+/* подпись под секундами на той же линии, что у остальных: b уменьшен, отступ сверху добирает высоту */
+
+/* ================= п.3. плашка режима «идёт» (и «закрыт»): теперь живая, как «Набор открыт» ================= */
+.timer-note{display:inline-block;cursor:default;transition:translate .5s cubic-bezier(.3,1.6,.5,1),scale .5s cubic-bezier(.3,1.6,.5,1),color .4s}
+/* GSAP держит inline-transform у героя, поэтому здесь отдельные свойства translate и scale */
+.hero-tag{cursor:default;padding:6px 14px 6px 10px;margin-left:-10px;border-radius:999px;transition:translate .5s cubic-bezier(.3,1.6,.5,1),scale .5s cubic-bezier(.3,1.6,.5,1),background .4s}
+.timer{transition:translate .6s cubic-bezier(.3,1.4,.5,1)}
+@media (hover:hover){
+  .timer-note:hover{translate:0 -3px;scale:1.05;color:var(--acc);transform-origin:left center}
+  .timer:hover{translate:0 -3px!important}   /* !important: GSAP 3.12 пишет inline translate:none на элементы героя */
+  .hero-tag:hover{translate:5px 0!important;scale:1.04!important;background:var(--acc-soft);transform-origin:left center}
+  .hero-tag:hover::before{animation-duration:.9s}
+}
+
+/* ================= п.4. кнопки: плоские в покое; живые при наведении (магнит, наклон, свет по краю, пружина) ================= */
+.btn,.foot-btn{transition:box-shadow .45s var(--ease),background-image .45s,filter .4s}
+.btn{will-change:auto}
+.btn::before{content:"";position:absolute;inset:0;z-index:2;border-radius:inherit;padding:2px;pointer-events:none;opacity:0;transition:opacity .35s;
+  background:radial-gradient(120px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.95),rgba(255,255,255,0) 70%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);mask-composite:exclude}
+.btn::after{content:"";position:absolute;inset:0;z-index:-1;left:0;width:auto;border-radius:inherit;pointer-events:none;opacity:0;transform:none;transition:opacity .4s;
+  background:radial-gradient(170px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.28),rgba(255,255,255,0) 70%)}
+@media (hover:hover){
+  .btn:hover::before{opacity:1}
+  .btn:hover::after{opacity:1;transform:none}
+}
+.btn.pressed{background-image:linear-gradient(rgba(255,255,255,.16),rgba(255,255,255,.16))!important}
+.btn.pressed::before{opacity:1}
+.top.on-dark .btn::before,body.in-dark .sticky::before{background:radial-gradient(120px circle at var(--mx,50%) var(--my,50%),#fff6dd,rgba(255,255,255,0) 70%)}
+/* нижняя кнопка на телефоне остаётся простой */
+.sticky::before,.sticky::after{display:none}
+
+/* ================= п.5. курсор-шарик: прячется на объектах, о которые разбивается (список в fix18.js, FC_HIT) ================= */
+
+/* ================= п.6. «Если ты узнала себя…»: без реакции на полоски, кружки-маркеры как номера ================= */
+.fit-i{padding-left:56px;transition:color .6s var(--ease)}
+.fit-i::before{display:none}
+.fit-dot{position:absolute;left:0;top:calc(20px + .3em);width:30px;height:30px;border-radius:50%;border:2px solid currentColor;
+  transition:transform .55s cubic-bezier(.3,1.6,.5,1),translate .55s cubic-bezier(.3,1.6,.5,1),background .5s,color .4s,border-color .5s,box-shadow .5s}
+.fit-i.lit .fit-dot{background:var(--acc);border-color:var(--acc);box-shadow:none}
+@media (hover:hover){
+  .fit-dot:hover{transform:scale(1.5);translate:5px -3px;color:var(--on-acc);border-color:transparent;
+    background:radial-gradient(circle at 32% 26%,color-mix(in srgb,var(--acc-2) 55%,#fff) 0,var(--acc-2) 28%,var(--acc) 62%,color-mix(in srgb,var(--acc) 55%,#000) 100%)!important;
+    box-shadow:inset -3px -4px 7px rgba(0,0,0,.35),inset 2px 3px 5px rgba(255,255,255,.3),0 10px 14px -6px color-mix(in srgb,var(--acc) 80%,#000)!important}
+}
+
+/* ================= п.7. «Как записаться»: кружки плоские в покое, объёмный шарик только когда мышь в кружке ================= */
+.step b{transition:transform .55s cubic-bezier(.3,1.6,.5,1),translate .55s cubic-bezier(.3,1.6,.5,1),background .5s,color .4s,border-color .4s,box-shadow .5s}
+.step.lit b{background:var(--acc);color:var(--on-acc);box-shadow:none}
+@media (hover:hover){
+  .step:hover b{transform:none;box-shadow:none}
+  .step.lit:hover b{background:var(--acc);color:var(--on-acc)}
+  .step b:hover,.step.lit b:hover{transform:scale(1.25);translate:5px -3px;color:var(--on-acc);border-color:transparent;
+    background:radial-gradient(circle at 32% 26%,color-mix(in srgb,var(--acc-2) 55%,#fff) 0,var(--acc-2) 28%,var(--acc) 62%,color-mix(in srgb,var(--acc) 55%,#000) 100%);
+    box-shadow:inset -4px -6px 10px rgba(0,0,0,.35),inset 3px 4px 6px rgba(255,255,255,.3),0 12px 18px -8px color-mix(in srgb,var(--acc) 80%,#000)}
+}
+
+/* ================= п.8. «3 недели»: плашки тем чата плоские, без ореолов и без реакции на мышь ================= */
+.chips li,.chips li:hover{box-shadow:none!important;transform:none!important;cursor:default}
+.chips li.lit{box-shadow:none}
+
+/* ================= п.9. бирка с дыркой убрана целиком ================= */
+.tag{display:none!important}
+.ba-card{padding-top:32px}
+@media (min-width:900px){.ba-card{padding-top:44px}}
+
+/* ================= п.10. отзывы: при наведении карточка плавно увеличивается на 22 % поверх соседних ================= */
+.rv-track{padding-block:96px;margin-block:-72px}  /* запас, чтобы увеличенная карточка и её тень не обрезались краем прокрутки */
+.rev{position:relative;z-index:1;transform-origin:center center;transition:transform .55s cubic-bezier(.25,1.2,.4,1),box-shadow .5s,background .5s}
+.rev:first-child{transform-origin:left center}
+.rev:last-child{transform-origin:right center}
+@media (hover:hover){
+  .rev:hover,.rev.lit:hover{transform:scale(1.22);z-index:6;background:var(--paper);box-shadow:0 30px 50px -28px color-mix(in srgb,var(--ink) 60%,transparent)}
+}
+
+/* ================= п.12. подарок: подсказка и рычаг ================= */
+.gb .hint{min-height:3.1em}
+
+/* ================= п.13. проявление блоков при прокрутке вниз и вверх (класс rvl ставит js/fix18d.js) ================= */
+html.js:not(.rm):not(.shot) .rvl{opacity:0}
+html.js:not(.rm):not(.shot) .rvl.rvl-go{animation:rvlIn 1s cubic-bezier(.2,.7,.2,1) var(--rd,0s) both}
+html.js:not(.rm):not(.shot) .rvl.rvl-go.rvl-up{animation-name:rvlInUp}
+@keyframes rvlIn{from{opacity:0;translate:0 44px;scale:.96}to{opacity:1;translate:0 0;scale:1}}
+@keyframes rvlInUp{from{opacity:0;translate:0 -30px;scale:.97}to{opacity:1;translate:0 0;scale:1}}
+
+/* ================= п.14. форма: поля, плавающие подписи, кнопки выбора, галочки ================= */
+.form-card{position:relative}
+.fl{position:relative;display:block}
+.fld.fl{margin-bottom:22px}
+.fl>input{min-height:64px;padding:24px 44px 6px 18px;background-image:linear-gradient(180deg,rgba(101,38,57,.045),rgba(101,38,57,0) 45%);
+  box-shadow:inset 0 2px 5px color-mix(in srgb,var(--ink) 9%,transparent);transition:border-color .3s,box-shadow .4s,transform .45s cubic-bezier(.3,1.5,.5,1),background-color .3s}
+.fl>input::placeholder{color:transparent;transition:color .3s}
+.fl:focus-within>input::placeholder{color:color-mix(in srgb,var(--ink-2) 65%,transparent)}
+.fl>.fld-l{position:absolute;left:19px;top:19px;margin:0;font-weight:600;font-size:19px;line-height:1.2;color:var(--ink-2);pointer-events:none;transform-origin:left top;transition:transform .4s cubic-bezier(.3,1.5,.5,1),color .3s}
+.fl:focus-within>.fld-l,.fl.filled>.fld-l{transform:translateY(-13px) scale(.72);color:var(--acc);font-weight:800}
+.fl>.fl-bar{position:absolute;left:17px;right:17px;bottom:1px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--acc),var(--acc-2));transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease);pointer-events:none}
+.fl:focus-within>.fl-bar{transform:scaleX(1)}
+@media (hover:hover){.fl>input:hover:not(:focus){border-color:color-mix(in srgb,var(--acc) 55%,transparent)}}
+.fl>input:focus{transform:translateY(-2px);box-shadow:0 0 0 5px var(--acc-soft),0 14px 22px -16px color-mix(in srgb,var(--acc) 70%,transparent)}
+.fl.filled::after{content:"";position:absolute;right:16px;top:20px;width:12px;height:7px;border-left:3px solid var(--acc);border-bottom:3px solid var(--acc);transform:rotate(-45deg);animation:tickin .45s cubic-bezier(.3,1.8,.5,1)}
+.fld.fl:has(.err:not(:empty))::after{display:none}
+@keyframes tickin{from{transform:rotate(-45deg) scale(0)}}
+.err:not(:empty){animation:errin .5s cubic-bezier(.3,1.6,.5,1)}
+@keyframes errin{0%{transform:translateX(-10px);opacity:0}40%{transform:translateX(7px)}70%{transform:translateX(-3px)}100%{transform:none;opacity:1}}
+/* кнопки выбора: Telegram, ВКонтакте, Телефон и цели */
+.seg span,.goals span{position:relative;cursor:pointer;user-select:none;-webkit-user-select:none}
+@media (hover:hover){
+  .seg label:hover span,.goals label:hover span{transform:translateY(-3px);border-color:var(--acc);box-shadow:0 12px 18px -12px color-mix(in srgb,var(--acc) 70%,transparent)}
+}
+.seg label:active span,.goals label:active span{transform:scale(.93)!important;transition-duration:.1s}
+.seg input:checked+span,.goals input:checked+span{box-shadow:0 0 0 4px var(--acc-soft),0 12px 20px -12px color-mix(in srgb,var(--acc) 80%,#000);animation:segpop .6s cubic-bezier(.3,1.6,.5,1)}
+.seg input:checked+span::before,.goals input:checked+span::before{content:"";width:9px;height:5px;margin-right:9px;border-left:3px solid currentColor;border-bottom:3px solid currentColor;transform:rotate(-45deg) translateY(-1px);animation:tickin .5s cubic-bezier(.3,1.8,.5,1)}
+@keyframes segpop{0%{transform:scale(.9)}45%{transform:scale(1.1)}75%{transform:scale(.98)}100%{transform:scale(1)}}
+/* галочки согласия */
+.chk input{-webkit-appearance:none;appearance:none;display:grid;place-items:center;width:28px;height:28px;border-radius:9px;border:2px solid color-mix(in srgb,var(--acc) 45%,transparent);background:var(--field-bg);cursor:pointer;
+  transition:background .3s,border-color .3s,transform .4s cubic-bezier(.3,1.8,.5,1),box-shadow .4s}
+.chk input::before{content:"";width:13px;height:7px;margin-top:-3px;border-left:3px solid var(--on-acc);border-bottom:3px solid var(--on-acc);transform:rotate(-45deg) scale(0);transition:transform .4s cubic-bezier(.3,1.9,.5,1)}
+.chk input:checked{background:var(--acc);border-color:var(--acc);box-shadow:0 0 0 4px var(--acc-soft)}
+.chk input:checked::before{transform:rotate(-45deg) scale(1)}
+@media (hover:hover){.chk:hover input{transform:scale(1.1);border-color:var(--acc)}}
+.chk:active input{transform:scale(.88)}
+.chk input:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+
+/* ================= п.11. эффекты по всему сайту (номера E1..E12, список в ДОСЬЕ.md) ================= */
+/* E1 видео Кати в первом экране: картинка слегка смещается за курсором (параллакс внутри рамки) */
+/* E2 фото Кати («Кто ведёт»): 3D-наклон за курсором и блик */
+html:not(.no-fx-2) .katya-ph{transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+html:not(.no-fx-2) .katya-ph::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s;background:radial-gradient(360px circle at var(--gx,50%) var(--gy,30%),rgba(255,255,255,.32),rgba(255,255,255,0) 65%)}
+@media (hover:hover){html:not(.no-fx-2) .katya-ph:hover::after{opacity:1}}
+/* E3 тонкая полоса прогресса прокрутки сверху */
+.fx-prog{position:fixed;left:0;top:0;height:4px;width:100%;z-index:60;pointer-events:none;transform-origin:left;transform:scaleX(var(--sp,0));background:linear-gradient(90deg,var(--acc),var(--acc-2),var(--gold))}
+html.no-fx-3 .fx-prog{display:none}
+/* E4 ткань фона плывёт при прокрутке (js ставит --bgy) */
+html:not(.no-fx-4) .bg-mat{translate:0 var(--bgy,0px);scale:1.08}
+.bg{overflow:hidden}
+/* E5 плитки галереи: видео приближается, подпись приподнимается */
+html:not(.no-fx-5) .tile video,html:not(.no-fx-5) .tile img{transition:transform .8s var(--ease)}
+html:not(.no-fx-5) .tile figcaption{transition:transform .5s cubic-bezier(.3,1.6,.5,1),background .4s,color .4s}
+@media (hover:hover){html:not(.no-fx-5) .tile:hover video,html:not(.no-fx-5) .tile:hover img{transform:scale(1.08)}html:not(.no-fx-5) .tile:hover figcaption{transform:translateY(-6px);background:var(--acc);color:var(--on-acc)}}
+/* E6 ленты галереи наклоняются от скорости прокрутки (js ставит --sk) */
+html:not(.no-fx-6) .lane{transform:skewX(var(--sk,0deg))}
+/* E7 логотип в шапке: блик проходит по знаку */
+/* E8 ручка «до/после»: растёт и пульсирует, фото чуть приближаются */
+.cmp-h i{transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+@media (hover:hover){html:not(.no-fx-8) .cmp:hover .cmp-h i{transform:scale(1.18);animation:hpulse 1.6s ease-in-out infinite}html:not(.no-fx-8) .cmp:hover img{scale:1.03}}
+.cmp img{transition:scale .8s var(--ease)}
+@keyframes hpulse{50%{box-shadow:0 8px 20px rgba(0,0,0,.3),0 0 0 12px rgba(255,255,255,.28)}}
+/* E9 карусель историй: фото текущей карточки смещается за курсором */
+/* E10 финальный заголовок переливается при наведении */
+@media (hover:hover){html:not(.no-fx-10) .final-h:hover{background:linear-gradient(100deg,var(--ink) 30%,var(--acc-2) 46%,var(--gold) 50%,var(--acc-2) 54%,var(--ink) 70%) 100% 0/250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:fsheen 1.6s var(--ease) forwards}}
+@keyframes fsheen{to{background-position:0 0}}
+/* E11 вопросы: у открытого ответа вырастает акцентная полоса слева */
+html:not(.no-fx-11) .faq-list details p{position:relative;padding-left:20px}
+html:not(.no-fx-11) .faq-list details[open] p::before{content:"";position:absolute;left:0;top:2px;bottom:22px;width:4px;border-radius:2px;background:linear-gradient(180deg,var(--acc),var(--acc-2));transform-origin:top;animation:barg .7s var(--ease)}
+@keyframes barg{from{transform:scaleY(0)}}
+/* E12 мини-фото «вид сзади» выпрямляется и приближается */
+.ba-mini{transition:transform .6s cubic-bezier(.3,1.5,.5,1),box-shadow .5s}
+@media (hover:hover){html:not(.no-fx-12) .ba-mini:hover{transform:rotate(0deg) scale(1.1) translateY(-6px);box-shadow:0 28px 46px -18px rgba(20,30,50,.7)}}
+
+html.rm .fx-prog{display:none}
+
+
+/* ИСПРАВЛЕНИЕ 18.11 ночь: видео без зума, регулятор громкости под кадром, компактный */
+.hero-video{overflow:visible;background:none;box-shadow:none;margin-bottom:56px}
+.hero-video video{border-radius:var(--r-l);background:#cfc9c0;box-shadow:0 40px 60px -40px rgba(20,30,50,.6);scale:1!important;translate:none!important}
+.hero-video .vol{position:absolute;left:0;right:auto;top:calc(100% + 10px);bottom:auto;flex-wrap:nowrap;gap:8px;max-width:100%}
+.hero-video .snd{min-height:38px;padding:0 12px;font-size:14px;gap:8px;background:rgba(20,24,30,.78);backdrop-filter:none;-webkit-backdrop-filter:none}
+.hero-video .vol-r{flex:0 0 120px;min-width:0;width:120px;min-height:38px;padding:0 12px;background:rgba(20,24,30,.78);backdrop-filter:none;-webkit-backdrop-filter:none}

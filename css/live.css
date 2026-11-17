@@ -1,0 +1,134 @@
+/* Правки владельца 17.11 (поздно): объём, живые мелочи, бирка, купоны, карусель, крупный логотип */
+
+/* --- 2. логотип в шапке крупнее, шапка выше --- */
+.top{padding-top:14px;padding-bottom:14px}
+.logo{gap:10px}
+.top .logo-fc,.top .logo-fc.svgm{font-size:56px}
+.logo-name{font-size:26px}
+@media (min-width:900px){.top .logo-fc,.top .logo-fc.svgm{font-size:68px}.logo-name{font-size:30px}.top{padding-top:18px;padding-bottom:18px}}
+html{scroll-padding-top:104px}
+
+/* --- 3. чуть объёма: лёгкая «припухлость» и мягкая тень --- */
+:root{--puff:inset 0 1px 0 rgba(255,255,255,.75),inset 0 -3px 8px color-mix(in srgb,var(--acc) 7%,transparent),0 16px 34px -24px color-mix(in srgb,var(--ink) 55%,transparent),0 2px 4px -2px color-mix(in srgb,var(--ink) 18%,transparent)}
+.timer,.inside-detail,.note-big,.rev,.promo,.step,.form-card,.ba-card,.bub-hint,.ba-tabs button,.chips li,.tile.stub{box-shadow:var(--puff)}
+.friend,.honest,.ba-plaque{box-shadow:inset 0 1px 0 rgba(255,255,255,.18),inset 0 -4px 10px rgba(0,0,0,.25),0 18px 34px -22px color-mix(in srgb,var(--ink) 70%,transparent)}
+.btn{box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -3px 6px rgba(0,0,0,.2),0 10px 20px -12px color-mix(in srgb,var(--acc) 80%,#000)}
+.fld input,.seg span,.goals span{box-shadow:inset 0 2px 4px color-mix(in srgb,var(--ink) 8%,transparent)}
+
+/* --- 1. круги снова увеличиваются при наведении (свойство scale не спорит с параллаксом GSAP) --- */
+.bub{transition:scale .6s cubic-bezier(.3,1.5,.5,1),translate .6s var(--ease),box-shadow .6s var(--ease),color .5s}
+@media (hover:hover){.bub:hover{scale:1.09;translate:0 -6px}}
+.bub.on{scale:1.06}
+
+/* --- 7. свет за курсором на карточках --- */
+.glow{position:relative;isolation:isolate}
+.glow::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .5s;
+  background:radial-gradient(260px 220px at var(--gx,50%) var(--gy,50%),color-mix(in srgb,var(--acc-2) 22%,transparent),transparent 70%)}
+@media (hover:hover){.glow:hover::after{opacity:1}}
+.step.glow::after{z-index:0}.step>*{position:relative;z-index:1}
+
+/* частицы */
+.fx-layer{position:fixed;inset:0;z-index:40;pointer-events:none;overflow:hidden}
+.fx-p{position:absolute;left:0;top:0;border-radius:50%;will-change:transform,opacity;
+  background:radial-gradient(circle at 32% 28%,#fff 0,color-mix(in srgb,var(--acc-2) 70%,#fff) 30%,var(--acc) 70%,color-mix(in srgb,var(--acc) 60%,#000) 100%);
+  box-shadow:0 2px 4px rgba(0,0,0,.25)}
+.fx-p.gold,.fx-p.spark{background:radial-gradient(circle at 32% 28%,#FFF6DE 0,#EBD3A6 35%,#C9A46B 70%,#7A5A2E 100%)}
+.fx-p.spark{box-shadow:0 0 10px 2px rgba(235,211,166,.55)}
+
+/* номера-кружки: при наведении становятся объёмным шаром */
+.step b{transition:transform .6s cubic-bezier(.3,1.6,.5,1),background .5s,color .4s,box-shadow .5s}
+@media (hover:hover){
+  .step:hover b{transform:scale(1.2) rotate(-8deg);color:var(--on-acc);border-color:transparent;
+    background:radial-gradient(circle at 32% 26%,color-mix(in srgb,var(--acc-2) 55%,#fff) 0,var(--acc-2) 28%,var(--acc) 62%,color-mix(in srgb,var(--acc) 55%,#000) 100%);
+    box-shadow:inset -4px -6px 10px rgba(0,0,0,.35),inset 3px 4px 6px rgba(255,255,255,.3),0 12px 18px -8px color-mix(in srgb,var(--acc) 80%,#000)}
+}
+.step.lit b{background:radial-gradient(circle at 32% 26%,color-mix(in srgb,var(--acc-2) 45%,#fff) 0,var(--acc) 60%,color-mix(in srgb,var(--acc) 60%,#000) 100%);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),0 8px 14px -8px color-mix(in srgb,var(--acc) 80%,#000)}
+
+/* буквы заголовков */
+.h2 .w{display:inline-block;white-space:nowrap}
+.h2 .ch{display:inline-block;opacity:0;transform:translateY(.35em) rotate(6deg);filter:blur(4px);transition:opacity .6s,transform .8s cubic-bezier(.2,.8,.2,1),filter .6s;transition-delay:calc(var(--i)*22ms)}
+.h2.in .ch{opacity:1;transform:none;filter:none}
+@media (hover:hover){.h2.in:hover .ch{animation:chw 1.3s ease-in-out;animation-delay:calc(var(--i)*28ms)}}
+@keyframes chw{40%{color:var(--acc-2);transform:translateY(-.06em);text-shadow:0 0 18px color-mix(in srgb,var(--acc-2) 45%,transparent)}}
+.gift .h2.in:hover .ch{animation-name:chg}
+@keyframes chg{40%{color:var(--gold);transform:translateY(-.06em);text-shadow:0 0 22px rgba(214,178,134,.6)}}
+html.rm .h2 .ch{opacity:1;transform:none;filter:none;transition:none}
+
+/* --- 5. бирка: объёмный витой шнур с тенью, люверс --- */
+.tag{left:18px;top:-58px;width:64px;height:96px}
+.tag-cord{position:absolute;left:0;top:0;width:60px;height:90px;overflow:visible}
+.cord-sh{stroke:rgba(0,0,0,.28);filter:blur(2px)}
+.tag-hole{left:20px;top:66px;width:22px;height:22px;background:radial-gradient(circle,var(--bg-base) 0 44%,#7A5A2E 47%,#F3E2B8 58%,#C9A46B 72%,#8C6B3C 100%);box-shadow:0 2px 4px rgba(0,0,0,.35),inset 0 1px 1px rgba(255,255,255,.6)}
+/* плашки цифр со структурой */
+.ba-nums li{position:relative;overflow:hidden;
+  background:repeating-linear-gradient(115deg,rgba(255,255,255,.18) 0 1px,transparent 1px 4px),linear-gradient(180deg,color-mix(in srgb,var(--paper) 70%,var(--steel)),color-mix(in srgb,var(--steel) 55%,var(--paper)));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.8),inset 0 -2px 4px rgba(0,0,0,.08),0 6px 12px -8px color-mix(in srgb,var(--ink) 50%,transparent)}
+.ba-nums li.main{background:repeating-linear-gradient(115deg,rgba(255,255,255,.07) 0 1px,transparent 1px 4px),radial-gradient(120% 140% at 20% 0,var(--acc-2),var(--acc) 60%,color-mix(in srgb,var(--acc) 70%,#000));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3),inset 0 -3px 6px rgba(0,0,0,.25),0 10px 18px -10px color-mix(in srgb,var(--acc) 80%,#000)}
+.ba-nums li::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);transform:translateX(-100%);transition:transform .9s var(--ease)}
+.ba-nums li:hover::after{transform:translateX(100%)}
+
+/* --- 8. промокоды как купоны: корешок со скидкой, перфорация, вырубка --- */
+.codes{gap:12px}
+.code{display:inline-flex;align-items:stretch;min-height:70px;min-width:0;padding:0;border:0;border-radius:14px;overflow:visible;position:relative;
+  background:var(--paper);color:var(--ink);text-align:left;
+  -webkit-mask:radial-gradient(circle 9px at 76px 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 9px at 76px 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
+  mask:radial-gradient(circle 9px at 76px 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 9px at 76px 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
+  filter:drop-shadow(0 8px 12px color-mix(in srgb,var(--ink) 22%,transparent));transition:transform .5s cubic-bezier(.3,1.5,.5,1),filter .4s}
+.c-off{flex:0 0 76px;display:grid;place-items:center;border-radius:14px 0 0 14px;color:var(--on-acc);font:800 20px/1 var(--f-text);
+  background:repeating-linear-gradient(115deg,rgba(255,255,255,.08) 0 1px,transparent 1px 4px),radial-gradient(120% 140% at 20% 0,var(--acc-2),var(--acc) 65%)}
+.c-body{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:10px 18px 10px 16px;border-left:2px dashed color-mix(in srgb,var(--acc) 40%,transparent);position:relative;overflow:hidden}
+.c-code{font:800 24px/1.05 var(--f-text);letter-spacing:.04em;color:var(--acc);
+  background:linear-gradient(100deg,var(--acc) 30%,var(--gold) 48%,var(--acc) 66%) 120% 0/250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;transition:background-position 1s var(--ease)}
+.c-hint{font-size:16px;font-weight:600;color:var(--ink-2)}
+@media (hover:hover){.code:hover{transform:translateY(-4px) rotate(-1.2deg)}.code:hover .c-code{background-position:-20% 0}}
+.code:hover{background:var(--paper)}
+.code.done{background:var(--paper);color:var(--ink)}
+.code.done .c-off{background:var(--gold);color:var(--dark-2)}
+.code.done .c-hint{color:var(--acc);font-weight:800}
+.code.done::after{content:"✓";position:absolute;right:10px;top:8px;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--acc);color:var(--on-acc);font:800 16px/1 var(--f-text);animation:stamp .45s cubic-bezier(.3,1.8,.5,1)}
+@keyframes stamp{from{transform:scale(2.2) rotate(-25deg);opacity:0}}
+
+/* --- 6. второй вариант до/после: карусель историй --- */
+.ba-mode{display:inline-flex;gap:6px;padding:6px;margin-bottom:22px;border-radius:999px;background:color-mix(in srgb,var(--paper) 75%,transparent);box-shadow:var(--puff)}
+.ba-mode button{min-height:48px;padding:0 20px;border:0;border-radius:999px;background:transparent;font-weight:800;font-size:17px;color:var(--ink-2);cursor:pointer;transition:background .4s,color .4s}
+.ba-mode button[aria-selected="true"]{background:var(--acc);color:var(--on-acc)}
+.bacar-lead{font:700 clamp(22px,2vw,34px)/1.3 var(--f-text);max-width:30ch;margin:0 0 24px}
+.bacar-stage{position:relative;height:clamp(520px,62vw,700px);perspective:1400px;outline:none;touch-action:pan-y;user-select:none}
+.bacar-card{position:absolute;left:50%;top:0;width:min(78vw,440px);height:100%;margin:0;border-radius:var(--r-l);overflow:hidden;background:#1b1b1d;cursor:pointer;
+  transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .6s,box-shadow .6s;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.bacar-card.cur{box-shadow:0 40px 70px -30px color-mix(in srgb,var(--ink) 80%,transparent)}
+.bacar-card .po,.bacar-card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.bacar-card .do{position:absolute;right:14px;top:14px;width:34%;margin:0;border-radius:16px;overflow:hidden;border:4px solid rgba(255,255,255,.9);box-shadow:0 10px 20px rgba(0,0,0,.35);transition:width .6s var(--ease)}
+.bacar-card .do img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 12%}
+.bacar-card .do figcaption{position:absolute;left:8px;top:6px;font-weight:800;font-size:15px;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+@media (hover:hover){.bacar-card.cur:hover .do{width:46%}}
+.bacar-cap{position:absolute;left:0;right:0;bottom:0;padding:70px 22px 22px;color:#fff;background:linear-gradient(180deg,transparent,rgba(10,6,8,.82))}
+.bacar-cap .k{margin:0;font-weight:700;color:#EBD3A6}
+.bacar-cap h3{margin:4px 0 6px;font:800 clamp(24px,2vw,30px)/1.15 var(--f-text)}
+.bacar-cap .num,.bacar-cap .t{margin:0;font-size:19px}
+.bacar-cap .num b{font-size:26px}
+/* прозрачная кнопка play */
+.play{position:absolute;left:50%;top:42%;width:92px;height:92px;margin:-46px;border-radius:50%;border:1.5px solid rgba(255,255,255,.7);cursor:pointer;
+  background:rgba(255,255,255,.14);backdrop-filter:blur(10px) saturate(1.3);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 12px 30px rgba(0,0,0,.3);transition:transform .5s cubic-bezier(.3,1.6,.5,1),opacity .4s,background .4s}
+.play span{position:absolute;left:50%;top:50%;margin:-14px 0 0 -9px;border-style:solid;border-width:14px 0 14px 24px;border-color:transparent transparent transparent #fff}
+.bacar-card.cur:hover .play{transform:scale(1.1);background:rgba(255,255,255,.24)}
+.bacar-card.playing .play{opacity:0}
+.bacar-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:22px}
+.bacar-ar{width:58px;height:58px;border-radius:50%;border:0;background:var(--paper);color:var(--acc);cursor:pointer;box-shadow:var(--puff);transition:transform .4s cubic-bezier(.3,1.6,.5,1),background .3s}
+.bacar-ar svg{width:24px;height:24px;margin:auto;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.bacar-ar:hover{transform:scale(1.08);background:var(--acc);color:var(--on-acc)}
+.bacar-dots{display:flex;gap:8px}
+.bacar-dots button{width:12px;height:12px;padding:0;border:0;border-radius:6px;background:color-mix(in srgb,var(--acc) 30%,transparent);cursor:pointer;transition:width .4s,background .4s}
+.bacar-dots button[aria-current="true"]{width:34px;background:var(--acc)}
+
+/* карусель не должна расширять страницу на телефоне */
+html,body{overflow-x:clip}
+.bacar{overflow-x:clip;margin-inline:calc(var(--gut)*-1);padding-inline:var(--gut)}
+
+/* витой шнур бирки: основа, витки, блик, тень */
+.tag-cord .cord-sh{stroke:rgba(0,0,0,.3);filter:blur(1.6px)}
+.tag-cord .cord-a{stroke:var(--acc)}
+.tag-cord .cord-b{stroke:var(--acc-2)}
+.tag-cord .cord-c{stroke:rgba(255,255,255,.45)}
+.tag .tag-cord{background:none;transform:none;border-radius:0}

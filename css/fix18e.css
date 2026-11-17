@@ -1,0 +1,20 @@
+/* 18.11 ночь: мягче hover-анимации. Меньше масштаб/смещение, возврат медленнее и без «пружины» (без overshoot), чтобы при быстром движении мыши элемент не залезал на соседний текст. */
+@media (hover:hover){
+  .rev,.fit-dot,.step b,.btn,.tile,.bub,.hero-tag,.timer-note,.ba-mini,.code,.katya-facts p{
+    transition-timing-function:cubic-bezier(.3,.7,.3,1)!important;
+    transition-duration:.9s!important}
+  .rev{transition:transform .9s cubic-bezier(.3,.7,.3,1),box-shadow .8s,background .8s}
+  .rev:hover,.rev.lit:hover{transform:scale(1.1)}
+  .fit-dot:hover{transform:scale(1.2);translate:2px -1px}
+  .step b:hover,.step.lit b:hover{transform:scale(1.12);translate:2px -1px}
+  .step:hover b{transform:scale(1.1) rotate(-4deg)}
+  .bub:hover{transform:translateY(-4px) scale(1.03)}
+  .hero-tag:hover{translate:3px 0!important;scale:1.02!important}
+  .timer-note:hover{scale:1.02}
+  .ba-mini:hover{transform:rotate(0deg) scale(1.05) translateY(-3px)}
+  .tile:hover{transform:translateY(-3px) rotate(-.4deg)}
+  .btn:hover{transform:translateY(-1px)}
+  .katya-facts p:hover{transform:translateY(-2px)}
+  .code:hover{transform:translateY(-2px) rotate(-.6deg)}
+  .bacar-ar:hover{transform:scale(1.04)}
+}

@@ -1,0 +1,24 @@
+/* Металлические кнопки подвала: серебро (металл) и медь (карбон). Круговая шлифовка, блик, фаска, гравировка */
+/* цвета металла (m-*) задаются темой в tokens.css */
+/* дерево и кожа: настоящие подложки высокого разрешения, без растяжения (cover не увеличивает выше исходника на этих размерах) */
+html[data-footk="wood"] .foot-plate{background:linear-gradient(115deg,rgba(255,240,210,.06),transparent 40%,rgba(255,240,210,.08) 55%,transparent 72%),url(../assets/tex/wood_black.jpg) center/cover,var(--foot-base)}
+html[data-footk="leather"] .foot-plate{background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.45)),url(../assets/tex/leather_cognac.jpg) center/cover,var(--foot-base)}
+html[data-footk="wood"] .foot-cv,html[data-footk="leather"] .foot-cv{display:none}
+.mb{background:
+    radial-gradient(60% 45% at 38% 26%,color-mix(in srgb,var(--m-hi) 85%,transparent),transparent 70%),
+    repeating-radial-gradient(circle at 50% 50%,rgba(255,255,255,.10) 0 .6px,rgba(0,0,0,.07) .6px 1.3px),
+    conic-gradient(from 200deg,var(--m-2),var(--m-1) 12%,var(--m-3) 26%,var(--m-1) 42%,var(--m-2) 55%,var(--m-hi) 64%,var(--m-3) 78%,var(--m-1) 90%,var(--m-2));
+  color:var(--m-eng);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.55),inset 0 0 0 4px color-mix(in srgb,var(--m-3) 60%,transparent),inset 0 2px 1px rgba(255,255,255,.8),inset 0 -3px 4px rgba(0,0,0,.35),0 1px 0 4px rgba(0,0,0,.35),0 12px 20px -8px rgba(0,0,0,.9)}
+.mb svg{filter:drop-shadow(0 1px 0 var(--m-eng-hi)) drop-shadow(0 -1px 0 rgba(0,0,0,.35))}
+.mb::after{content:"";position:absolute;inset:0;border-radius:50%;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.55) 48%,transparent 60%);background-size:250% 100%;background-position:120% 0;transition:background-position .9s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.mb:hover::after{background-position:-30% 0}
+.foot-btn{position:relative;overflow:hidden;color:var(--m-eng);text-shadow:0 1px 0 var(--m-eng-hi);
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.55),transparent 38%,transparent 62%,rgba(0,0,0,.18)),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.09) 0 1px,rgba(0,0,0,.06) 1px 2px,transparent 2px 3px),
+    linear-gradient(100deg,var(--m-3),var(--m-1) 18%,var(--m-2) 34%,var(--m-hi) 50%,var(--m-2) 64%,var(--m-1) 80%,var(--m-3));
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.5),inset 0 2px 1px rgba(255,255,255,.75),inset 0 -3px 4px rgba(0,0,0,.3),0 1px 0 3px rgba(0,0,0,.35),0 12px 20px -8px rgba(0,0,0,.9)}
+.foot-btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.6) 48%,transparent 60%);background-size:250% 100%;background-position:120% 0;transition:background-position 1s cubic-bezier(.2,.7,.2,1)}
+.foot-btn:hover::after{background-position:-30% 0}
+.foot-btn span{position:relative;z-index:1}
