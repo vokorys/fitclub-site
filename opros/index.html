@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fit Club: короткий опрос</title>
+<meta name="description" content="Опрос на 2 минуты: что понравилось в марафоне Fit Club и что можно сделать лучше.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/img/favicon-fc-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/img/favicon-fc-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Manrope:wght@500;600;700;800&display=swap">
+<style>
+:root{
+  --bg:#F4EDE4; --paper:#FBF7F1; --ash:#E9DCC9;
+  --acc:#652639; --acc-2:#8E3D55; --on-acc:#F6E9EB; --acc-soft:rgba(101,38,57,.10);
+  --ink:#2A0F18; --ink-2:#5C3A44; --line:rgba(101,38,57,.18);
+  --gold:#D6B286; --dark-1:#4A1A29; --dark-2:#2A0F18;
+  --f-disp:"Comfortaa","Manrope",system-ui,sans-serif; --f-text:"Manrope",system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{background:var(--bg)}
+body{min-height:100vh;min-height:100dvh;font:500 18px/1.45 var(--f-text);color:var(--ink);background:var(--bg) url(../assets/tex/silk_m.jpg) center/cover fixed;display:flex;flex-direction:column}
+body::before{content:"";position:fixed;inset:0;background:rgba(244,237,228,.8);z-index:-1}
+.top{display:flex;align-items:center;justify-content:space-between;padding:calc(14px + env(safe-area-inset-top)) 20px 6px;max-width:720px;width:100%;margin:0 auto}
+.top img{height:38px;width:auto;display:block}
+.top .t{font:700 15px var(--f-disp);color:var(--ink-2);letter-spacing:.02em}
+.bar{max-width:720px;width:100%;margin:6px auto 0;padding:0 20px}
+.bar i{display:block;height:5px;border-radius:5px;background:var(--line);overflow:hidden}
+.bar b{display:block;height:100%;width:0;background:var(--acc);border-radius:5px;transition:width .5s var(--ease)}
+.bar small{display:block;margin-top:8px;font-size:15px;color:var(--ink-2);min-height:20px}
+main{flex:1;max-width:720px;width:100%;margin:0 auto;padding:18px 20px calc(110px + env(safe-area-inset-bottom));position:relative}
+.step{display:none}
+.step.on{display:block;animation:in .55s var(--ease) both}
+@keyframes in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+h1,h2{font-family:var(--f-disp);font-weight:700;color:var(--acc);letter-spacing:-.01em;line-height:1.15}
+h1{font-size:clamp(34px,9vw,52px);margin:18px 0 14px}
+h2{font-size:clamp(26px,6.6vw,36px);margin:10px 0 8px}
+.lead{font-size:20px;color:var(--ink-2);margin-bottom:22px}
+.hint{font-size:16px;color:var(--ink-2);margin-bottom:16px}
+.opts{display:grid;gap:10px}
+.opt{position:relative;display:flex;align-items:center;gap:14px;min-height:56px;padding:12px 16px;border:1.5px solid var(--line);border-radius:18px;background:var(--paper);cursor:pointer;transition:border-color .25s,background .25s,transform .25s var(--ease);user-select:none;font-size:18px}
+.opt:active{transform:scale(.985)}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt .mk{flex:none;width:24px;height:24px;border:2px solid var(--acc-2);border-radius:7px;display:grid;place-items:center;transition:background .2s,border-color .2s}
+.opt.r .mk{border-radius:50%}
+.opt .mk::after{content:"";width:10px;height:6px;border:solid var(--on-acc);border-width:0 0 2.5px 2.5px;transform:rotate(-45deg) scale(0) translateY(-1px);transition:transform .2s var(--ease)}
+.opt.r .mk::after{width:10px;height:10px;border:0;border-radius:50%;background:var(--on-acc);transform:scale(0)}
+.opt:has(input:checked){border-color:var(--acc);background:var(--acc-soft)}
+.opt:has(input:checked) .mk{background:var(--acc);border-color:var(--acc)}
+.opt:has(input:checked) .mk::after{transform:rotate(-45deg) scale(1) translateY(-1px)}
+.opt.r:has(input:checked) .mk::after{transform:scale(1)}
+.opt:has(input:focus-visible){outline:3px solid var(--gold);outline-offset:2px}
+.txt{display:none;margin-top:10px}
+.txt.on{display:block;animation:in .4s var(--ease) both}
+textarea,input[type=text]{width:100%;font:500 18px/1.4 var(--f-text);color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;outline:none;resize:vertical;transition:border-color .25s,box-shadow .25s}
+textarea{min-height:104px}
+textarea:focus,input[type=text]:focus{border-color:var(--acc);box-shadow:0 0 0 4px var(--acc-soft)}
+label.l{display:block;font-weight:700;margin:16px 0 8px;font-size:17px}
+.consent{display:flex;gap:12px;align-items:flex-start;margin-top:20px;font-size:16px;color:var(--ink-2);cursor:pointer}
+.consent input{flex:none;width:24px;height:24px;margin-top:1px;accent-color:var(--acc)}
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:5;padding:12px 20px calc(14px + env(safe-area-inset-bottom));background:linear-gradient(to top,var(--bg) 62%,rgba(244,237,228,0))}
+.nav .in{max-width:720px;margin:0 auto;display:flex;gap:10px}
+.btn{font:700 19px var(--f-text);min-height:56px;border-radius:999px;border:0;cursor:pointer;padding:0 28px;transition:transform .25s var(--ease),background .25s,opacity .25s;display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none}
+.btn:active{transform:scale(.97)}
+.btn-p{background:var(--acc);color:var(--on-acc);flex:1}
+.btn-p:hover{background:var(--acc-2)}
+.btn-p[disabled]{opacity:.45;cursor:not-allowed}
+.btn-g{background:transparent;color:var(--acc);border:1.5px solid var(--line)}
+.btn-g:hover{background:var(--acc-soft)}
+.btn-w{width:100%}
+.err{color:#9B1C1C;font-size:16px;margin-top:12px;min-height:22px}
+.done{text-align:center;padding-top:10px}
+.done .mark{width:120px;margin:10px auto 6px;display:block}
+.fall{background:var(--paper);border:1.5px solid var(--line);border-radius:22px;padding:18px;margin-top:20px;text-align:left}
+.fall p{margin-bottom:12px;font-size:17px}
+.fall .btn{margin-top:8px}
+.hide,[hidden]{display:none!important}
+@media (min-width:900px){body{font-size:19px}.opts{grid-template-columns:1fr 1fr}.opts .opt.wide{grid-column:1/-1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><img src="mark-burg.svg" alt="Fit Club"><span class="t">Fit Club</span></header>
+<div class="bar" id="bar" hidden><i><b id="barB"></b></i><small id="barT"></small></div>
+
+<main id="app" aria-live="polite">
+  <section class="step on" data-s="intro">
+    <h1>Привет! Нам важно твоё мнение</h1>
+    <p class="lead">Ты занималась с Катей на марафоне Fit Club. 7 коротких вопросов, около 2 минут: что отметить, а где хочется своими словами. Отвечать можно не на всё.</p>
+    <p class="hint">Ответы читает Катя. Без твоего разрешения мы их нигде не публикуем.</p>
+  </section>
+  <div id="qs"></div>
+  <section class="step" data-s="last">
+    <h2>Последнее</h2>
+    <p class="hint">Чтобы Катя знала, кто ответил, и могла написать про новый поток. Можно оставить пустым.</p>
+    <label class="l" for="fName">Как тебя зовут?</label>
+    <input type="text" id="fName" maxlength="80" autocomplete="given-name" placeholder="Имя">
+    <label class="l" for="fCont">Где тебе написать? (ник в Telegram или ВК, телефон)</label>
+    <input type="text" id="fCont" maxlength="120" autocomplete="off" placeholder="@ник или ссылка">
+    <label class="consent"><input type="checkbox" id="fCons"><span>Согласна, что Катя прочитает мои ответы и данные для связи. Они нигде не публикуются без моего разрешения.</span></label>
+    <input type="text" id="hp" class="hide" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="err" id="err" role="alert"></p>
+  </section>
+  <section class="step" data-s="done">
+    <div class="done">
+      <img class="mark" src="mark-burg.svg" alt="">
+      <h2 id="doneH">Спасибо!</h2>
+      <p class="lead" id="doneP">Ответы у Кати. Мы читаем каждый.</p>
+      <div class="fall hide" id="fall">
+        <p id="fallP"></p>
+        <a class="btn btn-p btn-w" id="fallTg" href="#" target="_blank" rel="noopener">Отправить Кате в Telegram</a>
+        <button class="btn btn-g btn-w" id="fallCp" type="button">Скопировать ответы</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="nav" id="nav"><div class="in">
+  <button class="btn btn-g" id="bBack" type="button" hidden aria-label="Назад">Назад</button>
+  <button class="btn btn-p" id="bNext" type="button">Начать</button>
+</div></div>
+
+<script src="config.js"></script>
+<script>
+(function(){
+'use strict';
+var C = window.OPROS || {};
+var Q = [
+ {id:'q1',t:'В каком потоке (или потоках) ты занималась?',m:true,
+  o:['1 поток','2 поток','3 поток','4 поток','5 поток','6 поток','Не помню'],other:'Другое'},
+ {id:'q2',t:'Что тебе понравилось больше всего?',m:true,
+  o:['Тренировки','Питание и расчёт КБЖУ','Поддержка Кати','Общий чат и другие девочки','Режим и дисциплина','Как я себя почувствовала'],other:'Другое',
+  area:'Расскажи своими словами, что именно (по желанию)'},
+ {id:'q3',t:'Что не понравилось или было неудобно?',m:true,
+  o:['Всё устроило','Тренировки были тяжёлые','Тренировки были слишком лёгкие','Сложно соблюдать питание','Не хватало времени','Много сообщений в чате','Было непонятно, что и когда делать'],other:'Другое',
+  area:'Что можно улучшить? (по желанию)'},
+ {id:'q4',t:'Почему ты не пошла на следующий поток?',m:true,
+  o:['Не было времени','Были другие траты','Долгий перерыв между потоками','Нагрузка','Питание','Тренировки','Не увидела новый набор'],other:'Другое'},
+ {id:'q5',t:'Что сейчас мешает вернуться?',m:true,
+  o:['Нет времени','Финансы','Нет уверенности, что получится','Здоровье или жизненная ситуация','Жду подходящего момента','Ничего не мешает'],other:'Другое'},
+ {id:'q6',t:'Что должно быть, чтобы тебе захотелось вернуться?',m:true,
+  o:['Чтобы потоки шли чаще, без долгих перерывов','Больше личной поддержки','Нагрузка по моему уровню','Питание проще','Напоминание о наборе заранее','Чтобы подруга пошла вместе'],other:'Другое',
+  area:'Опиши своими словами (по желанию)'},
+ {id:'q7',t:'Можно иногда писать тебе про новые потоки?',m:false,
+  o:['Да, можно','Нет, не надо']}
+];
+var N = Q.length, ans = {}, cur = -1; /* -1 intro, 0..N-1 вопросы, N последний, N+1 готово */
+var $ = function(s,r){return (r||document).querySelector(s)};
+var qs = $('#qs');
+
+Q.forEach(function(q,i){
+  var s = document.createElement('section'); s.className='step'; s.dataset.s=i;
+  var h='<h2>'+q.t+'</h2><p class="hint">'+(q.m?'Можно выбрать несколько':'Выбери один вариант')+'</p><div class="opts">';
+  q.o.forEach(function(o,k){h+=opt(q,o,k,false)});
+  if(q.other){h+=opt(q,q.other,'x',true)}
+  h+='</div>';
+  if(q.other){h+='<div class="txt" data-oth="'+q.id+'"><input type="text" maxlength="200" aria-label="Другое: напиши свой вариант" placeholder="Напиши свой вариант"></div>'}
+  if(q.area){h+='<label class="l" for="a_'+q.id+'">'+q.area+'</label><textarea id="a_'+q.id+'" maxlength="1500" placeholder="Напиши, как удобно"></textarea>'}
+  s.innerHTML=h; qs.appendChild(s);
+});
+function opt(q,o,k,oth){
+  return '<label class="opt'+(q.m?'':' r')+'"><input type="'+(q.m?'checkbox':'radio')+'" name="'+q.id+'" value="'+(oth?'':esc(o))+'" '+(oth?'data-oth="1" ':'')+'><span class="mk"></span><span>'+esc(o)+'</span></label>';
+}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
+
+qs.addEventListener('change',function(e){
+  var t=e.target; if(!t.dataset.oth) return;
+  var box=$('.txt[data-oth="'+t.name+'"]'); box.classList.toggle('on',t.checked);
+  if(t.checked) $('input',box).focus({preventScroll:true});
+});
+
+function show(i){
+  cur=i;
+  document.querySelectorAll('.step').forEach(function(s){s.classList.remove('on')});
+  var key = i<0?'intro':(i<N?String(i):(i===N?'last':'done'));
+  var el=document.querySelector('.step[data-s="'+key+'"]'); el.classList.add('on');
+  var bar=$('#bar'); bar.hidden = (i<0||i>N);
+  var pct = i<0?0:Math.min(100,Math.round((i+1)/(N+1)*100));
+  $('#barB').style.width=pct+'%';
+  $('#barT').textContent = (i>=0&&i<=N)?(i<N?('Вопрос '+(i+1)+' из '+N):'Последний шаг'):'';
+  $('#bBack').hidden = !(i>=0&&i<=N);
+  var nx=$('#bNext'); nx.hidden = i>N;
+  nx.textContent = i<0?'Начать':(i<N?'Дальше':'Отправить');
+  $('#nav').classList.toggle('hide', i>N);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function collect(){
+  var out={};
+  Q.forEach(function(q){
+    var sel=[],other='',s;
+    s=document.querySelector('.step[data-s="'+(Number(q.id.slice(1))-1)+'"]');
+    s.querySelectorAll('input[name="'+q.id+'"]').forEach(function(inp){
+      if(!inp.checked) return;
+      if(inp.dataset.oth){other=($('.txt[data-oth="'+q.id+'"] input',s).value||'').trim()}
+      else sel.push(inp.value);
+    });
+    var area=''; if(q.area){area=($('#a_'+q.id).value||'').trim()}
+    out[q.id]={sel:sel,other:other,text:area};
+  });
+  return out;
+}
+function hasAny(a){return Object.keys(a).some(function(k){var v=a[k];return v.sel.length||v.other||v.text})}
+
+function plain(a,name,cont){
+  var L=['Ответы на опрос Fit Club'];
+  Q.forEach(function(q,i){
+    var v=a[q.id],p=v.sel.slice(); if(v.other)p.push('другое: '+v.other);
+    var line=(i+1)+'. '+q.t+' '+(p.join('; ')||'-'); if(v.text)line+=' | '+v.text; L.push(line);
+  });
+  L.push('Имя: '+(name||'-')); L.push('Связь: '+(cont||'-'));
+  return L.join('\n');
+}
+
+var sending=false;
+function submit(){
+  var err=$('#err'); err.textContent='';
+  var a=collect(), name=($('#fName').value||'').trim(), cont=($('#fCont').value||'').trim();
+  if(!hasAny(a)){err.textContent='Отметь или напиши хотя бы один ответ, вернись назад.';return}
+  if(!$('#fCons').checked){err.textContent='Поставь галочку согласия, без неё отправить нельзя.';return}
+  if($('#hp').value) {finish(true,a,name,cont);return} /* бот: молча делаем вид */
+  if(sending) return; sending=true;
+  var nx=$('#bNext'); nx.disabled=true; nx.textContent='Отправляю…';
+  var text=plain(a,name,cont);
+  if(!C.ENDPOINT){sending=false;finish(false,a,name,cont,text);return}
+  var body=JSON.stringify({v:1,ts:new Date().toISOString(),answers:a,name:name,contact:cont,consent:true,text:text});
+  var ctl=('AbortController' in window)?new AbortController():null; var tm=setTimeout(function(){ctl&&ctl.abort()},12000);
+  fetch(C.ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:body,signal:ctl?ctl.signal:undefined})
+   .then(function(){clearTimeout(tm);sending=false;finish(true,a,name,cont,text)})
+   .catch(function(){clearTimeout(tm);sending=false;finish(false,a,name,cont,text)});
+}
+function finish(ok,a,name,cont,text){
+  show(N+1);
+  if(ok){return}
+  $('#doneH').textContent='Почти готово';
+  $('#doneP').textContent='';
+  $('#fall').classList.remove('hide');
+  $('#fallP').textContent='Ответы не ушли автоматически. Нажми кнопку ниже: откроется чат с Катей, ответы уже вставлены, останется нажать «отправить». Если текст не появился, скопируй ответы и вставь сам.';
+  var tg=(C.TG_KATYA||'https://t.me/catherina2442')+'?text='+encodeURIComponent(text.length>1500?text.slice(0,1500)+'…':text);
+  $('#fallTg').href=tg;
+  $('#fallTg').onclick=function(){copy(text)};
+  $('#fallCp').onclick=function(){copy(text,true)};
+}
+function copy(t,say){
+  function ok(){if(say){$('#fallCp').textContent='Скопировано'}}
+  try{if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(ok,old);return}}catch(e){}
+  old();
+  function old(){var x=document.createElement('textarea');x.value=t;x.style.cssText='position:fixed;opacity:0';document.body.appendChild(x);x.select();try{document.execCommand('copy');ok()}catch(e){}document.body.removeChild(x)}
+}
+
+$('#bNext').addEventListener('click',function(){
+  if(cur<N) show(cur+1); else submit();
+});
+$('#bBack').addEventListener('click',function(){ if(cur>=0) show(cur-1) });
+var qp=new URLSearchParams(location.search).get('s');show(qp!==null&&!isNaN(+qp)?Math.max(-1,Math.min(N+1,+qp)):-1);
+/* для тестов */
+window.__opros={collect:collect,plain:plain};
+})();
+</script>
+</body>
+</html>
