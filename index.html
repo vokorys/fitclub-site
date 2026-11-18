@@ -70,7 +70,7 @@
 
       <div class="hero-cta">
         <a class="btn btn-l" href="#form"><span class="btn-t" data-t="кнопка">Оставить заявку</span><span class="btn-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
-        <a class="btn-ghost" href="#price">5 000 ₽ за 3 недели</a>
+        <a class="btn-ghost" href="#price" data-pl>5 000 ₽ за 3 недели</a>
       </div>
     </div>
 
@@ -329,7 +329,7 @@
   <div class="wrap price-grid">
     <div class="price-main">
       <h2 class="h2">Участие</h2>
-      <p class="price-num"><b>5 000</b><span>₽ за 3 недели</span></p>
+      <p class="price-num"><b data-price>5 000</b><span>₽ за 3 недели</span></p>
       <p class="lead" data-t="цена_заметка">Набор до 22 ноября. Можно оплатить двумя платежами.</p>
       <ul class="ticks">
         <li>3 тренировки в неделю, дома или в зале, около 40–60 минут</li>
@@ -342,8 +342,8 @@
     </div>
     <div class="price-side">
       <div class="promo" data-promo>
-        <h3 class="h3">Промокод −5&nbsp;% до 21&nbsp;ноября</h3>
-        <p>Код из нашей группы: <b class="promo-sum">4 750 ₽</b> вместо 5 000 ₽.</p>
+        <h3 class="h3">Промокод −5&nbsp;%</h3>
+        <p>Код из нашей группы: <b class="promo-sum" data-sum="5">4 750 ₽</b> вместо <span data-price-txt>5 000 ₽</span>.</p>
         <div class="codes">
           <button class="code" type="button" data-copy="ВК5" aria-label="Скопировать код ВК5"><span class="c-off">−5&nbsp;%</span><span class="c-body"><span class="c-code">ВК5</span><span class="c-hint">нажми, чтобы скопировать</span></span></button>
           <button class="code" type="button" data-copy="ТГ5" aria-label="Скопировать код ТГ5"><span class="c-off">−5&nbsp;%</span><span class="c-body"><span class="c-code">ТГ5</span><span class="c-hint">нажми, чтобы скопировать</span></span></button>
@@ -352,12 +352,12 @@
       </div>
       <div class="promo" data-ret>
         <h3 class="h3">Уже занималась с Катей?</h3>
-        <p>Для участниц прошлых потоков код <b>ВЕРНИСЬ10</b>: −10 % до 21 ноября.</p>
+        <p>Для участниц прошлых потоков код <b>ВЕРНИСЬ10</b>: −10&nbsp;%.</p>
         <div class="codes"><button class="code" type="button" data-copy="ВЕРНИСЬ10" aria-label="Скопировать код ВЕРНИСЬ10"><span class="c-off">−10&nbsp;%</span><span class="c-body"><span class="c-code">ВЕРНИСЬ10</span><span class="c-hint">нажми, чтобы скопировать</span></span></button></div>
       </div>
       <div class="promo friend">
         <h3 class="h3">Приведи подругу</h3>
-        <p>Подруге −10 % на этот поток (4 500 ₽), тебе −500 ₽ на следующий поток. Подруга пишет в заявке твоё имя, Катя всё посчитает.</p>
+        <p>Подруге сразу −10&nbsp;% на этот поток (<span data-sum="10">4 500 ₽</span>), тебе −500 ₽ на следующий поток. Подруга пишет в заявке твоё имя, Катя всё посчитает. С промокодами не суммируется: действует что-то одно.</p>
       </div>
     </div>
   </div>
@@ -408,6 +408,7 @@
             <label class="fld fl"><input id="fPromo" placeholder="Например, ВК5"><span class="fld-l">Промокод, если есть</span><i class="fl-bar" aria-hidden="true"></i></label>
             <label class="fld fl"><input id="fRef" placeholder="Имя или ник"><span class="fld-l">Меня пригласила подруга</span><i class="fl-bar" aria-hidden="true"></i></label>
           </div>
+          <p class="small-note">Промокод и приглашение подруги не суммируются: действует что-то одно.</p>
           <label class="chk" data-ret><input type="checkbox" id="fAgain"><span>Я уже занималась с Катей (код ВЕРНИСЬ10)</span></label>
           <label class="chk"><input type="checkbox" id="fConsent"><span>Я даю согласие на обработку персональных данных и ознакомилась с <a href="#" data-open-policy>политикой</a></span></label>
           <span class="err" id="eConsent"></span>
@@ -434,7 +435,7 @@
   <div class="wrap faq-grid">
     <h2 class="h2">Отвечаем честно</h2>
     <div class="faq-list">
-      <details><summary>Дорого</summary><p>5 000 ₽ за 3 недели: тренировки, КБЖУ лично, чат с поддержкой и книга рецептов в подарок. Если хочется подумать, напиши Кате, что смущает.</p></details>
+      <details><summary>Дорого</summary><p><span data-price-txt>5 000 ₽</span> за 3 недели: тренировки, КБЖУ лично, чат с поддержкой и книга рецептов в подарок. Если хочется подумать, напиши Кате, что смущает.</p></details>
       <details><summary>Нет времени</summary><p>Тренировок три в неделю, около 40–60 минут, видео в записи, делаешь, когда удобно. Задания небольшие. Идём в твоём ритме.</p></details>
       <details><summary>Я новичок, мне неловко</summary><p>Катя объясняет каждое упражнение. В чате девочки поддерживают друг друга, а не оценивают. Если есть ограничения по здоровью, подберём спокойный вариант.</p></details>
       <details><summary>Боюсь запретов и срывов</summary><p>Запретов нет: КБЖУ считаем лично, любимое остаётся, вписываем в рамки. Сорвалась? Пишешь Кате, и вы возвращаетесь без стыда.</p></details>

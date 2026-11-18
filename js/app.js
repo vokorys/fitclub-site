@@ -44,12 +44,27 @@
     setNum($('#cdD'), '' + d); setNum($('#cdH'), pad(Math.floor(s % 86400 / 3600)));
     setNum($('#cdM'), pad(Math.floor(s % 3600 / 60))); setNum($('#cdS'), pad(s % 60));
   }
-  function promos() {
+  /* цена по дате (МСК задана в config.js смещением +03:00, сравнение по абсолютному времени); дата не определилась = цена до 22.11 */
+  function priceNow() {
     var n = now();
-    $$('[data-promo]').forEach(function (el) { el.hidden = !(n <= F.dates.promoUntil && B.getAttribute('data-mode') === 'open'); });
-    $$('[data-ret]').forEach(function (el) { el.hidden = !(n <= F.returning.until && B.getAttribute('data-mode') === 'open'); });
+    return (isFinite(n) && isFinite(F.priceFrom) && n >= F.priceFrom) ? F.priceLate : F.price;
   }
-  function run() { applyMode(activeMode(now())); promos(); tick(); }
+  function fmt(v) { return String(v).replace(/\B(?=(\d{3})+$)/g, '\u00a0'); }
+  function setT(el, t) { if (el.textContent !== t) el.textContent = t; }
+  function prices() {
+    var p = priceNow();
+    $$('[data-price]').forEach(function (el) { setT(el, fmt(p)); });
+    $$('[data-price-txt]').forEach(function (el) { setT(el, fmt(p) + '\u00a0₽'); });
+    $$('[data-pl]').forEach(function (el) { setT(el, fmt(p) + '\u00a0₽ за 3\u00a0недели'); });
+    $$('[data-sum]').forEach(function (el) { setT(el, fmt(Math.round(p * (100 - +el.getAttribute('data-sum')) / 100)) + '\u00a0₽'); });
+  }
+  /* промокоды работают пока набор открыт и после старта потока; в закрытом режиме скрыты */
+  function promos() {
+    var open = B.getAttribute('data-mode') !== 'closed';
+    $$('[data-promo]').forEach(function (el) { el.hidden = !open; });
+    $$('[data-ret]').forEach(function (el) { el.hidden = !open; });
+  }
+  function run() { applyMode(activeMode(now())); promos(); prices(); tick(); }
   run(); if (!SHOT) setInterval(run, 1000);
 
   /* ---- копирование промокодов ---- */
@@ -186,7 +201,7 @@
     var name = $('#fName').value.trim(), contact = $('#fContact').value.trim(), ok = true,
       ctype = ($('input[name=ctype]:checked', form) || {}).value || 'telegram',
       goal = (($('input[name=goal]:checked', form) || {}).value) || '', mode = B.getAttribute('data-mode'),
-      promo = mode === 'open' ? $('#fPromo').value.trim().slice(0, 30) : '', ref = mode === 'open' ? $('#fRef').value.trim().slice(0, 60) : '';
+      promo = mode !== 'closed' ? $('#fPromo').value.trim().slice(0, 30) : '', ref = mode !== 'closed' ? $('#fRef').value.trim().slice(0, 60) : '';
     err('eName'); err('eContact'); err('eConsent');
     if (name.length < 2) { err('eName', 'Напиши, как тебя зовут'); ok = false; }
     if (contact.length < 3) { err('eContact', 'Напиши, как с тобой связаться'); ok = false; }
