@@ -59,7 +59,7 @@
   function promos() {
     var open = B.getAttribute('data-mode') === 'open'; /* промокоды до 22.11 включительно */
     $$('[data-promo]').forEach(function (el) { el.hidden = !open; });
-    $$('[data-ret]').forEach(function (el) { el.hidden = !open; });
+    $$('[data-ret]').forEach(function (el) { el.hidden = B.getAttribute('data-mode') === 'closed'; }); /* ВЕРНИСЬ10 остаётся и после 22.11 */
   }
   function run() { applyMode(activeMode(now())); promos(); prices(); tick(); }
   run(); if (!SHOT) setInterval(run, 1000);

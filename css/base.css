@@ -125,3 +125,9 @@ body[data-mode=running] [data-open-only]{display:none}
 .final .late{text-align:center;background:none;box-shadow:none;padding:0}
 .final .late-b{justify-content:center}
 @media (max-width:560px){.late-b .btn{width:100%;justify-content:center}}
+/* плашка: обе кнопки одной ширины и высоты, текст по центру (без асимметричного padding .btn-l) */
+.late-b{flex-direction:column;align-items:stretch;gap:12px}
+.late-b .btn,.late-b .btn-l,.late-b .btn-s{--h:60px;width:100%;max-width:none;box-sizing:border-box;justify-content:center;text-align:center;padding:8px 20px;font-size:19px;gap:0}
+.late-b .btn-t{display:block;width:100%;text-align:center;text-wrap:balance}
+.final .late{display:block;max-width:560px;margin-left:auto;margin-right:auto;padding:18px 20px;background:color-mix(in srgb,var(--acc) 9%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--acc) 28%,transparent)}
+.late .late-t{text-align:center}
