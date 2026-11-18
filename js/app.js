@@ -44,11 +44,8 @@
     setNum($('#cdD'), '' + d); setNum($('#cdH'), pad(Math.floor(s % 86400 / 3600)));
     setNum($('#cdM'), pad(Math.floor(s % 3600 / 60))); setNum($('#cdS'), pad(s % 60));
   }
-  /* цена по дате (МСК задана в config.js смещением +03:00, сравнение по абсолютному времени); дата не определилась = цена до 22.11 */
-  function priceNow() {
-    var n = now();
-    return (isFinite(n) && isFinite(F.priceFrom) && n >= F.priceFrom) ? F.priceLate : F.price;
-  }
+  /* цена всегда одна (F.price) */
+  function priceNow() { return F.price; }
   function fmt(v) { return String(v).replace(/\B(?=(\d{3})+$)/g, '\u00a0'); }
   function setT(el, t) { if (el.textContent !== t) el.textContent = t; }
   function prices() {
@@ -60,7 +57,7 @@
   }
   /* промокоды работают пока набор открыт и после старта потока; в закрытом режиме скрыты */
   function promos() {
-    var open = B.getAttribute('data-mode') !== 'closed';
+    var open = B.getAttribute('data-mode') === 'open'; /* промокоды до 22.11 включительно */
     $$('[data-promo]').forEach(function (el) { el.hidden = !open; });
     $$('[data-ret]').forEach(function (el) { el.hidden = !open; });
   }
@@ -190,6 +187,7 @@
     c.placeholder = F.channels[k].hint; c.setAttribute('inputmode', k === 'phone' ? 'tel' : 'text');
   }
   $$('input[name=ctype]', form).forEach(function (r) { r.addEventListener('change', setChan); }); setChan();
+  $$('[data-flow]').forEach(function (a) { a.addEventListener('click', function () { var r = $('input[name=flow][value=' + a.getAttribute('data-flow') + ']', form); if (r) r.checked = true; }); });
   var again = $('#fAgain');
   again.addEventListener('change', function () {
     var p = $('#fPromo'); if (again.checked) p.value = F.returning.code; else if (p.value === F.returning.code) p.value = '';
@@ -214,7 +212,8 @@
     if (again.checked) l.push('Я уже занималась с Катей.');
     if (promo) l.push('Промокод: ' + promo);
     if (ref) l.push('Меня пригласила: ' + ref);
-    l.push(mode === 'closed' ? 'Хочу в лист ожидания.' : (mode === 'running' ? 'Хочу вступить в идущий поток.' : 'Хочу на марафон.'));
+    var flow = ($('input[name=flow]:checked', form) || {}).value;
+    l.push(mode === 'closed' ? 'Хочу в лист ожидания.' : (mode === 'running' ? (flow === 'next' ? 'Хочу записаться на следующий поток.' : 'Хочу войти в уже идущий марафон.') : 'Хочу на марафон.'));
     var text = l.join('\n');
     $('#formBody').hidden = true; $('#formDone').hidden = false;
     $('#doneCopyText').value = text;

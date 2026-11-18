@@ -331,6 +331,13 @@
       <h2 class="h2">Участие</h2>
       <p class="price-num"><b data-price>5 000</b><span>₽ за 3 недели</span></p>
       <p class="lead" data-t="цена_заметка">Набор до 22 ноября. Можно оплатить двумя платежами.</p>
+      <div class="late" data-run>
+        <p class="late-t">Набор на 7-й поток закончился 22 ноября</p>
+        <div class="late-b">
+          <a class="btn btn-l" href="#form" data-flow="now"><span class="btn-t">Войти в уже идущий марафон</span></a>
+          <a class="btn btn-s late-alt" href="#form" data-flow="next"><span class="btn-t">Записаться на следующий поток</span></a>
+        </div>
+      </div>
       <ul class="ticks">
         <li>3 тренировки в неделю, дома или в зале, около 40–60 минут</li>
         <li>КБЖУ лично для тебя</li>
@@ -338,12 +345,12 @@
         <li>закрытый чат, Катя отвечает каждый день</li>
         <li>книга рецептов в подарок</li>
       </ul>
-      <a class="btn btn-l" href="#form"><span class="btn-t">Оставить заявку</span><span class="btn-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+      <a class="btn btn-l" data-open-only href="#form"><span class="btn-t">Оставить заявку</span><span class="btn-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
     </div>
     <div class="price-side">
       <div class="promo" data-promo>
         <h3 class="h3">Промокод −5&nbsp;%</h3>
-        <p>Код из нашей группы: <b class="promo-sum" data-sum="5">4 750 ₽</b> вместо <span data-price-txt>5 000 ₽</span>.</p>
+        <p>Только для новых участниц, действует до 22 ноября (последний день набора). Код из нашей группы: <b class="promo-sum" data-sum="5">4 750 ₽</b> вместо <span data-price-txt>5 000 ₽</span>.</p>
         <div class="codes">
           <button class="code" type="button" data-copy="ВК5" aria-label="Скопировать код ВК5"><span class="c-off">−5&nbsp;%</span><span class="c-body"><span class="c-code">ВК5</span><span class="c-hint">нажми, чтобы скопировать</span></span></button>
           <button class="code" type="button" data-copy="ТГ5" aria-label="Скопировать код ТГ5"><span class="c-off">−5&nbsp;%</span><span class="c-body"><span class="c-code">ТГ5</span><span class="c-hint">нажми, чтобы скопировать</span></span></button>
@@ -352,7 +359,7 @@
       </div>
       <div class="promo" data-ret>
         <h3 class="h3">Уже занималась с Катей?</h3>
-        <p>Для участниц прошлых потоков код <b>ВЕРНИСЬ10</b>: −10&nbsp;%.</p>
+        <p>Для участниц прошлых потоков код <b>ВЕРНИСЬ10</b>: −10&nbsp;%, действует до 22 ноября (последний день набора).</p>
         <div class="codes"><button class="code" type="button" data-copy="ВЕРНИСЬ10" aria-label="Скопировать код ВЕРНИСЬ10"><span class="c-off">−10&nbsp;%</span><span class="c-body"><span class="c-code">ВЕРНИСЬ10</span><span class="c-hint">нажми, чтобы скопировать</span></span></button></div>
       </div>
       <div class="promo friend">
@@ -387,6 +394,12 @@
       <form id="leadForm" novalidate>
         <div id="formBody">
           <label class="fld fl"><input id="fName" name="name" autocomplete="given-name" placeholder="Имя"><span class="fld-l">Как тебя зовут</span><i class="fl-bar" aria-hidden="true"></i><span class="err" id="eName"></span></label>
+          <fieldset class="fld" data-run><legend class="fld-l">Что выбираешь</legend>
+            <div class="seg" role="radiogroup">
+              <label><input type="radio" name="flow" value="now" checked><span>Войти в идущий марафон</span></label>
+              <label><input type="radio" name="flow" value="next"><span>Следующий поток</span></label>
+            </div>
+          </fieldset>
           <fieldset class="fld"><legend class="fld-l">Как с тобой связаться</legend>
             <div class="seg" role="radiogroup">
               <label><input type="radio" name="ctype" value="telegram" checked><span>Telegram</span></label>
@@ -451,7 +464,13 @@
   <div class="wrap final-in">
     <h2 class="h1 final-h" data-t="финал_заголовок">Начни 23 ноября, не с понедельника</h2>
     <p class="lead" data-t="финал_текст">Набор открыт до 22 ноября. Оставь заявку, а дальше Катя всё расскажет.</p>
-    <a class="btn btn-l" href="#form"><span class="btn-t" data-t="кнопка">Оставить заявку</span><span class="btn-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+    <a class="btn btn-l" data-open-only href="#form"><span class="btn-t" data-t="кнопка">Оставить заявку</span><span class="btn-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+    <div class="late" data-run>
+        <div class="late-b">
+          <a class="btn btn-l" href="#form" data-flow="now"><span class="btn-t">Войти в уже идущий марафон</span></a>
+          <a class="btn btn-s late-alt" href="#form" data-flow="next"><span class="btn-t">Записаться на следующий поток</span></a>
+        </div>
+      </div>
   </div>
 </section>
 </main>
