@@ -246,7 +246,7 @@
     sending = true; btn.disabled = true; bt.textContent = 'Отправляем…';
     var body = { name: d.name, contact: d.contact, ctype: d.ctype, comment: d.comment, flowText: d.flowText, promo: d.promo, ref: d.ref, again: d.again, consent: true, hp: '', t: Date.now() - t0 };
     if (window.FC_TEST) body.test = true;
-    var ctl = window.AbortController ? new AbortController() : null, to = setTimeout(function () { if (ctl) ctl.abort(); }, 12000);
+    var ctl = window.AbortController ? new AbortController() : null, to = setTimeout(function () { if (ctl) ctl.abort(); }, 20000);
     fetch(LEAD_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), signal: ctl ? ctl.signal : undefined })
       .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return r.ok && j.ok; }); })
       .catch(function () { return false; })
