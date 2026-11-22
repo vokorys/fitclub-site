@@ -33,6 +33,7 @@
 <link rel="stylesheet" href="css/fix18.css">
 <link rel="stylesheet" href="css/fix18d.css">
 <link rel="stylesheet" href="css/fix18e.css">
+<link rel="stylesheet" href="css/fix22.css">
 <!-- Yandex.Metrika counter (Вебвизор выключен) -->
 <script type="text/javascript">
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -264,7 +265,6 @@
       <figure class="tile v"><video muted loop playsinline preload="none" poster="assets/video/food2.jpg" data-src="assets/video/food2.mp4"></video><figcaption>Ужин, 598 ккал</figcaption></figure>
       <figure class="tile v"><video muted loop playsinline preload="none" poster="assets/video/food3.jpg" data-src="assets/video/food3.mp4"></video><figcaption>Вафли и бутерброды</figcaption></figure>
       <figure class="tile v"><video muted loop playsinline preload="none" poster="assets/video/food4.jpg" data-src="assets/video/food4.mp4"></video><figcaption>Макароны с котлетой</figcaption></figure>
-      <figure class="tile ph stub"><span>ФОТО<br>тарелка участницы из чата (с согласия)</span></figure>
     </div>
   </div>
 </section>
@@ -345,8 +345,8 @@
       <div class="late" data-run>
         <p class="late-t">Набор на 7-й поток закончился 22 ноября</p>
         <div class="late-b">
-          <a class="btn btn-l" href="#form" data-flow="now"><span class="btn-t">Войти в уже идущий марафон</span></a>
-          <a class="btn btn-s late-alt" href="#form" data-flow="next"><span class="btn-t">Записаться на следующий поток</span></a>
+          <a class="btn btn-l" href="#form" data-flow="now"><span class="btn-t">Войти в идущий 7-й поток</span></a>
+          <a class="btn btn-s late-alt" href="#form" data-flow="next"><span class="btn-t">Записаться в 8-й поток</span></a>
         </div>
       </div>
       <ul class="ticks">
@@ -404,50 +404,50 @@
     <div class="form-card">
       <form id="leadForm" novalidate>
         <div id="formBody">
-          <label class="fld fl"><input id="fName" name="name" autocomplete="given-name" placeholder="Имя"><span class="fld-l">Как тебя зовут</span><i class="fl-bar" aria-hidden="true"></i><span class="err" id="eName"></span></label>
-          <fieldset class="fld" data-run><legend class="fld-l">Что выбираешь</legend>
-            <div class="seg" role="radiogroup">
-              <label><input type="radio" name="flow" value="now" checked><span>Войти в идущий марафон</span></label>
-              <label><input type="radio" name="flow" value="next"><span>Следующий поток</span></label>
-            </div>
-          </fieldset>
+          <label class="fld fl"><input id="fName" name="name" autocomplete="given-name" maxlength="60" placeholder="Имя"><span class="fld-l">Как тебя зовут</span><i class="fl-bar" aria-hidden="true"></i><span class="err" id="eName"></span></label>
           <fieldset class="fld"><legend class="fld-l">Как с тобой связаться</legend>
             <div class="seg" role="radiogroup">
               <label><input type="radio" name="ctype" value="telegram" checked><span>Telegram</span></label>
               <label><input type="radio" name="ctype" value="vk"><span>ВКонтакте</span></label>
               <label><input type="radio" name="ctype" value="phone"><span>Телефон</span></label>
             </div>
-            <div class="fl"><input id="fContact" name="contact" placeholder="@ник или номер телефона"><span class="fld-l">Твой контакт</span><i class="fl-bar" aria-hidden="true"></i></div><span class="err" id="eContact"></span>
+            <div class="fl"><input id="fContact" name="contact" maxlength="80" placeholder="@ник или номер телефона"><span class="fld-l">Твой контакт</span><i class="fl-bar" aria-hidden="true"></i></div><span class="err" id="eContact"></span>
           </fieldset>
-          <fieldset class="fld"><legend class="fld-l">Твоя цель</legend>
-            <div class="goals" id="goals">
-              <label><input type="radio" name="goal" value="Начать тренироваться регулярно"><span>Начать тренироваться регулярно</span></label>
-              <label><input type="radio" name="goal" value="Наладить питание без срывов"><span>Наладить питание без срывов</span></label>
-              <label><input type="radio" name="goal" value="Привести себя в форму"><span>Привести себя в форму</span></label>
-              <label><input type="radio" name="goal" value="Нужны режим и поддержка"><span>Нужны режим и поддержка</span></label>
-              <label><input type="radio" name="goal" value="Пока не знаю, расскажите"><span>Пока не знаю, расскажите</span></label>
+          <fieldset class="fld" id="flowSet"><legend class="fld-l">Что выбираешь</legend>
+            <div class="seg" role="radiogroup">
+              <label><input type="radio" name="flow" value="now" checked><span id="flowNow">7-й поток, старт 23 ноября</span></label>
+              <label><input type="radio" name="flow" value="next"><span id="flowNext">Следующий поток</span></label>
             </div>
           </fieldset>
-          <div class="fld-row">
-            <label class="fld fl"><input id="fPromo" placeholder="Например, ВК5"><span class="fld-l">Промокод, если есть</span><i class="fl-bar" aria-hidden="true"></i></label>
-            <label class="fld fl"><input id="fRef" placeholder="Имя или ник"><span class="fld-l">Меня пригласила подруга</span><i class="fl-bar" aria-hidden="true"></i></label>
-          </div>
-          <p class="small-note">Промокод и приглашение подруги не суммируются: действует что-то одно.</p>
-          <label class="chk" data-ret><input type="checkbox" id="fAgain"><span>Я уже занималась с Катей (код ВЕРНИСЬ10)</span></label>
+          <label class="fld fl"><textarea id="fComment" name="comment" rows="2" maxlength="500" placeholder="Комментарий"></textarea><span class="fld-l">Комментарий, если хочешь</span><i class="fl-bar" aria-hidden="true"></i></label>
+          <details class="more">
+            <summary>Есть промокод или тебя пригласила подруга</summary>
+            <div class="fld-row">
+              <label class="fld fl"><input id="fPromo" maxlength="30" placeholder="Например, ВК5"><span class="fld-l">Промокод</span><i class="fl-bar" aria-hidden="true"></i></label>
+              <label class="fld fl"><input id="fRef" maxlength="60" placeholder="Имя или ник"><span class="fld-l">Меня пригласила подруга</span><i class="fl-bar" aria-hidden="true"></i></label>
+            </div>
+            <p class="small-note">Промокод и приглашение подруги не суммируются: действует что-то одно.</p>
+            <label class="chk" data-ret><input type="checkbox" id="fAgain"><span>Я уже занималась с Катей (код ВЕРНИСЬ10)</span></label>
+          </details>
           <label class="chk"><input type="checkbox" id="fConsent"><span>Я даю согласие на обработку персональных данных и ознакомилась с <a href="#" data-open-policy>политикой</a></span></label>
           <span class="err" id="eConsent"></span>
           <input id="fWebsite" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button class="btn btn-l btn-wide" type="submit"><span class="btn-t" data-t="форма_кнопка">Отправить заявку</span><span class="btn-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></button>
+          <span class="err" id="eSend" role="alert"></span>
+          <button class="btn btn-l btn-wide" type="submit" id="sendBtn"><span class="btn-t" data-t="форма_кнопка">Отправить заявку</span><span class="btn-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></button>
         </div>
         <div id="formDone" hidden>
-          <h3 class="h3" id="doneTitle">Остался один шаг</h3>
-          <p id="doneText">Скопируй заявку и отправь её Кате в Telegram. Она ответит тебе.</p>
-          <textarea id="doneCopyText" rows="6" readonly></textarea>
+          <h3 class="h3" id="doneTitle">Заявка отправлена</h3>
+          <p id="doneText">Катя напишет тебе в ближайшее время. Если не получишь сообщения в течение дня, напиши ей сама: <a href="https://t.me/catherina2442" target="_blank" rel="noopener">@catherina2442</a>.</p>
+        </div>
+        <div id="formFail" hidden>
+          <h3 class="h3">Не получилось отправить автоматически</h3>
+          <p>Скопируй заявку и отправь Кате в Telegram: <b>@catherina2442</b>. Она ответит тебе.</p>
+          <textarea id="doneCopyText" rows="5" readonly></textarea>
           <div class="done-btns">
             <button class="btn" type="button" id="doneCopy"><span class="btn-t">1. Скопировать заявку</span></button>
             <a class="btn" id="doneTg" href="https://t.me/catherina2442" target="_blank" rel="noopener"><span class="btn-t">2. Открыть чат с Катей</span></a>
           </div>
-          <p class="small-note">Нет Telegram? <a id="doneVk" href="https://vk.me/fitclub_marafon" target="_blank" rel="noopener">Напиши в ВКонтакте</a>.</p>
+          <p class="small-note">Нет Telegram? <a href="https://vk.me/fitclub_marafon" target="_blank" rel="noopener">Напиши в ВКонтакте</a>.</p>
         </div>
       </form>
     </div>
@@ -475,13 +475,8 @@
   <div class="wrap final-in">
     <h2 class="h1 final-h" data-t="финал_заголовок">Начни 23 ноября, не с понедельника</h2>
     <p class="lead" data-t="финал_текст">Набор открыт до 22 ноября. Оставь заявку, а дальше Катя всё расскажет.</p>
-    <a class="btn btn-l" data-open-only href="#form"><span class="btn-t" data-t="кнопка">Оставить заявку</span><span class="btn-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
-    <div class="late" data-run>
-        <div class="late-b">
-          <a class="btn btn-l" href="#form" data-flow="now"><span class="btn-t">Войти в уже идущий марафон</span></a>
-          <a class="btn btn-s late-alt" href="#form" data-flow="next"><span class="btn-t">Записаться на следующий поток</span></a>
-        </div>
-      </div>
+    <a class="btn btn-l" href="#form"><span class="btn-t" data-t="кнопка">Оставить заявку</span><span class="btn-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+    <p class="final-tg">Или напиши Кате сама: <a href="https://t.me/catherina2442" target="_blank" rel="noopener">@catherina2442</a></p>
   </div>
 </section>
 </main>
@@ -508,7 +503,6 @@
 <dialog class="policy" id="policy">
   <div class="policy-in">
     <h2 class="h3">Политика обработки персональных данных</h2>
-    <p class="small-note">Черновик. Перед публикацией проверить юристу.</p>
     <h3>Кто обрабатывает</h3><p>Организатор марафона Fit Club (тренер Катя), ИП Кожина Е. Р.; связаться по вопросам данных: Telegram @catherina2442.</p>
     <h3>Какие данные</h3><p>Имя, контакт для связи (Telegram, ВКонтакте или телефон), выбранная цель, промокод, имя или ник приглашающей подруги и время заявки. Рост, вес и данные о здоровье на сайте не собираются.</p>
     <h3>Зачем</h3><p>Чтобы связаться с тобой, ответить на вопросы и записать на марафон. Для рекламы и рассылок данные не используются без отдельного согласия.</p>

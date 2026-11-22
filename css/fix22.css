@@ -1,0 +1,16 @@
+/* 22.11.2026: упрощённая форма (имя, контакт, комментарий), поле-комментарий, раскрывашка промокода, финал с ником Кати */
+.fld textarea{width:100%;min-height:84px;padding:26px 18px 10px;border-radius:16px;border:1.5px solid var(--line);background:var(--field-bg);color:var(--field-ink);font-size:19px;line-height:1.35;resize:vertical;box-shadow:inset 0 2px 4px color-mix(in srgb,var(--ink) 8%,transparent);transition:border-color .3s,box-shadow .4s}
+.fld textarea:focus{outline:0;border-color:var(--acc);box-shadow:0 0 0 5px var(--acc-soft)}
+.fl>textarea::placeholder{color:transparent}
+.fl:focus-within>textarea::placeholder{color:color-mix(in srgb,var(--ink-2) 65%,transparent)}
+.fl:has(>textarea).filled::after{display:none}
+.more{margin:4px 0 18px}
+.more>summary{cursor:pointer;font-weight:700;font-size:18px;color:var(--acc);padding:12px 0;min-height:44px;list-style:none}
+.more>summary::-webkit-details-marker{display:none}
+.more>summary::before{content:"+";display:inline-block;width:22px;font-weight:800}
+.more[open]>summary::before{content:"\2212"}
+#formFail p,#formDone p{font-size:19px;line-height:1.5}
+#formDone a,#formFail b{color:var(--acc)}
+#flowSet[hidden],#formDone[hidden],#formFail[hidden]{display:none!important}
+.final .final-tg{margin:18px 0 0;font-size:19px}
+.final .final-tg a{font-weight:800;text-decoration:underline;text-underline-offset:4px}

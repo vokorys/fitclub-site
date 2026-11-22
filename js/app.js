@@ -180,45 +180,81 @@
     hv.addEventListener('ended', function () { hv.muted = true; hv.loop = true; hv.play(); setSound(false); });
   }
 
-  /* ---- форма: заявка уходит сообщением Кате ---- */
-  var form = $('#leadForm');
+  /* ---- форма: заявка уходит сама через Worker (22.11); запасной путь: скопировать и написать Кате ---- */
+  var form = $('#leadForm'), t0 = Date.now(), sending = false;
+  var LEAD_URL = (F.leadUrl || 'https://fitclub-tg.syrokov.workers.dev/lead');
   function setChan() {
     var k = ($('input[name=ctype]:checked', form) || {}).value || 'telegram', c = $('#fContact');
     c.placeholder = F.channels[k].hint; c.setAttribute('inputmode', k === 'phone' ? 'tel' : 'text');
   }
   $$('input[name=ctype]', form).forEach(function (r) { r.addEventListener('change', setChan); }); setChan();
+  /* выбор потока: подписи и значение по умолчанию зависят от режима (по датам МСК) */
+  var flowLabels = {
+    open: ['7-й поток, старт 23 ноября', 'Следующий (8-й) поток'],
+    running: ['Войти в идущий 7-й поток', 'Записаться в 8-й поток']
+  };
+  function setFlow(m) {
+    var fs = $('#flowSet'), L = flowLabels[m];
+    if (!L) { fs.hidden = true; return; }
+    fs.hidden = false; $('#flowNow').textContent = L[0]; $('#flowNext').textContent = L[1];
+    var r = $('input[name=flow][value=now]', form); if (r) r.checked = true;
+  }
+  var flowMode = null;
+  function syncFlow() { var m = B.getAttribute('data-mode'); if (m !== flowMode) { flowMode = m; setFlow(m); } }
+  syncFlow(); setInterval(syncFlow, 1000);
   $$('[data-flow]').forEach(function (a) { a.addEventListener('click', function () { var r = $('input[name=flow][value=' + a.getAttribute('data-flow') + ']', form); if (r) r.checked = true; }); });
   var again = $('#fAgain');
   again.addEventListener('change', function () {
     var p = $('#fPromo'); if (again.checked) p.value = F.returning.code; else if (p.value === F.returning.code) p.value = '';
   });
-  try { var rq = new URLSearchParams(location.search).get('ref'); if (rq) $('#fRef').value = rq.slice(0, 60); } catch (e) {}
+  try { var rq = new URLSearchParams(location.search).get('ref'); if (rq) { $('#fRef').value = rq.slice(0, 60); $('.more', form).open = true; } } catch (e) {}
   function err(id, t) { $('#' + id).textContent = t || ''; }
+  function plainText(d) {
+    var l = ['Привет! Это заявка с сайта Fit Club.', 'Имя: ' + d.name, 'Связь (' + F.channels[d.ctype].label + '): ' + d.contact];
+    if (d.flowText) l.push('Что выбираю: ' + d.flowText);
+    if (d.comment) l.push('Комментарий: ' + d.comment);
+    if (d.again) l.push('Я уже занималась с Катей.');
+    if (d.promo) l.push('Промокод: ' + d.promo);
+    if (d.ref) l.push('Меня пригласила: ' + d.ref);
+    return l.join('\n');
+  }
+  function showFail(d) {
+    $('#formBody').hidden = true; $('#formFail').hidden = false;
+    $('#doneCopyText').value = plainText(d);
+    $('#formFail').scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
+    if (sending) return;
     var name = $('#fName').value.trim(), contact = $('#fContact').value.trim(), ok = true,
-      ctype = ($('input[name=ctype]:checked', form) || {}).value || 'telegram',
-      goal = (($('input[name=goal]:checked', form) || {}).value) || '', mode = B.getAttribute('data-mode'),
-      promo = mode !== 'closed' ? $('#fPromo').value.trim().slice(0, 30) : '', ref = mode !== 'closed' ? $('#fRef').value.trim().slice(0, 60) : '';
-    err('eName'); err('eContact'); err('eConsent');
+      ctype = ($('input[name=ctype]:checked', form) || {}).value || 'telegram', mode = B.getAttribute('data-mode');
+    err('eName'); err('eContact'); err('eConsent'); err('eSend');
     if (name.length < 2) { err('eName', 'Напиши, как тебя зовут'); ok = false; }
     if (contact.length < 3) { err('eContact', 'Напиши, как с тобой связаться'); ok = false; }
     else if (ctype === 'phone' && !/^[+\d][\d\s\-()]{6,}$/.test(contact)) { err('eContact', 'Проверь номер телефона'); ok = false; }
     if (!$('#fConsent').checked) { err('eConsent', 'Нужно согласие на обработку данных'); ok = false; }
     if ($('#fWebsite').value) return;
     if (!ok) { var f = $('.err:not(:empty)', form); if (f) f.scrollIntoView({ block: 'center', behavior: 'smooth' }); return; }
-    var l = ['Привет! Это заявка с сайта Fit Club.', 'Имя: ' + name, 'Связь (' + F.channels[ctype].label + '): ' + contact];
-    if (goal) l.push('Цель: ' + goal);
-    if (again.checked) l.push('Я уже занималась с Катей.');
-    if (promo) l.push('Промокод: ' + promo);
-    if (ref) l.push('Меня пригласила: ' + ref);
-    var flow = ($('input[name=flow]:checked', form) || {}).value;
-    l.push(mode === 'closed' ? 'Хочу в лист ожидания.' : (mode === 'running' ? (flow === 'next' ? 'Хочу записаться на следующий поток.' : 'Хочу войти в уже идущий марафон.') : 'Хочу на марафон.'));
-    var text = l.join('\n');
-    $('#formBody').hidden = true; $('#formDone').hidden = false;
-    $('#doneCopyText').value = text;
-    $('#doneTg').href = F.links.telegramKatya + '?text=' + encodeURIComponent(text);
-    $('#formDone').scrollIntoView({ block: 'center', behavior: 'smooth' });
+    var flowEl = $('input[name=flow]:checked', form), fs = $('#flowSet');
+    var d = {
+      name: name.slice(0, 60), contact: contact.slice(0, 80), ctype: ctype, comment: $('#fComment').value.trim().slice(0, 500),
+      flowText: mode === 'closed' ? 'Лист ожидания' : (flowEl && !fs.hidden ? $('span', flowEl.parentNode).textContent : ''),
+      promo: mode !== 'closed' ? $('#fPromo').value.trim().slice(0, 30) : '', ref: mode !== 'closed' ? $('#fRef').value.trim().slice(0, 60) : '',
+      again: again.checked
+    };
+    var btn = $('#sendBtn'), bt = $('.btn-t', btn), was = bt.textContent;
+    sending = true; btn.disabled = true; bt.textContent = 'Отправляем…';
+    var body = { name: d.name, contact: d.contact, ctype: d.ctype, comment: d.comment, flowText: d.flowText, promo: d.promo, ref: d.ref, again: d.again, consent: true, hp: '', t: Date.now() - t0 };
+    if (window.FC_TEST) body.test = true;
+    var ctl = window.AbortController ? new AbortController() : null, to = setTimeout(function () { if (ctl) ctl.abort(); }, 12000);
+    fetch(LEAD_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), signal: ctl ? ctl.signal : undefined })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return r.ok && j.ok; }); })
+      .catch(function () { return false; })
+      .then(function (good) {
+        clearTimeout(to); sending = false; btn.disabled = false; bt.textContent = was;
+        if (good) { $('#formBody').hidden = true; $('#formDone').hidden = false; $('#formDone').scrollIntoView({ block: 'center', behavior: 'smooth' }); }
+        else showFail(d);
+      });
   });
   $('#doneCopy').addEventListener('click', function () {
     var b = this; Promise.resolve(copy($('#doneCopyText').value)).then(function () { $('.btn-t', b).textContent = 'Скопировано'; b.classList.add('done'); });

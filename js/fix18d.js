@@ -15,8 +15,8 @@
 
   /* ---------- п.14. плавающие подписи: поле заполнено, значит подпись наверху ---------- */
   var fls = $$('.fl');
-  function syncFl() { fls.forEach(function (f) { var i = $('input', f); f.classList.toggle('filled', !!(i && i.value)); }); }
-  fls.forEach(function (f) { var i = $('input', f); if (i) ['input', 'change', 'blur'].forEach(function (ev) { i.addEventListener(ev, syncFl); }); });
+  function syncFl() { fls.forEach(function (f) { var i = $('input,textarea', f); f.classList.toggle('filled', !!(i && i.value)); }); }
+  fls.forEach(function (f) { var i = $('input,textarea', f); if (i) ['input', 'change', 'blur'].forEach(function (ev) { i.addEventListener(ev, syncFl); }); });
   syncFl(); setInterval(syncFl, 500);  /* промокод подставляется кодом при копировании, события нет */
 
   /* ---------- п.13. проявление блоков при прокрутке вниз и вверх ---------- */
